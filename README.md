@@ -6,6 +6,7 @@ A SIH 2026 competition-ready decision-support platform for:
 > The system answers: **Where is the danger? → Who is vulnerable? → How serious is the risk? → Can safer locations accommodate them? → Where should they relocate? → Who should be prioritized?**
 
 ## Stack
+##
 
 | Layer | Tech |
 |-------|------|
