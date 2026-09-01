@@ -2,25 +2,33 @@ import axios from 'axios';
 
 const API_BASE = import.meta.env.VITE_API_URL || '';
 
+let inMemoryToken = null;
+
+export function setAuthToken(token) {
+  inMemoryToken = token;
+}
+
+export function getAuthToken() {
+  return inMemoryToken;
+}
+
 const api = axios.create({
   baseURL: API_BASE,
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Attach the JWT to every request when present.
+// Attach the in-memory JWT to every request when present.
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('bhudan_token');
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  if (inMemoryToken) config.headers.Authorization = `Bearer ${inMemoryToken}`;
   return config;
 });
 
-// On a 401, clear the stale token so the app returns to login cleanly.
+// On a 401, clear token so the app state updates cleanly.
 api.interceptors.response.use(
   (res) => res,
   (err) => {
     if (err.response && err.response.status === 401) {
-      localStorage.removeItem('bhudan_token');
-      localStorage.removeItem('bhudan_user');
+      setAuthToken(null);
     }
     return Promise.reject(err);
   }

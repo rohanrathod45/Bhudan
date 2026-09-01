@@ -13,10 +13,10 @@ L.Icon.Default.mergeOptions({
 });
 
 export const RISK_META = {
-  RED: { color: '#ef4444', label: 'Critical (≥70)', minScore: 70 },
-  ORANGE: { color: '#f97316', label: 'High (55–69)', minScore: 55 },
-  YELLOW: { color: '#eab308', label: 'Moderate (30–54)', minScore: 30 },
-  GREEN: { color: '#22c55e', label: 'Low (<30)', minScore: 0 },
+  RED: { color: '#DC2626', label: 'Critical (≥70)', minScore: 70 },
+  ORANGE: { color: '#EA580C', label: 'High (55–69)', minScore: 55 },
+  YELLOW: { color: '#CA8A04', label: 'Moderate (30–54)', minScore: 30 },
+  GREEN: { color: '#16A34A', label: 'Low (<30)', minScore: 0 },
 };
 
 export function getRiskColor(score) {
@@ -38,7 +38,7 @@ function FlyTo({ center, zoom }) {
 
 const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || '';
 
-export function getBasemapUrl(type = 'esri_dark') {
+export function getBasemapUrl(type = 'carto_light') {
   const keyParam = GOOGLE_API_KEY ? `&key=${GOOGLE_API_KEY}` : '';
   switch (type) {
     case 'google_roadmap':
@@ -47,9 +47,11 @@ export function getBasemapUrl(type = 'esri_dark') {
       return `https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}${keyParam}`;
     case 'google_terrain':
       return `https://mt1.google.com/vt/lyrs=p&x={x}&y={y}&z={z}${keyParam}`;
-    case 'esri_dark':
+    case 'esri_topo':
+      return 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}';
+    case 'carto_light':
     default:
-      return 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}';
+      return 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
   }
 }
 
@@ -62,22 +64,22 @@ export default function RiskMap({
   showSites = true,
   onSelectZone,
   activeHazardFilters = { flood: true, landslide: true, coastal_erosion: true, cloudburst: true },
-  basemap = 'esri_dark',
+  basemap = 'carto_light',
 }) {
   return (
-    <div className="relative w-full h-full min-h-[500px] rounded-xl overflow-hidden shadow-2xl border border-white/10">
+    <div className="relative w-full h-full min-h-[500px] rounded-xl overflow-hidden shadow-sm border border-slate-200">
       <MapContainer
         center={center}
         zoom={zoom}
-        style={{ height: '100%', width: '100%', background: '#0b1120' }}
+        style={{ height: '100%', width: '100%', background: '#E2E8F0' }}
         scrollWheelZoom
       >
-        {/* Basemap Tile Layer (Esri Dark Canvas / Google Maps) */}
+        {/* Basemap Tile Layer */}
         <TileLayer
           attribution={
             basemap.startsWith('google')
               ? '&copy; <a href="https://maps.google.com">Google Maps</a>'
-              : '&copy; <a href="https://www.esri.com/">Esri</a>, USGS, NOAA'
+              : '&copy; <a href="https://carto.com/">CARTO</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           }
           url={getBasemapUrl(basemap)}
           maxZoom={19}
@@ -98,192 +100,117 @@ export default function RiskMap({
               <CircleMarker
                 key={z.habitationId || z.id}
                 center={[z.lat, z.lng]}
-                radius={score >= 70 ? 10 : 8}
+                radius={score >= 70 ? 12 : score >= 55 ? 10 : 8}
                 pathOptions={{
-                  color: color,
                   fillColor: color,
-                  fillOpacity: 0.8,
+                  fillOpacity: 0.85,
+                  color: '#FFFFFF',
                   weight: 2,
                 }}
                 eventHandlers={{
                   click: () => onSelectZone && onSelectZone(z),
                 }}
               >
-                <Popup className="dark-popup">
-                  <div className="p-1 min-w-[200px] text-slate-900 font-sans">
-                    <div className="font-bold text-sm text-slate-900">{z.habitation || z.name}</div>
-                    <div className="text-xs text-slate-600 font-medium">
-                      District: {z.district} • Pop: {(z.populationExposed || z.population || 0).toLocaleString()}
+                <Popup>
+                  <div className="p-2 max-w-xs font-sans">
+                    <div className="flex items-center space-x-1.5 font-bold text-[#0B2447] text-sm">
+                      <AlertTriangle className="h-4 w-4" style={{ color }} />
+                      <span>{z.name || z.habitation}</span>
                     </div>
-                    <div className="mt-2 flex items-center justify-between">
-                      <span
-                        className="text-[11px] font-extrabold px-2 py-0.5 rounded text-white"
-                        style={{ backgroundColor: color }}
-                      >
-                        Risk Score: {score}
-                      </span>
-                      <span className="text-[11px] font-semibold uppercase text-slate-700">
-                        {z.mainHazards?.join(', ') || 'Multi-Hazard'}
-                      </span>
+                    <p className="text-xs text-slate-600 mt-1">
+                      District: <strong className="text-slate-800">{z.district}</strong>
+                    </p>
+                    <div className="mt-2 flex items-center justify-between text-xs pt-1.5 border-t border-slate-200">
+                      <span>Risk Score:</span>
+                      <strong className="px-2 py-0.5 rounded text-white text-[11px]" style={{ backgroundColor: color }}>
+                        {score} / 100 ({z.riskClass || 'ASSESSED'})
+                      </strong>
                     </div>
-                    <a
-                      href={`/habitations/${z.habitationId || z.id}`}
-                      className="mt-3 block text-center text-xs font-bold text-white bg-blue-600 hover:bg-blue-700 py-1.5 rounded-lg transition-colors shadow"
-                    >
-                      View Details →
-                    </a>
+                    {z.vulnerablePop && (
+                      <p className="text-xs text-slate-600 mt-1">
+                        Pop at risk: <strong className="text-slate-800">{z.vulnerablePop} people</strong>
+                      </p>
+                    )}
                   </div>
                 </Popup>
               </CircleMarker>
             );
           })}
 
-        {/* 2. Safe Sites Markers */}
+        {/* 2. Safe Sites Shield Markers */}
         {showSites &&
           sites.map((s) => (
             <CircleMarker
-              key={s.safeSiteId || s._id || s.id}
+              key={s.safeSiteId || s.id}
               center={[s.lat, s.lng]}
               radius={9}
               pathOptions={{
-                color: '#38bdf8',
-                fillColor: '#0284c7',
-                fillOpacity: 0.85,
+                fillColor: '#15803D',
+                fillOpacity: 0.9,
+                color: '#FFFFFF',
                 weight: 2,
               }}
             >
               <Popup>
-                <div className="p-1 text-slate-900">
-                  <div className="font-bold text-sm flex items-center gap-1">
-                    <span>🏕️</span>
-                    <span>{s.name || s.siteName}</span>
+                <div className="p-2 max-w-xs font-sans">
+                  <div className="flex items-center space-x-1.5 font-bold text-[#15803D] text-sm">
+                    <ShieldCheck className="h-4 w-4 text-[#15803D]" />
+                    <span>{s.name}</span>
                   </div>
-                  <div className="text-xs text-slate-600">District: {s.district}</div>
-                  <div className="text-xs text-slate-800 font-semibold mt-1">
-                    Capacity: {(s.availableCapacity ?? s.maxPopulationCapacity ?? 0).toLocaleString()} people
-                  </div>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Available Capacity: <strong className="text-slate-800">{s.availableCapacity || s.capacity} persons</strong>
+                  </p>
+                  <p className="text-xs text-slate-600">
+                    Infrastructure Grade: <strong className="text-slate-800">{s.infraScore || 'Grade A'}</strong>
+                  </p>
                 </div>
               </Popup>
             </CircleMarker>
           ))}
 
-        {/* 3. Relocation Animated Lines */}
-        {relocations.map((rel, idx) => {
-          const color = rel.priority === 'HIGH' ? '#ef4444' : rel.priority === 'MEDIUM' ? '#f97316' : '#22c55e';
-          return (
-            <Polyline
-              key={rel.id || idx}
-              positions={[
-                [rel.fromLat, rel.fromLng],
-                [rel.toLat, rel.toLng],
-              ]}
-              pathOptions={{
-                color: color,
-                weight: 3,
-                opacity: 0.85,
-                dashArray: '8, 8',
-                className: 'animated-flow-line',
-              }}
-            >
-              <Tooltip sticky>
-                <div className="text-xs font-sans p-1 text-slate-900">
-                  <div className="font-bold">{rel.fromName} ➔ {rel.toName}</div>
-                  <div>Distance: <span className="font-semibold">{rel.distanceKm} km</span></div>
-                  <div>Estimated ETA: <span className="font-semibold">{rel.etaMinutes} mins</span></div>
-                  <div>Priority: <span className="font-bold uppercase" style={{ color }}>{rel.priority}</span></div>
-                </div>
-              </Tooltip>
-            </Polyline>
-          );
-        })}
+        {/* 3. Relocation Flow Polyline Paths */}
+        {relocations.map((line) => (
+          <Polyline
+            key={line.id}
+            positions={[
+              [line.fromLat, line.fromLng],
+              [line.toLat, line.toLng],
+            ]}
+            pathOptions={{
+              color: line.priority === 'HIGH' ? '#DC2626' : line.priority === 'MEDIUM' ? '#EA580C' : '#0B2447',
+              weight: 3,
+              opacity: 0.8,
+              dashArray: '6, 8',
+            }}
+          >
+            <Tooltip sticky>
+              <div className="text-xs font-sans">
+                <strong>{line.fromName}</strong> ➔ <strong>{line.toName}</strong>
+                <br />
+                Distance: {line.distanceKm} km | EST: {line.etaMinutes} mins
+              </div>
+            </Tooltip>
+          </Polyline>
+        ))}
       </MapContainer>
     </div>
   );
 }
 
-{/* Floating Bottom-Left Legend */}
 export function MapLegend() {
   return (
-    <div className="glass-panel absolute bottom-5 left-5 z-[1000] p-3.5 text-xs text-white space-y-2 shadow-2xl border border-white/15 max-w-[210px]">
-      <div className="font-bold text-white text-xs flex items-center space-x-1.5 border-b border-white/10 pb-1.5">
-        <MapPin className="h-3.5 w-3.5 text-brand-400" />
-        <span>Risk Score Legend</span>
-      </div>
-      <div className="space-y-1.5">
-        {Object.entries(RISK_META).map(([key, meta]) => (
-          <div key={key} className="flex items-center justify-between text-[11px]">
-            <div className="flex items-center space-x-2">
-              <span className="h-3 w-3 rounded-full shrink-0 shadow-sm" style={{ backgroundColor: meta.color }} />
-              <span className="font-medium text-slate-200">{key}</span>
-            </div>
-            <span className="text-[10px] text-slate-400 font-mono">{meta.label.split(' ')[1]}</span>
-          </div>
-        ))}
-        <div className="flex items-center justify-between text-[11px] pt-1 border-t border-white/10">
-          <div className="flex items-center space-x-2">
-            <span className="h-3 w-3 rounded-full bg-sky-400 shrink-0" />
-            <span className="font-medium text-slate-200">Safe Shelter</span>
-          </div>
-          <span className="text-[10px] text-slate-400 font-mono">Capacity</span>
+    <div className="bg-white p-3 rounded-lg border border-slate-200 shadow-xs text-xs space-y-1.5 font-sans">
+      <p className="font-bold text-[#0B2447] text-[11px] uppercase tracking-wider mb-1">Risk Severity Legend</p>
+      {Object.entries(RISK_META).map(([key, item]) => (
+        <div key={key} className="flex items-center space-x-2">
+          <span className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
+          <span className="text-slate-700 font-medium">{item.label}</span>
         </div>
+      ))}
+      <div className="flex items-center space-x-2 pt-1 border-t border-slate-100">
+        <span className="w-3 h-3 rounded-full bg-[#15803D]" />
+        <span className="text-slate-700 font-medium">Safe Shelter Site</span>
       </div>
     </div>
   );
 }
-
-{/* Floating Top-Right Layer Toggle Panel */}
-export function MapLayerControls({ activeFilters = {}, onToggle, basemap = 'esri_dark', onBasemapChange }) {
-  return (
-    <div className="glass-panel absolute top-5 right-5 z-[1000] p-3 text-xs text-white shadow-2xl border border-white/15 space-y-3 max-w-[210px]">
-      {/* Basemap Selection */}
-      <div>
-        <div className="font-bold text-white text-xs flex items-center space-x-1.5 border-b border-white/10 pb-1.5 mb-2">
-          <Layers className="h-3.5 w-3.5 text-brand-300" />
-          <span>Basemap Style</span>
-        </div>
-        <select
-          value={basemap}
-          onChange={(e) => onBasemapChange && onBasemapChange(e.target.value)}
-          className="w-full bg-slate-900/90 text-xs text-white border border-white/20 rounded-lg px-2 py-1 focus:outline-none cursor-pointer"
-        >
-          <option value="esri_dark">🌙 Dark Gray (Esri)</option>
-          <option value="google_roadmap">🗺️ Google Roadmap</option>
-          <option value="google_satellite">🛰️ Google Satellite</option>
-          <option value="google_terrain">⛰️ Google Terrain</option>
-        </select>
-      </div>
-
-      {/* Hazard Layers */}
-      <div>
-        <div className="font-bold text-white text-xs flex items-center space-x-1.5 border-b border-white/10 pb-1.5 mb-1.5">
-          <AlertTriangle className="h-3.5 w-3.5 text-amber-400" />
-          <span>Hazard Layers</span>
-        </div>
-        <div className="space-y-1.5">
-          {[
-            { key: 'flood', label: 'Flood Zone' },
-            { key: 'landslide', label: 'Landslide Risk' },
-            { key: 'coastal_erosion', label: 'Coastal Erosion' },
-            { key: 'cloudburst', label: 'Cloudburst' },
-          ].map((item) => {
-            const checked = activeFilters[item.key] !== false;
-            return (
-              <label
-                key={item.key}
-                className="flex items-center justify-between text-[11px] text-slate-200 cursor-pointer hover:text-white transition-colors"
-              >
-                <span>{item.label}</span>
-                <input
-                  type="checkbox"
-                  checked={checked}
-                  onChange={() => onToggle && onToggle(item.key)}
-                  className="rounded border-white/20 bg-white/10 text-brand-500 focus:ring-0 cursor-pointer"
-                />
-              </label>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}

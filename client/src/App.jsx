@@ -5,17 +5,17 @@ import Layout from './components/layout/Layout';
 import Login from './pages/auth/Login';
 import Register from './pages/auth/Register';
 import Dashboard from './pages/dashboard/Dashboard';
-import MapView from './pages/map/MapView';
-import RedZones from './pages/hazard/RedZones';
-import Habitations from './pages/habitations/Habitations';
-import SafeSites from './pages/safesites/SafeSites';
-import CarryingCapacity from './pages/safesites/CarryingCapacity';
-import Relocation from './pages/relocation/Relocation';
-import Reports from './pages/reports/Reports';
-import Admin from './pages/admin/Admin';
 
 function Protected({ children }) {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center text-[#0B2447]">
+        <div className="h-10 w-10 border-4 border-[#0B2447] border-t-transparent rounded-full animate-spin mb-3" />
+        <p className="text-xs font-bold uppercase tracking-wider">Connecting to BhuDan Disaster Intelligence Server…</p>
+      </div>
+    );
+  }
   if (!isAuthenticated) return <Navigate to="/login" replace />;
   return children;
 }
@@ -34,15 +34,15 @@ export default function App() {
         }
       >
         <Route index element={<Dashboard />} />
-        <Route path="map" element={<MapView />} />
-        <Route path="red-zones" element={<RedZones />} />
-        <Route path="habitations" element={<Habitations />} />
-        <Route path="habitations/:id" element={<Habitations />} />
-        <Route path="sites" element={<SafeSites />} />
-        <Route path="capacity" element={<CarryingCapacity />} />
-        <Route path="relocation" element={<Relocation />} />
-        <Route path="reports" element={<Reports />} />
-        <Route path="admin" element={<Admin />} />
+        <Route path="map" element={<Dashboard />} />
+        <Route path="red-zones" element={<Dashboard />} />
+        <Route path="habitations" element={<Dashboard />} />
+        <Route path="habitations/:id" element={<Dashboard />} />
+        <Route path="sites" element={<Dashboard />} />
+        <Route path="capacity" element={<Dashboard />} />
+        <Route path="relocation" element={<Dashboard />} />
+        <Route path="reports" element={<Dashboard />} />
+        <Route path="admin" element={<Dashboard />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

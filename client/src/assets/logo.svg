@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 120" width="560" height="120" fill="none">
+  <!-- 1. Emblem Group -->
+  <g transform="translate(6, 0)">
+    <!-- Outer Navy Circle Emblem -->
+    <circle cx="60" cy="60" r="52" fill="#0B2447" stroke="#F59E0B" stroke-width="3.5" />
+    
+    <!-- Subtle Outer Accent Ring -->
+    <circle cx="60" cy="60" r="46" fill="none" stroke="#14356B" stroke-width="1.2" opacity="0.6" />
+
+    <!-- Central White Shield -->
+    <path 
+      d="M 60 24 C 76 24 87 31 87 47 C 87 72 60 92 60 92 C 60 92 33 72 33 47 C 33 31 44 24 60 24 Z" 
+      fill="#FFFFFF" 
+      stroke="#E2E8F0"
+      stroke-width="1.5"
+    />
+
+    <!-- Green Safe Zone Contour Line -->
+    <path 
+      d="M 36 53 C 49 47 71 47 84 53 C 80 69 60 86 60 86 C 60 86 40 69 36 53 Z" 
+      fill="#15803D" 
+    />
+
+    <!-- Amber Risk Zone Contour Line -->
+    <path 
+      d="M 41 66 C 50 61 70 61 79 66 C 74 76 60 86 60 86 C 60 86 46 76 41 66 Z" 
+      fill="#F59E0B" 
+    />
+
+    <!-- Top Habitation Location Pin Icon -->
+    <g transform="translate(0, -2)">
+      <path 
+        d="M 60 29 C 54 29 49 34 49 40 C 49 48 60 56 60 56 C 60 56 71 48 71 40 C 71 34 66 29 60 29 Z" 
+        fill="#F59E0B" 
+        stroke="#FFFFFF" 
+        stroke-width="1.8" 
+        stroke-linejoin="round"
+      />
+      <circle cx="60" cy="38" r="3.2" fill="#0B2447" />
+    </g>
+  </g>
+
+  <!-- 2. Typography Wordmark & Tagline -->
+  <!-- Brand Wordmark "BhuDan" -->
+  <text 
+    x="135" 
+    y="62" 
+    font-family="'Noto Sans', 'Roboto', 'Inter', system-ui, sans-serif" 
+    font-size="44" 
+    font-weight="800" 
+    fill="#0B2447" 
+    letter-spacing="-0.5"
+  >
+    BhuDan
+  </text>
+  
+  <!-- Active Live Saffron Indicator Pill -->
+  <rect x="310" y="34" width="46" height="18" rx="9" fill="#15803D" opacity="0.12" />
+  <circle cx="321" cy="43" r="3" fill="#15803D" />
+  <text 
+    x="330" 
+    y="46" 
+    font-family="'Noto Sans', 'Roboto', sans-serif" 
+    font-size="10" 
+    font-weight="800" 
+    fill="#15803D" 
+    letter-spacing="0.5"
+  >
+    LIVE
+  </text>
+
+  <!-- Official Tagline -->
+  <text 
+    x="136" 
+    y="86" 
+    font-family="'Noto Sans', 'Roboto', 'Inter', system-ui, sans-serif" 
+    font-size="12" 
+    font-weight="700" 
+    fill="#64748B" 
+    letter-spacing="0.6"
+  >
+    INTELLIGENT RED-ZONE &amp; RELOCATION DECISION SUPPORT
+  </text>
+</svg>

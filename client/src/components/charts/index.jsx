@@ -21,22 +21,22 @@ import {
 } from 'recharts';
 
 export const RISK_COLORS = {
-  GREEN: '#22c55e',
-  YELLOW: '#eab308',
-  ORANGE: '#f97316',
-  RED: '#ef4444',
+  GREEN: '#16A34A',
+  YELLOW: '#CA8A04',
+  ORANGE: '#EA580C',
+  RED: '#DC2626',
 };
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="glass-panel p-2.5 shadow-2xl text-xs text-white border border-white/20">
-        <p className="font-bold text-slate-200 mb-1">{label || payload[0]?.name}</p>
+      <div className="bg-white p-3 shadow-lg rounded-lg border border-slate-200 text-xs text-slate-800 z-50">
+        <p className="font-bold text-[#0B2447] mb-1.5 border-b border-slate-100 pb-1">{label || payload[0]?.name}</p>
         {payload.map((entry, index) => (
-          <div key={`item-${index}`} className="flex items-center space-x-2">
+          <div key={`item-${index}`} className="flex items-center space-x-2 py-0.5">
             <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: entry.color || entry.fill }} />
-            <span className="text-slate-300 font-medium">{entry.name}:</span>
-            <span className="font-bold text-white">{entry.value}</span>
+            <span className="text-slate-600 font-medium">{entry.name}:</span>
+            <span className="font-bold text-[#0B2447]">{entry.value}</span>
           </div>
         ))}
       </div>
@@ -51,11 +51,11 @@ export function StackedDistrictBarChart({ data }) {
     <div className="h-72 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data} margin={{ top: 10, right: 10, left: -15, bottom: 20 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.08)" />
-          <XAxis dataKey="district" tick={{ fill: '#cbd5e1', fontSize: 11 }} angle={-25} textAnchor="end" />
-          <YAxis allowDecimals={false} tick={{ fill: '#cbd5e1', fontSize: 11 }} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+          <XAxis dataKey="district" tick={{ fill: '#475569', fontSize: 11 }} angle={-25} textAnchor="end" />
+          <YAxis allowDecimals={false} tick={{ fill: '#475569', fontSize: 11 }} />
           <Tooltip content={<CustomTooltip />} />
-          <Legend wrapperStyle={{ paddingTop: '10px', fontSize: '12px', color: '#e2e8f0' }} />
+          <Legend wrapperStyle={{ paddingTop: '10px', fontSize: '12px', color: '#1E293B' }} />
           <Bar dataKey="GREEN" name="Low (Green)" stackId="a" fill={RISK_COLORS.GREEN} radius={[0, 0, 0, 0]} />
           <Bar dataKey="YELLOW" name="Moderate (Yellow)" stackId="a" fill={RISK_COLORS.YELLOW} radius={[0, 0, 0, 0]} />
           <Bar dataKey="ORANGE" name="High (Orange)" stackId="a" fill={RISK_COLORS.ORANGE} radius={[0, 0, 0, 0]} />
@@ -76,9 +76,9 @@ export function RiskDistributionChart({ data }) {
     <div className="h-64 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={rows} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255, 255, 255, 0.08)" />
-          <XAxis dataKey="name" tick={{ fill: '#cbd5e1', fontSize: 12 }} />
-          <YAxis allowDecimals={false} tick={{ fill: '#cbd5e1', fontSize: 12 }} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
+          <XAxis dataKey="name" tick={{ fill: '#475569', fontSize: 12 }} />
+          <YAxis allowDecimals={false} tick={{ fill: '#475569', fontSize: 12 }} />
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="value" name="Zones" radius={[6, 6, 0, 0]}>
             {rows.map((d) => (
@@ -104,7 +104,7 @@ export function DonutChart({ title = '', data, dataKey = 'value', nameKey = 'nam
             innerRadius={55}
             outerRadius={85}
             paddingAngle={3}
-            stroke="rgba(15, 23, 42, 0.6)"
+            stroke="#FFFFFF"
             strokeWidth={2}
           >
             {(data || []).map((d, i) => (
@@ -112,17 +112,16 @@ export function DonutChart({ title = '', data, dataKey = 'value', nameKey = 'nam
             ))}
           </Pie>
           <Tooltip content={<CustomTooltip />} />
-          <Legend wrapperStyle={{ fontSize: '12px', color: '#cbd5e1' }} />
+          <Legend wrapperStyle={{ fontSize: '12px', color: '#475569' }} />
         </PieChart>
       </ResponsiveContainer>
     </div>
   );
 }
 
-export function ScoreGauge({ score = 0, label = 'Risk Score', color = '#ef4444' }) {
+export function ScoreGauge({ score = 0, label = 'Risk Score', color = '#DC2626' }) {
   const data = [{ name: label, value: Math.min(100, Math.max(0, score)), fill: color }];
-  
-  // Determine risk band text
+
   let bandLabel = 'GREEN (Low)';
   if (score >= 70) bandLabel = 'RED (Critical)';
   else if (score >= 55) bandLabel = 'ORANGE (High)';
@@ -133,18 +132,18 @@ export function ScoreGauge({ score = 0, label = 'Risk Score', color = '#ef4444' 
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart innerRadius="72%" outerRadius="100%" data={data} startAngle={210} endAngle={-30}>
           <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
-          <RadialBar dataKey="value" cornerRadius={12} background={{ fill: 'rgba(255, 255, 255, 0.08)' }} />
+          <RadialBar dataKey="value" cornerRadius={12} background={{ fill: '#F1F5F9' }} />
         </RadialBarChart>
       </ResponsiveContainer>
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none pt-2">
-        <span className="text-3xl font-black text-white tracking-tight">{score}</span>
-        <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-300 mt-0.5">{label}</span>
+        <span className="text-3xl font-black text-[#0B2447] tracking-tight font-heading">{score}</span>
+        <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">{label}</span>
         <span
-          className="mt-1 text-[10px] font-bold px-2 py-0.5 rounded-full border backdrop-blur-sm"
+          className="mt-1 text-[10px] font-bold px-2.5 py-0.5 rounded-full border shadow-2xs"
           style={{
-            backgroundColor: `${color}25`,
-            borderColor: `${color}50`,
-            color: color
+            backgroundColor: `${color}15`,
+            borderColor: `${color}40`,
+            color: color,
           }}
         >
           {bandLabel}
@@ -155,7 +154,6 @@ export function ScoreGauge({ score = 0, label = 'Risk Score', color = '#ef4444' 
 }
 
 export function RiskRadarChart({ components }) {
-  // components breakdown: Hazard (32%), Exposure (22%), Vulnerability (18%), Infrastructure (18%), Terrain (10%)
   const data = [
     { subject: 'Hazard (32%)', score: components?.hazard || 0, fullMark: 100 },
     { subject: 'Exposure (22%)', score: components?.exposure || 0, fullMark: 100 },
@@ -168,13 +166,13 @@ export function RiskRadarChart({ components }) {
     <div className="h-72 w-full">
       <ResponsiveContainer width="100%" height="100%">
         <RadarChart cx="50%" cy="50%" outerRadius="75%" data={data}>
-          <PolarGrid stroke="rgba(255, 255, 255, 0.15)" />
-          <PolarAngleAxis dataKey="subject" tick={{ fill: '#e2e8f0', fontSize: 11 }} />
-          <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="rgba(255, 255, 255, 0.2)" tick={{ fill: '#94a3b8', fontSize: 10 }} />
-          <Radar name="Risk Factor Score" dataKey="score" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.45} />
+          <PolarGrid stroke="#CBD5E1" />
+          <PolarAngleAxis dataKey="subject" tick={{ fill: '#334155', fontSize: 11 }} />
+          <PolarRadiusAxis angle={30} domain={[0, 100]} stroke="#94A3B8" tick={{ fill: '#64748B', fontSize: 10 }} />
+          <Radar name="Risk Factor Score" dataKey="score" stroke="#0B2447" fill="#14356B" fillOpacity={0.35} />
           <Tooltip content={<CustomTooltip />} />
         </RadarChart>
       </ResponsiveContainer>
     </div>
   );
-}
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Outer Navy Circle Emblem -->
+  <circle cx="60" cy="60" r="54" fill="#0B2447" stroke="#F59E0B" stroke-width="4" />
+  
+  <!-- Subtle Outer Accent Ring -->
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#14356B" stroke-width="1.5" opacity="0.6" />
+
+  <!-- Central White Shield -->
+  <path 
+    d="M 60 22 C 78 22 90 30 90 48 C 90 76 60 98 60 98 C 60 98 30 76 30 48 C 30 30 42 22 60 22 Z" 
+    fill="#FFFFFF" 
+    stroke="#E2E8F0"
+    stroke-width="1.5"
+  />
+
+  <!-- Green Safe Zone Contour Line (Lower Shield Layer) -->
+  <path 
+    d="M 34 54 C 48 48 72 48 86 54 C 82 72 60 92 60 92 C 60 92 38 72 34 54 Z" 
+    fill="#15803D" 
+  />
+
+  <!-- Amber Risk Zone Contour Line (Bottom Shield Layer) -->
+  <path 
+    d="M 40 68 C 50 63 70 63 80 68 C 74 79 60 92 60 92 C 60 92 46 79 40 68 Z" 
+    fill="#F59E0B" 
+  />
+
+  <!-- Top Habitation Location Pin Icon -->
+  <g transform="translate(0, -2)">
+    <path 
+      d="M 60 28 C 53.5 28 48 33.5 48 40 C 48 49 60 58 60 58 C 60 58 72 49 72 40 C 72 33.5 66.5 28 60 28 Z" 
+      fill="#F59E0B" 
+      stroke="#FFFFFF" 
+      stroke-width="2" 
+      stroke-linejoin="round"
+    />
+    <circle cx="60" cy="38" r="3.5" fill="#0B2447" />
+  </g>
+</svg>
