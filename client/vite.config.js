@@ -1,10 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import path from 'path';
 
 // Server proxy forwards API calls to the Express backend during development
 // so the client can use relative URLs (no CORS friction).
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    dedupe: ['react', 'react-dom'],
+  },
   server: {
     // Listen on all interfaces (IPv4 + IPv6). Node 17+ resolves localhost to
     // ::1 (IPv6) first, which left 127.0.0.1 unreachable and broke browsers
@@ -22,4 +26,4 @@ export default defineConfig({
     outDir: 'dist',
     chunkSizeWarningLimit: 1200,
   },
-});
+});
