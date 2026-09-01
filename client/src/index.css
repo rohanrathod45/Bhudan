@@ -5,25 +5,104 @@
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    color-scheme: dark;
   }
+  
   body {
-    @apply bg-slate-50 text-slate-800;
+    background-color: #0B1120;
+    color: #F1F5F9;
+    font-family: 'Inter', sans-serif;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(15, 23, 42, 0.35) 0px, transparent 50%);
+    background-attachment: fixed;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
   }
 }
 
-/* Leaflet container fix — map must have an explicit bounded height */
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Glassmorphism & Surface Design System */
+.glass-card {
+  background: #1E293B;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  border-color: #475569;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+.glass-panel {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+.glass-input {
+  background: #0F172A;
+  border: 1px solid #334155;
+  color: #F1F5F9;
+}
+
+.glass-input:focus {
+  border-color: #3B82F6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  outline: none;
+}
+
+/* Red Zone Glow Effect */
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.25);
+}
+
+/* Leaflet Container Map Styling */
 .leaflet-container {
   height: 100%;
   width: 100%;
   z-index: 1;
+  background: #0B1120 !important;
+  border-radius: 12px;
 }
 
-/* Map card height constraint so the Relocation / MapView pages don't collapse */
 .map-card {
-  @apply h-[520px] w-full;
+  @apply h-[540px] w-full rounded-xl overflow-hidden relative;
 }
 
-/* Custom teardrop risk pins (divIcon) — strip Leaflet's default white box */
+/* Custom teardrop risk pins (divIcon) */
 .risk-marker.leaflet-div-icon {
   background: transparent;
   border: none;
@@ -36,8 +115,8 @@
   height: 26px;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
-  border: 2.5px solid #fff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+  border: 2px solid #F1F5F9;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,35 +127,73 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #fff;
+  background: #F1F5F9;
   opacity: 0.95;
 }
 
 .risk-marker.leaflet-marker-icon:hover .risk-pin {
-  transform: rotate(-45deg) scale(1.15);
-  transition: transform 0.12s ease;
+  transform: rotate(-45deg) scale(1.2);
+  transition: transform 0.15s ease;
+}
+
+/* Animated relocation flow polyline styling */
+.animated-flow-line {
+  stroke-dasharray: 8, 8;
+  animation: flowLineDash 20s linear infinite;
+}
+
+@keyframes flowLineDash {
+  to {
+    stroke-dashoffset: -100;
+  }
+}
+
+/* Fade-up Scroll Reveal Animation */
+.animate-fade-up {
+  animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @layer components {
   .card {
-    @apply bg-white rounded-xl border border-slate-200 shadow-sm;
+    @apply glass-card text-slate-100 p-5 md:p-6;
   }
+
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition focus:outline-none focus:ring-2 focus:ring-offset-1 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl font-medium text-sm transition-all duration-200 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer active:scale-[0.98];
   }
+
   .btn-primary {
-    @apply btn bg-brand-600 text-white hover:bg-brand-700 focus:ring-brand-500;
+    @apply btn bg-blue-600 text-slate-100 hover:bg-blue-500 shadow-md hover:shadow-blue-500/25 hover:scale-[1.02];
   }
+
   .btn-outline {
-    @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 focus:ring-slate-400;
+    @apply btn border border-slate-700 bg-slate-800/80 text-slate-200 hover:bg-slate-700 hover:border-slate-600;
   }
+
   .btn-danger {
-    @apply btn bg-risk-red text-white hover:bg-red-700 focus:ring-red-500;
+    @apply btn bg-red-600/90 text-slate-100 hover:bg-red-500 border border-red-500/40 shadow-md hover:shadow-red-500/25;
   }
+
+  .btn-secondary {
+    @apply btn bg-cyan-600/90 text-slate-100 hover:bg-cyan-500 shadow-md;
+  }
+
   .input {
-    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-1 focus:ring-brand-500;
+    @apply glass-input w-full rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-400 transition-all;
   }
+
   .label {
-    @apply block text-sm font-medium text-slate-600 mb-1;
+    @apply block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5;
   }
 }
