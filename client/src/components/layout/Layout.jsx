@@ -1,126 +1,263 @@
-import { useState } from 'react';
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Outlet, useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import {
+  LayoutDashboard,
+  AlertTriangle,
+  ShieldCheck,
+  Scale,
+  Truck,
+  Users,
+  LogOut,
+  Menu,
+  X,
+  Radio,
+  UserCheck,
+  ChevronDown
+} from 'lucide-react';
 
-const NAV = [
-  { to: '/', label: 'Dashboard', icon: '📊', end: true },
-  { to: '/map', label: 'GIS Map', icon: '🗺️' },
-  { to: '/red-zones', label: 'Red Zones', icon: '🚨' },
-  { to: '/habitations', label: 'Habitations', icon: '🏘️' },
-  { to: '/sites', label: 'Safe Sites', icon: '🏕️' },
-  { to: '/capacity', label: 'Carrying Capacity', icon: '⚖️' },
-  { to: '/relocation', label: 'Relocation', icon: '🚌' },
-  { to: '/reports', label: 'Reports', icon: '📄' },
+const NAV_ITEMS = [
+  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'red-zones', label: 'Red Zones', icon: AlertTriangle },
+  { id: 'safe-sites', label: 'Safe Sites', icon: ShieldCheck },
+  { id: 'capacity', label: 'Capacity', icon: Scale },
+  { id: 'relocation', label: 'Relocation', icon: Truck },
 ];
 
-const ADMIN_NAV = [{ to: '/admin', label: 'Admin · Users', icon: '👥' }];
+const ADMIN_NAV_ITEM = { id: 'admin', label: 'Admin', icon: Users };
 
 export default function Layout() {
-  const { user, role, logout, can } = useAuth();
+  const { user, logout, can } = useAuth();
   const navigate = useNavigate();
-  const [open, setOpen] = useState(false);
+  const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('dashboard');
+
+  const navList = can('admin') ? [...NAV_ITEMS, ADMIN_NAV_ITEM] : NAV_ITEMS;
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
+  // Scroll-spy using IntersectionObserver
+  useEffect(() => {
+    if (location.pathname !== '/') return;
+
+    const sections = navList.map((item) => document.getElementById(item.id)).filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0.1,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, [location.pathname, navList]);
+
+  const scrollToSection = (sectionId) => {
+    setMobileMenuOpen(false);
+    setActiveSection(sectionId);
+
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      return;
+    }
+
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const roleLabel = {
-    admin: 'Admin',
+    admin: 'System Administrator',
     disaster_authority: 'Disaster Authority',
-    analyst: 'Analyst',
+    analyst: 'Risk Analyst',
     field_officer: 'Field Officer',
-    viewer: 'Viewer',
+    viewer: 'Public Viewer',
   };
 
   return (
-    <div className="min-h-screen flex bg-slate-50">
-      {/* Sidebar */}
-      <aside
-        className={`fixed inset-y-0 left-0 z-30 w-64 bg-brand-900 text-white flex flex-col transform transition-transform lg:translate-x-0 lg:static ${
-          open ? 'translate-x-0' : '-translate-x-full'
-        }`}
-      >
-        <div className="px-5 py-6 border-b border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-lg bg-brand-500 flex items-center justify-center text-xl">🛰️</div>
-            <div>
-              <div className="font-extrabold text-lg leading-tight">BhuDan</div>
-              <div className="text-xs text-slate-300">Risk & Relocation Decision Support</div>
+    <div className="min-h-screen bg-[#0B1120] text-slate-100 font-sans selection:bg-blue-600 selection:text-white">
+      {/* Sticky Top Navigation Bar (Height 64px - 72px) */}
+      <header className="sticky top-0 z-50 h-16 md:h-18 bg-[#0B1120]/90 backdrop-blur-md border-b border-slate-700/80 px-4 md:px-8 flex items-center justify-between">
+        {/* Left: Brand Logo & Wordmark */}
+        <div className="flex items-center gap-6">
+          <Link
+            to="/"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('dashboard');
+            }}
+            className="flex items-center gap-3 group"
+          >
+            <div className="h-10 w-10 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-xl shadow-md group-hover:scale-105 transition-transform glow-blue">
+              🛰️
             </div>
-          </div>
+            <div>
+              <div className="font-extrabold text-lg md:text-xl tracking-tight text-slate-100 font-heading flex items-center gap-2">
+                <span>BhuDan</span>
+                <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+              </div>
+              <div className="text-[10px] uppercase tracking-widest font-semibold text-slate-400">
+                Disaster Decision Support
+              </div>
+            </div>
+          </Link>
         </div>
 
-        <nav className="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
-          {NAV.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              end={item.end}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
-                  isActive ? 'bg-brand-600 text-white' : 'text-slate-300 hover:bg-white/10 hover:text-white'
-                }`
-              }
-            >
-              <span className="text-base">{item.icon}</span>
-              {item.label}
-            </NavLink>
-          ))}
-          {can('admin') && ADMIN_NAV.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition ${
-                  isActive ? 'bg-brand-600 text-white' : 'text-slate-300 hover:bg-white/10 hover:text-white'
-                }`
-              }
-            >
-              <span className="text-base">{item.icon}</span>
-              {item.label}
-            </NavLink>
-          ))}
+        {/* Center: Top Navigation Links (Desktop) */}
+        <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          {navList.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id && location.pathname === '/';
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative px-3.5 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2 group cursor-pointer ${
+                  isActive
+                    ? 'text-blue-400 bg-blue-500/10 font-semibold'
+                    : 'text-slate-400 hover:text-blue-400 hover:bg-blue-500/10'
+                }`}
+              >
+                <Icon className={`h-4 w-4 transition-colors ${isActive ? 'text-blue-400' : 'text-slate-400 group-hover:text-blue-400'}`} />
+                <span>{item.label}</span>
+                {/* Animated Underline */}
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-blue-500 transition-all duration-300 ${
+                    isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
+              </button>
+            );
+          })}
         </nav>
 
-        {/* User footer */}
-        <div className="px-4 py-4 border-t border-white/10">
-          <div className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-full bg-brand-600 flex items-center justify-center font-bold uppercase">
-              {user?.name?.[0]}
-            </div>
-            <div className="min-w-0">
-              <div className="text-sm font-semibold truncate">{user?.name}</div>
-              <div className="text-xs text-slate-300">{roleLabel[user?.role]}</div>
-            </div>
+        {/* Right: User Status & Profile Menu */}
+        <div className="hidden sm:flex items-center gap-4">
+          <div className="hidden lg:flex items-center space-x-2 bg-slate-800/80 border border-slate-700/80 px-3 py-1.5 rounded-xl text-xs text-slate-300">
+            <Radio className="h-3.5 w-3.5 text-emerald-400 animate-pulse" />
+            <span>NDMA Command Stream</span>
           </div>
-          <button onClick={handleLogout} className="mt-3 w-full text-sm text-slate-300 hover:text-white text-left px-1">
-            ← Logout
-          </button>
+
+          <div className="relative">
+            <button
+              onClick={() => setUserDropdownOpen((v) => !v)}
+              className="flex items-center gap-2.5 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-700 px-3 py-1.5 rounded-xl text-xs transition cursor-pointer"
+            >
+              <div className="h-7 w-7 rounded-lg bg-blue-600/30 border border-blue-500/40 flex items-center justify-center font-bold text-blue-300 uppercase">
+                {user?.name?.[0] || 'U'}
+              </div>
+              <div className="text-left hidden md:block">
+                <div className="font-semibold text-slate-100 text-xs truncate max-w-[110px]">{user?.name}</div>
+                <div className="text-[10px] text-slate-400 truncate max-w-[110px]">
+                  {roleLabel[user?.role] || user?.role}
+                </div>
+              </div>
+              <ChevronDown className="h-3.5 w-3.5 text-slate-400" />
+            </button>
+
+            {/* Dropdown Menu */}
+            {userDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-56 bg-slate-800 border border-slate-700 rounded-xl shadow-xl p-2 z-50 animate-fade-up">
+                <div className="px-3 py-2 border-b border-slate-700 mb-1">
+                  <p className="text-xs font-bold text-slate-100">{user?.name}</p>
+                  <p className="text-[11px] text-slate-400">{user?.email}</p>
+                  <span className="inline-block mt-1 px-2 py-0.5 rounded text-[10px] font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30 capitalize">
+                    {user?.role?.replace(/_/g, ' ')}
+                  </span>
+                </div>
+                <button
+                  onClick={handleLogout}
+                  className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-red-400 hover:bg-red-500/10 rounded-lg transition cursor-pointer"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span>Sign Out</span>
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-      </aside>
 
-      {/* overlay for mobile */}
-      {open && <div className="fixed inset-0 bg-black/40 z-20 lg:hidden" onClick={() => setOpen(false)} />}
+        {/* Mobile Hamburger Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen((v) => !v)}
+          className="md:hidden p-2 rounded-xl bg-slate-800 border border-slate-700 text-slate-300 hover:text-slate-100"
+          aria-label="Toggle navigation menu"
+        >
+          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
+      </header>
 
-      {/* Main */}
-      <div className="flex-1 flex flex-col min-w-0">
-        {/* Topbar */}
-        <header className="bg-white border-b border-slate-200 px-4 lg:px-6 py-3 flex items-center justify-between sticky top-0 z-10">
-          <div className="flex items-center gap-3">
-            <button onClick={() => setOpen((v) => !v)} className="lg:hidden btn btn-outline px-2 py-1">☰</button>
-            <h1 className="text-lg font-bold text-slate-800 hidden sm:block">Hazard Risk & Relocation System</h1>
+      {/* Mobile Navigation Dropdown Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden sticky top-16 z-40 bg-[#0B1120] border-b border-slate-700 px-4 py-4 space-y-2 animate-fade-up shadow-2xl">
+          {navList.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeSection === item.id && location.pathname === '/';
+
+            return (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition cursor-pointer ${
+                  isActive
+                    ? 'bg-blue-600/20 text-blue-400 border border-blue-500/40 font-semibold'
+                    : 'text-slate-300 hover:bg-slate-800 hover:text-slate-100'
+                }`}
+              >
+                <Icon className="h-5 w-5" />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
+
+          <div className="pt-4 border-t border-slate-700/80 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="h-8 w-8 rounded-lg bg-blue-600/30 border border-blue-500/40 flex items-center justify-center font-bold text-blue-300 uppercase text-sm">
+                {user?.name?.[0] || 'U'}
+              </div>
+              <div>
+                <div className="text-xs font-bold text-slate-100">{user?.name}</div>
+                <div className="text-[10px] text-slate-400">{roleLabel[user?.role] || user?.role}</div>
+              </div>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-600/20 border border-red-500/30 text-red-400 hover:bg-red-600/30 transition cursor-pointer"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              <span>Logout</span>
+            </button>
           </div>
-          <div className="flex items-center gap-4 text-sm text-slate-500">
-            <span className="hidden md:inline">SIH 2026 · Decision Support</span>
-            <span className="h-2 w-2 rounded-full bg-emerald-500" title="online" />
-          </div>
-        </header>
+        </div>
+      )}
 
-        <main className="flex-1 p-4 lg:p-6">
-          <Outlet />
-        </main>
-      </div>
+      {/* Main Page Scroll Container */}
+      <main className="min-w-0">
+        <Outlet />
+      </main>
     </div>
   );
 }
