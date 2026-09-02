@@ -12,36 +12,46 @@
 ---
 
 ## 📖 Table of Contents
-1. [Problem Statement & Background](#-problem-statement--background)
-2. [Our Solution](#-our-solution)
-3. [Why BhuDan Is Better](#-why-bhudan-is-better-competitive-advantages)
-4. [End-to-End Operational Architecture](#-end-to-end-operational-architecture)
-5. [Real-Time Live Data Ingestion](#-real-time-live-data-ingestion)
-6. [The 6-Stage Analytical Decision Pipeline](#-the-6-stage-analytical-decision-pipeline)
-7. [GIS Map Engine & Mechanics](#-gis-map-engine--mechanics)
-8. [Dashboards & Functional Modules](#-dashboards--functional-modules)
-9. [Technology Stack & Dependencies](#-technology-stack--dependencies)
-10. [Database Architecture & Resilient Dual-Mode](#-database-architecture--resilient-dual-mode)
-11. [Complete REST API Reference](#-complete-rest-api-reference)
-12. [Installation & Quickstart Guide](#-installation--quickstart-guide)
-13. [Default Role-Based Demo Accounts](#-default-role-based-demo-accounts)
-14. [Testing & Verification](#-testing--verification)
+1. [Official Problem Statement & The Three Core Pillars](#-official-problem-statement--the-three-core-pillars)
+2. [Our Solution: BhuDan](#-our-solution-bhudan)
+3. [Why BhuDan Is Better (Competitive Advantages)](#-why-bhudan-is-better-competitive-advantages)
+4. [End-to-End Operational Pipeline & Architecture](#-end-to-end-operational-pipeline--architecture)
+5. [Chronological Log of All Operations Performed](#-chronological-log-of-all-operations-performed)
+6. [Real-Time Live Data Ingestion Sources](#-real-time-live-data-ingestion-sources)
+7. [The 6-Stage Analytical Decision Pipeline](#-the-6-stage-analytical-decision-pipeline)
+8. [GIS Map Engine & Mechanics](#-gis-map-engine--mechanics)
+9. [Dashboards & Functional Modules](#-dashboards--functional-modules)
+10. [Technology Stack & Dependencies](#-technology-stack--dependencies)
+11. [Database Architecture & Resilient Dual-Mode](#-database-architecture--resilient-dual-mode)
+12. [Complete REST API Reference & Testing Matrix](#-complete-rest-api-reference--testing-matrix)
+13. [Installation & Quickstart Guide](#-installation--quickstart-guide)
+14. [Default Role-Based Demo Accounts](#-default-role-based-demo-accounts)
+15. [Automated Testing & Verification](#-automated-testing--verification)
 
 ---
 
-## 🎯 Problem Statement & Background
+## 🎯 Official Problem Statement & The Three Core Pillars
 
-India frequently suffers from catastrophic geomorphological and climate-induced disasters — notably the **2024 Wayanad landslide disaster**, flash floods across the Western Ghats, and Himalayan cloudbursts. During sudden disasters, District Disaster Management Authorities (DDMAs) and first responders face major operational bottlenecks:
+> **"Intelligent Identification of Hazard-Based Red Zones, Carrying Capacity Assessment, and Immediate Relocation Needs for Vulnerable Habitations"**  
+> *(Smart India Hackathon 2026)*
 
-1. **Fragmented & Stale Data**: Traditional surveillance relies on historical hazard maps or static census spreadsheets. Real-time rainfall volume, soil moisture saturation, and live seismic tremors are rarely integrated.
-2. **Opaque & Uncoordinated Risk Assessment**: Risk classification is often subjective, lacking transparent mathematical formulas that explain to authorities why specific habitations are prioritized for evacuation.
-3. **Shelter Carrying-Capacity Blind Spots**: Displaced citizens are frequently directed to arbitrary relief camps without verifying physical capacities, drinking water, sanitation blocks, or medical availability, causing secondary humanitarian crises.
-4. **Disorganized Relocation Logistics**: First responders lack calculated road distances, transit modes (road/foot/boat), and travel ETAs to match vulnerable populations with the nearest viable safe sites.
-5. **No Actionable Workflow**: Most GIS portals are purely informational and lack a structured bureaucratic workflow (proposing, reviewing, approving, executing plans) or printable executive decision dossiers.
+The problem statement directly addresses the complete humanitarian disaster lifecycle across three interdependent operational pillars:
+
+### 1. Pillar 1: Intelligent Identification of Hazard-Based Red Zones
+- **The Challenge**: Traditional disaster mapping relies on static PDFs or outdated census maps. When extreme weather strikes (like the 2024 Wayanad landslides or Himalayan flash floods), authorities do not have real-time indicators for rainfall volume or soil moisture saturation, and cannot explain mathematically why one settlement is evacuated while another is not.
+- **BhuDan's Solution**: Automatically ingests live Open-Meteo rainfall (`mm/h`), 24h accumulated rain (`mm`), soil saturation (%), and USGS seismic feeds. Evaluates habitations using a transparent mathematical multi-hazard formula ($0.32\cdot \text{Hazard} + 0.22\cdot \text{Exposure} + 0.18\cdot \text{Vulnerability} + 0.18\cdot \text{Infrastructure Deficit} + 0.10\cdot \text{Terrain Slope/Elevation}$) to classify zones dynamically into `GREEN`, `YELLOW`, `ORANGE`, and `RED` (&ge; 70 score).
+
+### 2. Pillar 2: Carrying Capacity Assessment
+- **The Challenge**: During sudden evacuations, people are frequently directed into arbitrary shelters, schools, or community halls without verifying if the facilities can physically fit them, or if life-support utilities (potable water, sanitation, backup power, medical aid) will collapse under overcrowding.
+- **BhuDan's Solution**: Ingests real-world educational institutions (`amenity=school`), medical centers (`amenity=hospital`), community halls (`amenity=community_centre`), and stadiums (`leisure=stadium`) via OpenStreetMap. Audits each shelter's maximum capacity against current occupancy and verifies amenity flags (`waterSupply`, `sanitation`, `electricityBackup`, `medicalFacility`). Automatically flags capacity deficits or surpluses across the entire district.
+
+### 3. Pillar 3: Immediate Relocation Needs for Vulnerable Habitations
+- **The Challenge**: Emergency evacuations often lead to road gridlock, panic, and delay because first responders lack pre-calculated evacuation routes, transit distances, and travel times to candidate shelters. Furthermore, there is no formal administrative workflow to propose, authorize, and document evacuation orders.
+- **BhuDan's Solution**: Implements a deterministic greedy nearest-safe-site allocation algorithm that matches habitations needing evacuation to the closest viable shelter with available capacity, computing transit distance (km), transit mode (`road`, `foot`, `boat`), and travel ETA (minutes). Wraps the process in a 5-stage administrative approval pipeline (`proposed` &rarr; `under_review` &rarr; `approved` &rarr; `executing` &rarr; `rejected`) with printable executive decision dossiers for District Collectors and Disaster Authorities.
 
 ---
 
-## 💡 Our Solution
+## 💡 Our Solution: BhuDan
 
 **BhuDan** is an end-to-end multi-hazard geospatial surveillance and relocation decision-support system built to solve the complete lifecycle of disaster response. It answers six core operational questions:
 
@@ -69,7 +79,7 @@ Who should be prioritized?    --> Evacuation Queuing based on acute risk and pas
 
 ---
 
-## 🔄 End-to-End Operational Architecture
+## 🔄 End-to-End Operational Pipeline & Architecture
 
 ```mermaid
 flowchart TD
@@ -108,12 +118,36 @@ flowchart TD
 
 ---
 
-## 📡 Real-Time Live Data Ingestion
+## 📋 Chronological Log of All Operations Performed
+
+| Step | Operation / Task | Files Affected | Description & Outcome |
+| :---: | :--- | :--- | :--- |
+| **1** | **Postman Route Architecture Audit** | `server/routes/`, `server/controllers/` | Audited all API routes (Auth, Data, Analysis, Relocation, Users) and authored a complete Postman testing guide. |
+| **2** | **Database Layer Analysis** | `server/config/db.js`, `server/.env` | Verified the dual-mode data layer: MongoDB Atlas cloud connection with automatic in-memory fallback. |
+| **3** | **Live Data Strategy Planning** | `implementation_plan.md` | Designed a blueprint to eliminate static mock/seed data by integrating Open-Meteo, USGS, OSM Overpass, and IMD criteria. |
+| **4** | **Created Live Data Service** | `server/services/liveDataService.js` | Implemented zero-auth public API fetchers for live weather, seismic tremors, OSM habitations, and safe sites with 10-min caching. |
+| **5** | **Upgraded AI Risk Engine** | `server/services/riskEngine.js` | Integrated 24h rainfall, soil saturation, and IMD alerts into risk calculation and updated confidence scoring. |
+| **6** | **Enhanced Analysis Orchestrator** | `server/services/analysisService.js` | Updated `runFullAnalysis` to accept `liveWeather` and include real-time telemetry in summary payloads. |
+| **7** | **Created Live REST API Endpoints** | `server/routes/liveRoutes.js` | Added `/api/live/weather`, `/api/live/seismic`, `/api/live/alerts`, `/api/live/sync`, and `/api/live/status`. |
+| **8** | **Mounted Live Routes** | `server/routes/index.js` | Integrated `liveRoutes` into the main application router. |
+| **9** | **Updated Analysis Controller** | `server/controllers/analysisController.js` | Enriched district queries with live weather telemetry and automatic fallback to OSM live ingestion. |
+| **10**| **Preserved Persistent Storage** | `server/dataAccess.js` | Modified `seed()` to initialize system users without wiping out live-synced records in MongoDB Atlas. |
+| **11**| **Fixed Distance Helper Bug** | `server/services/liveDataService.js` | Replaced unresolved `haversineDistanceKm` with `haversineKm` in `server/utils/helpers.js`. |
+| **12**| **Automated Unit Testing** | `server/__tests__/liveData.test.js` | Wrote unit tests for live weather, seismic parsing, and dynamic risk boosts. Ran `npm test` &rarr; **8/8 passed**. |
+| **13**| **Updated Client API Service** | `client/src/services/api.js` | Exported `liveApi` with methods for weather, seismic, alerts, sync, and status. |
+| **14**| **Enhanced Frontend Dashboard** | `client/src/pages/dashboard/Dashboard.jsx` | Added "⚡ LIVE DATA STREAM" badge, Live Telemetry Bar, and on-demand "⚡ Sync Live" button. |
+| **15**| **Verified Production Build** | `client/` | Executed `npm run build` &rarr; Transformed 952 modules into `dist/` with 0 errors. |
+| **16**| **Process Management & Port Cleansing**| Root | Freed ports 5000 and 5173 from orphaned background processes and launched both servers as daemons. |
+
+---
+
+## 📡 Real-Time Live Data Ingestion Sources
 
 The platform ingests live public telemetry with **zero API keys required** (cached in-memory for 10 minutes to prevent rate limiting):
 
 1. **Open-Meteo Weather & Flood API**:
    - `GET https://api.open-meteo.com/v1/forecast`
+   - Parameters: `latitude`, `longitude`, `current=temperature_2m,relative_humidity_2m,precipitation,rain,weather_code,wind_speed_10m,wind_gusts_10m`, `hourly=precipitation,rain,soil_moisture_0_to_1cm,soil_moisture_1_to_3cm`, `daily=precipitation_sum,wind_speed_10m_max`.
    - Ingests precipitation rate (`mm/h`), 24-hour rainfall sum (`mm`), soil moisture saturation (%), and wind gusts.
    - **IMD Alert Mapping**:
      - $\ge 204.5\text{ mm}$ &rarr; **RED ALERT** (Extremely Heavy Rainfall & Flash Flood Threat)
@@ -212,7 +246,7 @@ The backend features a **resilient dual-mode data layer** ([`server/dataAccess.j
 
 ---
 
-## 🔌 Complete REST API Reference
+## 🔌 Complete REST API Reference & Testing Matrix
 
 ### Authentication & Users
 | Method | Endpoint | Access | Description |
@@ -309,7 +343,7 @@ npm run dev
 
 ---
 
-## 🧪 Testing & Verification
+## 🧪 Automated Testing & Verification
 
 The test suite validates deterministic scoring, capacity deficits, allocation algorithms, and live weather ingestion:
 
