@@ -8,5 +8,6 @@ router.get('/', protect, c.listPlans);
 router.get('/:id', protect, c.getPlan);
 router.post('/generate', protect, authorize('>=analyst'), c.generatePlan);
 router.patch('/:id/status', protect, authorize('>=disaster_authority'), c.updateStatus);
+router.delete('/:id', protect, authorize('>=analyst'), c.deletePlan);
 
 module.exports = router;

@@ -19,12 +19,13 @@ const { allocate } = require('./relocationEngine');
 
 /**
  * Full analysis for a set of habitations + safe sites (usually a district).
+ * Optionally accepts real-time liveWeather telemetry.
  */
-function runFullAnalysis(habitations, safeSites = []) {
+function runFullAnalysis(habitations, safeSites = [], liveWeather = null) {
   // 1. Per-habitation risk + vulnerability.
   const detailed = habitations.map((h) => {
     const vulnerability = assessVulnerability(h);
-    const risk = assessHabitation(h, vulnerability);
+    const risk = assessHabitation(h, vulnerability, liveWeather || h.liveWeather);
     return { habitation: h, risk, vulnerability };
   });
 
@@ -54,18 +55,31 @@ function runFullAnalysis(habitations, safeSites = []) {
     redZones,
     capacity,
     relocation: allocations,
+    liveTelemetry: liveWeather ? {
+      isLive: liveWeather.isLive,
+      source: liveWeather.source,
+      precipitationMm: liveWeather.currentPrecipitationMm,
+      dailyPrecipitationSumMm: liveWeather.dailyPrecipitationSumMm,
+      imdAlertLevel: liveWeather.imdAlertLevel,
+      alertDescription: liveWeather.alertDescription,
+      windSpeedKmh: liveWeather.windSpeedKmh,
+      soilMoisture: liveWeather.soilMoisture,
+      temperatureC: liveWeather.temperatureC,
+      fetchedAt: liveWeather.fetchedAt,
+    } : null,
     summary: {
       totalHabitations: detailed.length,
       redZoneCount: detailed.filter((d) => d.risk.riskClass === 'RED').length,
       orangeCount: detailed.filter((d) => d.risk.riskClass === 'ORANGE').length,
       yellowCount: detailed.filter((d) => d.risk.riskClass === 'YELLOW').length,
       greenCount: detailed.filter((d) => d.risk.riskClass === 'GREEN').length,
-      totalPopulation: detailed.reduce((a, d) => a + d.habitation.population, 0),
+      totalPopulation: detailed.reduce((a, d) => a + (d.habitation.population || 0), 0),
       totalPopulationExposed: totalExposed,
       totalVulnerable: detailed.reduce((a, d) => a + d.vulnerability.vulnerablePopulation, 0),
       capacityAvailable: capacity.totalAvailable,
       capacityGap: capacity.capacityGap,
       vulnerabilityByClass: vulnerability_breakdown(vulnerabilityByClass),
+      liveDataSource: liveWeather ? 'OpenStreetMap + Open-Meteo Real-Time Ingestion' : 'Database Registered',
     },
   };
 }

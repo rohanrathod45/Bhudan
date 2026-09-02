@@ -27,35 +27,104 @@
 .risk-marker.leaflet-div-icon {
   background: transparent;
   border: none;
-  width: 30px;
+  width: 32px;
   height: 42px;
 }
 
 .risk-marker .risk-pin {
-  width: 26px;
-  height: 26px;
+  width: 28px;
+  height: 28px;
   border-radius: 50% 50% 50% 0;
   transform: rotate(-45deg);
   border: 2.5px solid #fff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 6px;
+  margin-top: 4px;
+  position: relative;
 }
 
-.risk-marker .risk-pin .risk-pin-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0.95;
+.risk-marker .risk-pin .risk-pin-score {
+  transform: rotate(45deg);
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 
 .risk-marker.leaflet-marker-icon:hover .risk-pin {
-  transform: rotate(-45deg) scale(1.15);
-  transition: transform 0.12s ease;
+  transform: rotate(-45deg) scale(1.2);
+  transition: transform 0.15s ease;
+  z-index: 1000 !important;
 }
+
+/* Pulsing radar effect for Red Zones */
+.pulse-circle {
+  animation: leaflet-pulse 2.2s infinite ease-out;
+}
+
+@keyframes leaflet-pulse {
+  0% {
+    stroke-opacity: 0.85;
+    stroke-width: 2.5;
+  }
+  50% {
+    stroke-opacity: 0.4;
+    stroke-width: 4;
+  }
+  100% {
+    stroke-opacity: 0.85;
+    stroke-width: 2.5;
+  }
+}
+
+/* Safe site camp icon pin */
+.site-marker.leaflet-div-icon {
+  background: transparent;
+  border: none;
+}
+
+.site-marker .site-pin {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0284c7;
+  border: 2px solid #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: white;
+}
+
+.site-marker:hover .site-pin {
+  transform: scale(1.2);
+  transition: transform 0.15s ease;
+}
+
+/* Custom leaflet popup stylings */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  overflow: hidden;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+  line-height: 1.4;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  top: 8px;
+  right: 8px;
+  color: #64748b;
+  padding: 4px;
+}
+
 
 @layer components {
   .card {
@@ -78,5 +147,34 @@
   }
   .label {
     @apply block text-sm font-medium text-slate-600 mb-1;
+  }
+}
+
+/* ----------------------------- Print Media Styles ----------------------------- */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Hide app navigation bar, sidebar, buttons during print */
+  nav, header, aside, .btn, .no-print, [role="navigation"] {
+    display: none !important;
+  }
+
+  /* Ensure the printable document covers standard A4 layout */
+  .printable-doc {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    page-break-after: avoid;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 15mm 15mm 15mm 15mm;
   }
 }

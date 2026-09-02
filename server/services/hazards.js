@@ -1,10 +1,8 @@
 /**
- * Hazard metadata & configuration.
+ * Hazard metadata & dynamic hazard aggregation.
  *
- * The system ships with four active hazards (flood, landslide, coastal
- * erosion, cloudburst) but is built to accept additional hazard types
- * (earthquake, cyclone, wildfire, drought, heatwave, avalanche) simply by
- * registering them here — no further code changes are required.
+ * Scans active habitations dynamically to compute real-time hazard counts,
+ * exposed populations, and active hazard profiles.
  */
 
 const HAZARDS = {
@@ -32,7 +30,6 @@ const HAZARDS = {
     defaultSeverity: 5,
     description: 'Extreme rainfall in short duration',
   },
-  // --- Extensible hazard types (registered, ready for future data) ---
   earthquake: { label: 'Earthquake', color: '#dc2626', defaultSeverity: 5, description: 'Seismic hazard' },
   cyclone: { label: 'Cyclone', color: '#0ea5e9', defaultSeverity: 5, description: 'Tropical cyclone / storm surge' },
   wildfire: { label: 'Wildfire', color: '#f97316', defaultSeverity: 5, description: 'Forest & vegetation fire' },
@@ -41,20 +38,56 @@ const HAZARDS = {
   avalanche: { label: 'Avalanche', color: '#94a3b8', defaultSeverity: 5, description: 'Snow avalanche' },
 };
 
-const ACTIVE_HAZARD_KEYS = ['flood', 'landslide', 'coastal_erosion', 'cloudburst'];
+/**
+ * Dynamically computes active hazards by inspecting habitations in the system.
+ */
+function computeDynamicHazards(habitationsList = []) {
+  const hazardStats = {};
 
-function activeHazards() {
-  return Object.keys(HAZARDS)
-    .filter((k) => ACTIVE_HAZARD_KEYS.includes(k))
-    .map((k) => ({ key: k, ...HAZARDS[k] }));
-}
+  // Initialize stats for known hazards
+  Object.keys(HAZARDS).forEach((k) => {
+    hazardStats[k] = {
+      key: k,
+      ...HAZARDS[k],
+      habitationsCount: 0,
+      exposedPopulation: 0,
+      totalExposureScore: 0,
+      isActive: false,
+    };
+  });
 
-function allHazards() {
-  return Object.keys(HAZARDS).map((k) => ({ key: k, ...HAZARDS[k] }));
+  // Scan live habitations
+  habitationsList.forEach((h) => {
+    (h.exposure || []).forEach((exp) => {
+      const k = exp.hazardType;
+      if (!hazardStats[k]) {
+        hazardStats[k] = {
+          key: k,
+          label: k.charAt(0).toUpperCase() + k.slice(1).replace('_', ' '),
+          color: '#64748b',
+          defaultSeverity: 5,
+          description: 'Geospatial hazard',
+          habitationsCount: 0,
+          exposedPopulation: 0,
+          totalExposureScore: 0,
+          isActive: false,
+        };
+      }
+      hazardStats[k].habitationsCount++;
+      hazardStats[k].exposedPopulation += Math.round((h.population || 0) * ((exp.exposure || 5) / 10));
+      hazardStats[k].totalExposureScore += exp.exposure || 5;
+      hazardStats[k].isActive = true;
+    });
+  });
+
+  const active = Object.values(hazardStats).filter((h) => h.isActive || ['flood', 'landslide', 'cloudburst', 'cyclone', 'earthquake'].includes(h.key));
+  const all = Object.values(hazardStats);
+
+  return { active, all };
 }
 
 function getHazard(key) {
   return HAZARDS[key] || { label: key, color: '#64748b', defaultSeverity: 5, description: '' };
 }
 
-module.exports = { HAZARDS, ACTIVE_HAZARD_KEYS, activeHazards, allHazards, getHazard };
+module.exports = { HAZARDS, computeDynamicHazards, getHazard };

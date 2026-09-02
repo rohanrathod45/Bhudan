@@ -60,6 +60,15 @@ export const relocationApi = {
   list: (district) => api.get('/api/relocation', { params: { district } }).then((r) => r.data),
   generate: (district) => api.post('/api/relocation/generate', { district }).then((r) => r.data),
   updateStatus: (id, status) => api.patch(`/api/relocation/${id}/status`, { status }).then((r) => r.data),
+  delete: (id) => api.delete(`/api/relocation/${id}`).then((r) => r.data),
+};
+
+export const liveApi = {
+  weather: (params) => api.get('/api/live/weather', { params }).then((r) => r.data),
+  seismic: (params) => api.get('/api/live/seismic', { params }).then((r) => r.data),
+  alerts: () => api.get('/api/live/alerts').then((r) => r.data),
+  syncDistrict: (district, state) => api.post('/api/live/sync', { district, state }).then((r) => r.data),
+  status: () => api.get('/api/live/status').then((r) => r.data),
 };
 
 export const userApi = {

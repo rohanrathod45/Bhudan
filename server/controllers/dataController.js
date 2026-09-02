@@ -4,7 +4,7 @@ const { habitations, safeSites } = require('../dataAccess');
  * GET /api/habitations?district=&search=
  */
 async function listHabitations(req, res) {
-  const filter = { district: req.query.district, search: req.query.search };
+  const filter = { district: req.query.district, state: req.query.state, search: req.query.search };
   const rows = await habitations.list(filter);
   return res.json({ success: true, count: rows.length, data: rows });
 }
@@ -45,7 +45,7 @@ async function removeHabitation(req, res) {
 /* ------------------------------- Safe sites ----------------------------- */
 
 async function listSafeSites(req, res) {
-  const filter = { district: req.query.district, search: req.query.search };
+  const filter = { district: req.query.district, state: req.query.state, search: req.query.search };
   const rows = await safeSites.list(filter);
   return res.json({ success: true, count: rows.length, data: rows });
 }
