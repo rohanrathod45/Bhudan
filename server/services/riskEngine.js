@@ -43,12 +43,13 @@ function riskClassMeta(cls) {
 }
 
 /**
- * Composite hazard value. Uses explicit exposure entries plus historical
- * events, all normalised to 0..10 then collapsed to 0..10.
+ * Composite hazard value. Uses explicit exposure entries, historical events,
+ * AND real-time live meteorological telemetry (rainfall, soil saturation, alerts).
  */
-function computeCompositeHazard(h) {
+function computeCompositeHazard(h, liveWeather = null) {
   const exposure = h.exposure || [];
   const history = h.history || [];
+  const weather = liveWeather || h.liveWeather || null;
 
   let sum = 0;
   let count = 0;
@@ -63,22 +64,41 @@ function computeCompositeHazard(h) {
     sum += sev * 0.8; // historical events weigh slightly less than current exposure
     count += 0.8;
   }
-  if (count === 0) return 0;
-  let average = clamp(sum / count, 0, 10);
+  let average = count > 0 ? clamp(sum / count, 0, 10) : 5.0;
 
   // Recency & intensity boost: a severe (>=7) event in the last 5 years
-  // significantly raises current hazard likelihood. This is what pushes
-  // recently-devastated habitations toward RED without overreacting to old
-  // or minor events.
   const nowYear = new Date().getFullYear();
   const severeHistory = (h.history || []).filter(
     (ev) => ev.year && nowYear - ev.year <= 5 && clamp(ev.severity, 0, 10) >= 7
   );
   for (const ev of severeHistory) {
     const sev = clamp(ev.severity, 0, 10);
-    if (sev >= 9) average += 2.0; // catastrophic recent event
-    else if (sev >= 7) average += 1.0; // major recent event
+    if (sev >= 9) average += 2.0;
+    else if (sev >= 7) average += 1.0;
   }
+
+  // Real-Time Live Weather Adjustment (Open-Meteo & IMD Telemetry)
+  if (weather) {
+    const rain24h = Number(weather.dailyPrecipitationSumMm || weather.currentPrecipitationMm * 4 || 0);
+    const soilMoisture = Number(weather.soilMoisture || 0.25);
+
+    if (rain24h >= 204.5 || weather.imdAlertLevel === 'RED') {
+      // Extremely heavy rainfall / Red Alert
+      average = Math.max(average, 8.5) + 1.2;
+    } else if (rain24h >= 115.6 || weather.imdAlertLevel === 'ORANGE') {
+      // Very heavy rainfall / Orange Alert
+      average = Math.max(average, 7.0) + 0.8;
+    } else if (rain24h >= 64.5 || weather.imdAlertLevel === 'YELLOW') {
+      // Heavy rainfall / Yellow Alert
+      average += 0.5;
+    }
+
+    // Saturated soil increases landslide & flash flood hazard
+    if (soilMoisture >= 0.45) {
+      average += 0.6;
+    }
+  }
+
   return clamp(average, 0, 10);
 }
 
@@ -137,8 +157,13 @@ function computeTerrainRisk(h) {
  * Run the full risk assessment for one habitation.
  * Accepts an optional precomputed vulnerabilityResult to avoid double work.
  */
-function assessHabitation(h, vulnerabilityResult) {
-  const compositeHazard = round(computeCompositeHazard(h), 2);
+/**
+ * Run the full risk assessment for one habitation.
+ * Accepts optional precomputed vulnerabilityResult and liveWeather telemetry.
+ */
+function assessHabitation(h, vulnerabilityResult, liveWeather = null) {
+  const weather = liveWeather || h.liveWeather || null;
+  const compositeHazard = round(computeCompositeHazard(h, weather), 2);
   const exposureIndex = round(computeExposureIndex(h), 2);
   const vulnerabilityScore = vulnerabilityResult ? vulnerabilityResult.vulnerabilityScore : null;
   const vulnerabilityIndex =
@@ -162,6 +187,10 @@ function assessHabitation(h, vulnerabilityResult) {
     .map((e) => getHazard(e.hazardType).label)
     .filter((v, i, a) => a.indexOf(v) === i);
 
+  if (weather && weather.dailyPrecipitationSumMm >= 60 && !mainHazards.includes('Monsoon Heavy Rainfall')) {
+    mainHazards.unshift('Monsoon Heavy Rainfall (Live)');
+  }
+
   return {
     habitationId: h.id || h._id,
     habitation: h.name,
@@ -182,10 +211,11 @@ function assessHabitation(h, vulnerabilityResult) {
     compositeHazard,
     population: h.population || 0,
     populationExposed: round((h.population || 0) * (0.5 + exposureIndex / 20), 0),
-    dataSource: h.dataSource || 'estimated',
+    dataSource: weather ? 'OpenStreetMap + Open-Meteo Live Telemetry' : (h.dataSource || 'estimated'),
     lastUpdatedAt: h.lastUpdatedAt || new Date(),
-    confidence: computeConfidence(h),
-    limitations: buildLimitations(h),
+    liveWeather: weather,
+    confidence: computeConfidence(h, weather),
+    limitations: buildLimitations(h, weather),
   };
 }
 
@@ -201,21 +231,22 @@ function vulnerabilityFallback(h) {
   return clamp(share * 10 + inf / 2 + distFactor * 2, 0, 10);
 }
 
-function computeConfidence(h) {
+function computeConfidence(h, weather) {
   const source = h.dataSource || 'estimated';
   const revised = !!h.revised;
   const historyCount = (h.history || []).length;
-  let base = source === 'official' ? 0.85 : source === 'mixed' ? 0.7 : 0.5;
-  if (revised) base += 0.08;
+  let base = source === 'official' ? 0.85 : source.includes('OpenStreetMap') ? 0.80 : source === 'mixed' ? 0.7 : 0.55;
+  if (weather && weather.isLive) base += 0.12;
+  if (revised) base += 0.05;
   if (historyCount > 0) base += 0.05;
   return round(clamp(base, 0, 1), 2);
 }
 
-function buildLimitations(h) {
+function buildLimitations(h, weather) {
   const lims = [];
-  if ((h.dataSource || 'estimated') !== 'official') lims.push('Source data partially estimated, not verified on ground.');
-  if ((h.history || []).length === 0) lims.push('No local historical event records available.');
-  lims.push('Result is a decision-support heuristic, not a guaranteed prediction.');
+  if (!weather || !weather.isLive) lims.push('Weather data derived from historical and estimated patterns.');
+  if ((h.history || []).length === 0) lims.push('No local micro-historical event records available.');
+  lims.push('Result is a decision-support heuristic, not an absolute forecast.');
   return lims;
 }
 

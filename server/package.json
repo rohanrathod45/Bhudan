@@ -9,7 +9,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "seed": "node scripts/seedMongo.js",
-    "test": "node --test __tests__/"
+    "test": "node --test __tests__/**/*.test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

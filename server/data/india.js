@@ -160,6 +160,20 @@ function buildAll() {
   return { habitations, safeSites };
 }
 
+function buildDistrict(districtName) {
+  const entry = DISTRICT_REGISTRY.find((d) => d[0].toLowerCase() === String(districtName).toLowerCase());
+  if (!entry) return null;
+  const meta = { name: entry[0], state: entry[1], lat: entry[2], lng: entry[3], region: entry[4] };
+  const rng = mulberry32(hashSeed(`bhudan:${meta.state}:${meta.name}`));
+  const nHabs = int(rng, 2, 4);
+  const nSites = int(rng, 1, 3);
+  const habitations = [];
+  const safeSites = [];
+  for (let i = 0; i < nHabs; i++) habitations.push(buildHabitation(meta, rng, i));
+  for (let i = 0; i < nSites; i++) safeSites.push(buildSafeSite(meta, rng, i));
+  return { habitations, safeSites, meta };
+}
+
 function districtNames() {
   return DISTRICT_REGISTRY.map((d) => d[0]);
 }
@@ -174,8 +188,9 @@ module.exports = {
   DISTRICT_REGISTRY,
   HAZARD_BY_REGION,
   buildAll,
+  buildDistrict,
   districtNames,
   districtCenters,
   hashSeed,
   mulberry32,
-};
+};

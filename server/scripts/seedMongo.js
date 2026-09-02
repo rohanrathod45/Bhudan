@@ -3,7 +3,8 @@
  * Run: npm run seed (in server/) — connects to MONGO_URI if set, otherwise
  * prints instructions. demo_seed_env must be exported if none present.
  */
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 const mongoose = require('mongoose');
 const { seed } = require('../dataAccess');
 

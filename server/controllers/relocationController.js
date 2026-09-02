@@ -5,48 +5,97 @@ const { runFullAnalysis } = require('../services/analysisService');
  * GET /api/relocation   — list saved plans.
  */
 async function listPlans(req, res) {
-  const rows = await relocations.list({ district: req.query.district });
+  let district = req.query.district;
+  if (typeof district === 'object' && district !== null) district = district.district;
+  const filter = {};
+  if (district && district !== 'All' && typeof district === 'string') filter.district = district;
+  const rows = await relocations.list(filter);
   return res.json({ success: true, count: rows.length, data: rows });
 }
 
 /**
- * POST /api/relocation/generate  — run engine, persist the resulting plan.
+ * POST /api/relocation/generate  — run engine, persist the resulting plan to database.
  */
 async function generatePlan(req, res) {
-  const district = req.body.district || 'Wayanad';
-  const hb = await habitations.list({ district });
-  const ss = await safeSites.list({ district });
-  if (!hb.length) return res.status(400).json({ success: false, message: 'No habitations for this district.' });
+  try {
+    let district = req.body.district;
+    if (typeof district === 'object' && district !== null) district = district.district;
+    if (!district || district === 'All') {
+      return res.status(400).json({ success: false, message: 'Please select a specific district to generate a relocation plan.' });
+    }
 
-  const analysis = runFullAnalysis(hb, ss);
-  const ranked = analysis.relocation.filter((r) => r.needsRelocation);
+    let hb = await habitations.list({ district });
+    let ss = await safeSites.list({ district });
 
-  const plans = [];
-  for (const r of ranked) {
-    const hab = hb.find((h) => (h.id || h._id) === r.habitationId);
-    const plan = await relocations.create({
-      habitationId: r.habitationId,
-      habitationName: r.habitation,
-      district,
-      state: (hab && hab.state) || 'Kerala',
-      riskScore: r.riskScore,
-      riskClass: r.riskClass,
-      populationToRelocate: r.population,
-      householdsToRelocate: r.households,
-      populationNeedingShelter: r.vulnerablePopulation,
-      capacityAvailable: Math.max(0, analysis.capacity.totalAvailable),
-      relativeRiskScore: r.relocationScore,
-      assignments: r.assignments,
-      strategy: r.strategy,
-      constraints: r.constraints,
-      recommendedActions: buildRecommendedActions(r, analysis),
-      feasibility: r.feasible,
-      status: 'proposed',
-      createdBy: req.user ? req.user.name : 'system',
-    });
-    plans.push(plan);
+    // On-demand load/generation if district data isn't in store yet
+    if (!hb.length) {
+      const { buildDistrict } = require('../data/india');
+      const generated = buildDistrict(district);
+      if (generated) {
+        for (const hab of generated.habitations) {
+          await habitations.create(hab);
+        }
+        for (const site of generated.safeSites) {
+          await safeSites.create(site);
+        }
+        hb = await habitations.list({ district });
+        ss = await safeSites.list({ district });
+      }
+    }
+
+    if (!hb.length) return res.status(400).json({ success: false, message: `No habitations found for district ${district}.` });
+
+    const analysis = runFullAnalysis(hb, ss);
+    let ranked = (analysis.relocation || []).filter((r) => r.needsRelocation);
+    if (!ranked.length && (analysis.relocation || []).length > 0) {
+      ranked = analysis.relocation;
+    }
+
+    const plans = [];
+    for (const r of ranked) {
+      const habId = String(r.habitationId || r.id || r._id || `hab_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`);
+      const hab = hb.find((h) => String(h.id || h._id) === habId) || hb.find((h) => h.name === r.habitation);
+      
+      const cleanAssignments = (r.assignments || []).map((a) => ({
+        safeSiteId: String(a.safeSiteId || a.id || a._id || ''),
+        safeSiteName: String(a.safeSiteName || a.name || 'Designated Shelter'),
+        assignedPopulation: Number(a.assignedPopulation) || 0,
+        assignedHouseholds: Number(a.assignedHouseholds) || 0,
+        distanceKm: Number(a.distanceKm) || 0,
+        transitMode: String(a.transitMode || 'road'),
+        etaMinutes: Number(a.etaMinutes) || 0,
+      }));
+
+      const planData = {
+        habitationId: habId,
+        habitationName: String(r.habitation || (hab && hab.name) || 'Habitation Zone'),
+        district: String(district),
+        state: String((hab && hab.state) || 'India'),
+        riskScore: Number(r.riskScore) || 0,
+        riskClass: String(r.riskClass || 'YELLOW'),
+        populationToRelocate: Number(r.population) || 0,
+        householdsToRelocate: Number(r.households) || 0,
+        populationNeedingShelter: Number(r.vulnerablePopulation) || 0,
+        unallocatedPopulation: Number(r.unallocatedPopulation) || 0,
+        capacityAvailable: Math.max(0, Number(analysis.capacity?.totalAvailable) || 0),
+        relativeRiskScore: Number(r.relocationScore) || 0,
+        assignments: cleanAssignments,
+        strategy: String(r.strategy || 'Phased evacuation to nearest safe sites'),
+        constraints: Array.isArray(r.constraints) ? r.constraints : [],
+        recommendedActions: buildRecommendedActions(r, analysis),
+        feasibility: Number(r.feasible) || 100,
+        status: 'proposed',
+        createdBy: req.user ? (req.user.name || req.user.email) : 'System Analyst',
+      };
+
+      const plan = await relocations.create(planData);
+      plans.push(plan);
+    }
+    return res.status(201).json({ success: true, count: plans.length, data: plans, summary: analysis.summary });
+  } catch (err) {
+    console.error('[generatePlan error]', err);
+    return res.status(500).json({ success: false, message: 'Failed to generate and save plan.', detail: err.message });
   }
-  return res.status(201).json({ success: true, count: plans.length, data: plans, summary: analysis.summary });
 }
 
 function buildRecommendedActions(r, capacity) {
@@ -85,4 +134,13 @@ async function updateStatus(req, res) {
   return res.json({ success: true, data: updated });
 }
 
-module.exports = { listPlans, generatePlan, getPlan, updateStatus };
+/**
+ * DELETE /api/relocation/:id
+ */
+async function deletePlan(req, res) {
+  const deleted = await relocations.remove(req.params.id);
+  if (!deleted) return res.status(404).json({ success: false, message: 'Plan not found.' });
+  return res.json({ success: true, message: 'Plan deleted successfully.' });
+}
+
+module.exports = { listPlans, generatePlan, getPlan, updateStatus, deletePlan };

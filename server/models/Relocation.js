@@ -26,6 +26,7 @@ const relocationPlanSchema = new mongoose.Schema(
     populationToRelocate: { type: Number, default: 0 },
     householdsToRelocate: { type: Number, default: 0 },
     populationNeedingShelter: { type: Number, default: 0 },
+    unallocatedPopulation: { type: Number, default: 0 },
 
     capacityAvailable: { type: Number, default: 0 },
     relativeRiskScore: { type: Number, default: 0 },

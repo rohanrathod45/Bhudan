@@ -2,28 +2,35 @@ import { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { analysisApi, relocationApi, dataApi } from '../../services/api';
 import useDistricts from '../../hooks/useDistricts';
-import { Card, StatCard, Badge, Spinner } from '../../components/ui';
+import { Card, StatCard, Badge, Spinner, StateDistrictSelector } from '../../components/ui';
 import RiskMap, { MapLegend } from '../../components/map/RiskMap';
 
 export default function Relocation() {
-  const { districts } = useDistricts();
-  const [district, setDistrict] = useState('Wayanad');
+  const { centers, districtMeta, getStateForDistrict, selectedDistrict: district, setSelectedDistrict } = useDistricts();
   const [priority, setPriority] = useState([]);
   const [summary, setSummary] = useState(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
-    const [savedId, setSavedId] = useState(null);
+  const [savedId, setSavedId] = useState(null);
   const [safeSites, setSafeSites] = useState([]);
 
   const load = (d) => {
+    if (!d || d === 'All') {
+      setPriority([]);
+      setSummary(null);
+      setSafeSites([]);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     Promise.all([
-            analysisApi.relocation(d),
+      analysisApi.relocation(d),
       dataApi.sites({ district: d }),
     ]).then(([relRes, sitesRes]) => {
       const priority = (relRes && relRes.data && relRes.data.priority) || [];
       const summary = (relRes && relRes.data && relRes.data.summary) || null;
-            const sites = (sitesRes && (sitesRes.data || sitesRes.sites)) || [];
+      const sites = (sitesRes && (sitesRes.data || sitesRes.sites)) || [];
       setPriority(priority);
       setSummary(summary);
       setSafeSites(sites);
@@ -35,23 +42,25 @@ export default function Relocation() {
       setLoading(false);
     });
   };
-    useEffect(() => { load(district); }, [district]);
+  useEffect(() => { load(district); }, [district]);
 
-  const districtCenter = useMemo(() => {
-    const lat = priority.reduce((sum, p) => sum + (p.lat || 0), 0);
-    const lng = priority.reduce((sum, p) => sum + (p.lng || 0), 0);
-    if (priority.length) return [lat / priority.length, lng / priority.length];
-    return [22.0, 79.0];
-  }, [priority]);
+  const districtCenter = (district && centers[district]) || [22.0, 79.0];
+  const currentMeta = district ? (districtMeta[district] || {}) : {};
+  const currentState = currentMeta.state || getStateForDistrict(district) || '';
 
   const generate = async () => {
+    if (!district || district === 'All') {
+      alert('Please select a specific State and District first before generating relocation plans.');
+      return;
+    }
+
     setGenerating(true);
     try {
       const res = await relocationApi.generate(district);
       setSavedId(res.data?.[0]?.id || null);
-      alert(`Relocation plans generated: ${res.count} plan(s) saved.`);
+      alert(`✅ Relocation report generated! ${res.count} plan(s) have been saved to the database. You can view and manage them in the Reports tab.`);
     } catch (e) {
-      alert('Could not generate plan — do you have Analyst+ role?');
+      alert('Could not generate plan — please ensure the server is running with npm start.');
     } finally {
       setGenerating(false);
     }
@@ -60,20 +69,35 @@ export default function Relocation() {
   const s = summary || {};
   return (
     <div className="space-y-5">
-      <div className="flex items-center justify-between flex-wrap gap-3">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
         <div>
-          <h2 className="text-xl font-bold text-slate-800">Relocation Priority</h2>
-          <p className="text-sm text-slate-500">Ranked habitations & nearest safe-site assignments</p>
+          <div className="flex items-center gap-2">
+            <span className="text-xl">🛟</span>
+            <h2 className="text-xl font-bold text-slate-800">Relocation Priority & Evacuation</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Ranked vulnerable habitations & nearest safe-site capacity assignments
+          </p>
         </div>
-        <div className="flex gap-2 items-center">
-          <select className="input w-auto" value={district} onChange={(e) => setDistrict(e.target.value)}>
-            {districts.map((d) => <option key={d} value={d}>{d}</option>)}
-          </select>
-          <button className="btn btn-primary" onClick={generate} disabled={generating}>{generating ? 'Generating…' : 'Generate plans'}</button>
+        <div className="flex flex-wrap gap-2.5 items-center">
+          <StateDistrictSelector value={district} onChange={(d) => setSelectedDistrict(d)} />
+          <button className="btn btn-primary text-xs" onClick={generate} disabled={generating || !district}>
+            {generating ? 'Generating…' : 'Generate Plans'}
+          </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {!district ? (
+        <div className="card p-12 text-center bg-white border border-slate-200 rounded-xl shadow-xs">
+          <div className="text-4xl mb-3">📍</div>
+          <h3 className="text-lg font-bold text-slate-800">Select a District</h3>
+          <p className="text-sm text-slate-500 mt-1 max-w-md mx-auto">
+            Please choose a <strong>State</strong> and <strong>District</strong> using the selector above to calculate relocation priorities and evacuation shelter matching.
+          </p>
+        </div>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard label="People to relocate" value={s.totalPopulation?.toLocaleString() || 0} icon="👥" color="text-risk-orange" />
         <StatCard label="Need shelter (vulnerable)" value={s.totalVulnerable?.toLocaleString() || 0} icon="🛟" color="text-risk-yellow" />
         <StatCard label="Red zones" value={s.redZoneCount || 0} icon="🚨" color="text-risk-red" />
@@ -93,6 +117,11 @@ export default function Relocation() {
               sites={safeSites}
               center={districtCenter}
               zoom={11}
+              districtName={district}
+              stateName={currentState}
+              showDistrictCircle={true}
+              showRiskCircles={true}
+              showPins={true}
               showSites={true}
             />
           )}
@@ -137,6 +166,8 @@ export default function Relocation() {
             <Link className="text-brand-600 underline" to="/reports">Reports</Link> section.
           </p>
         </Card>
+      )}
+      </>
       )}
     </div>
   );

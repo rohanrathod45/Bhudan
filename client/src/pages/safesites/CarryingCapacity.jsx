@@ -1,36 +1,57 @@
 import { useEffect, useState } from 'react';
 import { analysisApi } from '../../services/api';
 import useDistricts from '../../hooks/useDistricts';
-import { Card, StatCard, Badge, Spinner } from '../../components/ui';
+import { Card, StatCard, Badge, Spinner, StateDistrictSelector } from '../../components/ui';
 import { DonutChart } from '../../components/charts';
 
 export default function CarryingCapacity() {
-  const { districts } = useDistricts();
-  const [district, setDistrict] = useState('Wayanad');
+  const { selectedDistrict: district, setSelectedDistrict } = useDistricts();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    if (!district || district === 'All') {
+      setData(null);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
-    analysisApi.capacity(district).then((res) => setData(res.data)).catch(() => setData(null));
-    setLoading(false);
+    analysisApi
+      .capacity(district)
+      .then((res) => setData(res.data))
+      .catch(() => setData(null))
+      .finally(() => setLoading(false));
   }, [district]);
 
   const d = data || {};
 
   return (
     <div className="space-y-5">
-      <div className="flex items-center justify-between flex-wrap gap-3">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
         <div>
-          <h2 className="text-xl font-bold text-slate-800">Carrying-Capacity Assessment</h2>
-          <p className="text-sm text-slate-500">Safe-site capacity vs. population needing relocation</p>
+          <div className="flex items-center gap-2">
+            <span className="text-xl">⚖️</span>
+            <h2 className="text-xl font-bold text-slate-800">Carrying-Capacity Assessment</h2>
+          </div>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Safe-site carrying capacity vs. exposed population requiring shelter
+          </p>
         </div>
-        <select className="input w-auto" value={district} onChange={(e) => setDistrict(e.target.value)}>
-          {districts.map((d) => <option key={d} value={d}>{d}</option>)}
-        </select>
+        <StateDistrictSelector value={district} onChange={(d) => setSelectedDistrict(d)} />
       </div>
 
-      {loading ? <Spinner /> : (
+      {loading ? (
+        <Spinner />
+      ) : !district ? (
+        <div className="card p-12 text-center bg-white border border-slate-200 rounded-xl shadow-xs">
+          <div className="text-4xl mb-3">📍</div>
+          <h3 className="text-lg font-bold text-slate-800">Select a District</h3>
+          <p className="text-sm text-slate-500 mt-1 max-w-md mx-auto">
+            Please choose a <strong>State</strong> and <strong>District</strong> using the selector above to assess safe shelter carrying capacity vs. displaced population demand.
+          </p>
+        </div>
+      ) : (
         <>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <StatCard label="Demand (exposed)" value={d.demandPopulation?.toLocaleString() || 0} icon="👥" color="text-risk-orange" />
