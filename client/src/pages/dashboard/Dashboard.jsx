@@ -126,7 +126,7 @@ export default function Dashboard() {
         <>
           {/* Live Weather & Meteorological Telemetry Bar */}
           {liveTel && (
-            <div className="bg-gradient-to-r from-slate-900 to-brand-950 text-white p-4 rounded-xl shadow-sm border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div className="bg-slate-900 text-white p-4 rounded-xl shadow-sm border border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
                 <div className="text-3xl">🌦️</div>
                 <div>
@@ -186,10 +186,43 @@ export default function Dashboard() {
               right={<Badge tone={s.capacityGap > 0 ? 'red' : 'green'}>{s.capacityGap > 0 ? 'Capacity gap' : 'Sufficient'}</Badge>}
             >
               {vulnRows.length ? (
-                <DonutChart
-                  data={vulnRows}
-                  colors={[RISK_COLORS.RED, RISK_COLORS.ORANGE, RISK_COLORS.YELLOW, RISK_COLORS.GREEN]}
-                />
+                <>
+                  <DonutChart
+                    data={vulnRows}
+                    colors={[RISK_COLORS.RED, RISK_COLORS.ORANGE, RISK_COLORS.YELLOW, RISK_COLORS.GREEN]}
+                  />
+                  <div className="flex justify-end mt-2">
+                    <div
+                      className={`inline-flex flex-col text-xs rounded-lg border p-2.5 shadow-xs max-w-xs ${
+                        s.capacityGap > 0
+                          ? 'bg-red-50/90 border-red-200 text-red-800'
+                          : 'bg-emerald-50/90 border-emerald-200 text-emerald-800'
+                      }`}
+                    >
+                      <div className="font-semibold flex items-center gap-1.5">
+                        <span
+                          className={`w-2 h-2 rounded-full shrink-0 ${
+                            s.capacityGap > 0 ? 'bg-red-500 animate-pulse' : 'bg-emerald-500'
+                          }`}
+                        />
+                        <span>{s.capacityGap > 0 ? 'Red Badge: Capacity Gap' : 'Green Badge: Sufficient Capacity'}</span>
+                      </div>
+                      <p className="text-[10.5px] text-slate-600 mt-1 leading-snug">
+                        {s.capacityGap > 0
+                          ? 'Deficit: Exposed population exceeds available safe shelter capacity.'
+                          : 'Safe: Shelter capacity adequately covers vulnerable population.'}
+                      </p>
+                      <div className="mt-1.5 pt-1.5 border-t border-slate-200/80 flex items-center justify-between text-[10px] text-slate-500">
+                        <span className="inline-flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Green = Sufficient
+                        </span>
+                        <span className="inline-flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-red-500" /> Red = Deficit
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </>
               ) : (
                 <p className="text-sm text-slate-500 py-10 text-center">No vulnerability data.</p>
               )}

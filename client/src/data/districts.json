@@ -1,0 +1,5504 @@
+[
+  {
+    "name": "Alluri Sitharama Raju",
+    "state": "Andhra Pradesh",
+    "lat": 18.06,
+    "lng": 82.52,
+    "region": "hill"
+  },
+  {
+    "name": "Anakapalli",
+    "state": "Andhra Pradesh",
+    "lat": 17.69,
+    "lng": 83,
+    "region": "coast"
+  },
+  {
+    "name": "Ananthapuramu",
+    "state": "Andhra Pradesh",
+    "lat": 14.68,
+    "lng": 77.6,
+    "region": "semi"
+  },
+  {
+    "name": "Annamayya",
+    "state": "Andhra Pradesh",
+    "lat": 14,
+    "lng": 78.96,
+    "region": "semi"
+  },
+  {
+    "name": "Bapatla",
+    "state": "Andhra Pradesh",
+    "lat": 15.9,
+    "lng": 80.46,
+    "region": "coast"
+  },
+  {
+    "name": "Chittoor",
+    "state": "Andhra Pradesh",
+    "lat": 13.21,
+    "lng": 79.1,
+    "region": "semi"
+  },
+  {
+    "name": "Dr. B.R. Ambedkar Konaseema",
+    "state": "Andhra Pradesh",
+    "lat": 16.57,
+    "lng": 81.99,
+    "region": "coast"
+  },
+  {
+    "name": "East Godavari",
+    "state": "Andhra Pradesh",
+    "lat": 17,
+    "lng": 81.8,
+    "region": "coast"
+  },
+  {
+    "name": "Eluru",
+    "state": "Andhra Pradesh",
+    "lat": 16.71,
+    "lng": 81.09,
+    "region": "plain"
+  },
+  {
+    "name": "Guntur",
+    "state": "Andhra Pradesh",
+    "lat": 16.3,
+    "lng": 80.44,
+    "region": "coast"
+  },
+  {
+    "name": "Kakinada",
+    "state": "Andhra Pradesh",
+    "lat": 16.98,
+    "lng": 82.24,
+    "region": "coast"
+  },
+  {
+    "name": "Krishna",
+    "state": "Andhra Pradesh",
+    "lat": 16.51,
+    "lng": 80.63,
+    "region": "coast"
+  },
+  {
+    "name": "Kurnool",
+    "state": "Andhra Pradesh",
+    "lat": 15.82,
+    "lng": 78.03,
+    "region": "semi"
+  },
+  {
+    "name": "Nandyal",
+    "state": "Andhra Pradesh",
+    "lat": 15.48,
+    "lng": 78.48,
+    "region": "semi"
+  },
+  {
+    "name": "NTR",
+    "state": "Andhra Pradesh",
+    "lat": 16.5,
+    "lng": 80.64,
+    "region": "plain"
+  },
+  {
+    "name": "Palnadu",
+    "state": "Andhra Pradesh",
+    "lat": 16.23,
+    "lng": 79.98,
+    "region": "semi"
+  },
+  {
+    "name": "Parvathipuram Manyam",
+    "state": "Andhra Pradesh",
+    "lat": 18.78,
+    "lng": 83.42,
+    "region": "hill"
+  },
+  {
+    "name": "Prakasam",
+    "state": "Andhra Pradesh",
+    "lat": 15.5,
+    "lng": 80.05,
+    "region": "coast"
+  },
+  {
+    "name": "Sri Potti Sriramulu Nellore",
+    "state": "Andhra Pradesh",
+    "lat": 14.44,
+    "lng": 79.98,
+    "region": "coast"
+  },
+  {
+    "name": "Sri Sathya Sai",
+    "state": "Andhra Pradesh",
+    "lat": 14.16,
+    "lng": 77.81,
+    "region": "semi"
+  },
+  {
+    "name": "Srikakulam",
+    "state": "Andhra Pradesh",
+    "lat": 18.29,
+    "lng": 83.89,
+    "region": "coast"
+  },
+  {
+    "name": "Tirupati",
+    "state": "Andhra Pradesh",
+    "lat": 13.62,
+    "lng": 79.41,
+    "region": "semi"
+  },
+  {
+    "name": "Visakhapatnam",
+    "state": "Andhra Pradesh",
+    "lat": 17.68,
+    "lng": 83.21,
+    "region": "coast"
+  },
+  {
+    "name": "Vizianagaram",
+    "state": "Andhra Pradesh",
+    "lat": 18.11,
+    "lng": 83.4,
+    "region": "coast"
+  },
+  {
+    "name": "West Godavari",
+    "state": "Andhra Pradesh",
+    "lat": 16.71,
+    "lng": 81.44,
+    "region": "coast"
+  },
+  {
+    "name": "YSR Kadapa",
+    "state": "Andhra Pradesh",
+    "lat": 14.47,
+    "lng": 78.82,
+    "region": "semi"
+  },
+  {
+    "name": "Anjaw",
+    "state": "Arunachal Pradesh",
+    "lat": 27.92,
+    "lng": 96.83,
+    "region": "himalaya"
+  },
+  {
+    "name": "Changlang",
+    "state": "Arunachal Pradesh",
+    "lat": 27.12,
+    "lng": 95.73,
+    "region": "hill"
+  },
+  {
+    "name": "Dibang Valley",
+    "state": "Arunachal Pradesh",
+    "lat": 28.82,
+    "lng": 95.82,
+    "region": "himalaya"
+  },
+  {
+    "name": "East Kameng",
+    "state": "Arunachal Pradesh",
+    "lat": 27.32,
+    "lng": 93.04,
+    "region": "himalaya"
+  },
+  {
+    "name": "East Siang",
+    "state": "Arunachal Pradesh",
+    "lat": 28.06,
+    "lng": 95.33,
+    "region": "hill"
+  },
+  {
+    "name": "Kamle",
+    "state": "Arunachal Pradesh",
+    "lat": 27.75,
+    "lng": 94.05,
+    "region": "hill"
+  },
+  {
+    "name": "Kra Daadi",
+    "state": "Arunachal Pradesh",
+    "lat": 27.88,
+    "lng": 93.42,
+    "region": "himalaya"
+  },
+  {
+    "name": "Kurung Kumey",
+    "state": "Arunachal Pradesh",
+    "lat": 27.95,
+    "lng": 93.4,
+    "region": "himalaya"
+  },
+  {
+    "name": "Lepa Rada",
+    "state": "Arunachal Pradesh",
+    "lat": 27.81,
+    "lng": 94.67,
+    "region": "hill"
+  },
+  {
+    "name": "Lohit",
+    "state": "Arunachal Pradesh",
+    "lat": 27.8,
+    "lng": 96.17,
+    "region": "hill"
+  },
+  {
+    "name": "Longding",
+    "state": "Arunachal Pradesh",
+    "lat": 26.86,
+    "lng": 95.34,
+    "region": "hill"
+  },
+  {
+    "name": "Lower Dibang Valley",
+    "state": "Arunachal Pradesh",
+    "lat": 28.14,
+    "lng": 95.84,
+    "region": "hill"
+  },
+  {
+    "name": "Lower Siang",
+    "state": "Arunachal Pradesh",
+    "lat": 27.78,
+    "lng": 94.72,
+    "region": "hill"
+  },
+  {
+    "name": "Lower Subansiri",
+    "state": "Arunachal Pradesh",
+    "lat": 27.53,
+    "lng": 93.83,
+    "region": "hill"
+  },
+  {
+    "name": "Namsai",
+    "state": "Arunachal Pradesh",
+    "lat": 27.67,
+    "lng": 95.87,
+    "region": "plain"
+  },
+  {
+    "name": "Pakke Kessang",
+    "state": "Arunachal Pradesh",
+    "lat": 27.08,
+    "lng": 93.18,
+    "region": "himalaya"
+  },
+  {
+    "name": "Papum Pare",
+    "state": "Arunachal Pradesh",
+    "lat": 27.08,
+    "lng": 93.6,
+    "region": "hill"
+  },
+  {
+    "name": "Shi Yomi",
+    "state": "Arunachal Pradesh",
+    "lat": 28.58,
+    "lng": 94.12,
+    "region": "himalaya"
+  },
+  {
+    "name": "Siang",
+    "state": "Arunachal Pradesh",
+    "lat": 28.32,
+    "lng": 94.97,
+    "region": "hill"
+  },
+  {
+    "name": "Tawang",
+    "state": "Arunachal Pradesh",
+    "lat": 27.58,
+    "lng": 91.86,
+    "region": "himalaya"
+  },
+  {
+    "name": "Tirap",
+    "state": "Arunachal Pradesh",
+    "lat": 27.02,
+    "lng": 95.5,
+    "region": "hill"
+  },
+  {
+    "name": "Upper Dibang Valley",
+    "state": "Arunachal Pradesh",
+    "lat": 28.95,
+    "lng": 95.78,
+    "region": "himalaya"
+  },
+  {
+    "name": "Upper Siang",
+    "state": "Arunachal Pradesh",
+    "lat": 28.6,
+    "lng": 94.95,
+    "region": "himalaya"
+  },
+  {
+    "name": "Upper Subansiri",
+    "state": "Arunachal Pradesh",
+    "lat": 28.05,
+    "lng": 94.13,
+    "region": "himalaya"
+  },
+  {
+    "name": "West Kameng",
+    "state": "Arunachal Pradesh",
+    "lat": 27.27,
+    "lng": 92.41,
+    "region": "himalaya"
+  },
+  {
+    "name": "West Siang",
+    "state": "Arunachal Pradesh",
+    "lat": 28.18,
+    "lng": 94.66,
+    "region": "hill"
+  },
+  {
+    "name": "Bajali",
+    "state": "Assam",
+    "lat": 26.54,
+    "lng": 91.18,
+    "region": "plain"
+  },
+  {
+    "name": "Baksa",
+    "state": "Assam",
+    "lat": 26.68,
+    "lng": 91.35,
+    "region": "plain"
+  },
+  {
+    "name": "Barpeta",
+    "state": "Assam",
+    "lat": 26.32,
+    "lng": 91,
+    "region": "plain"
+  },
+  {
+    "name": "Biswanath",
+    "state": "Assam",
+    "lat": 26.73,
+    "lng": 93.15,
+    "region": "plain"
+  },
+  {
+    "name": "Bongaigaon",
+    "state": "Assam",
+    "lat": 26.48,
+    "lng": 90.56,
+    "region": "plain"
+  },
+  {
+    "name": "Cachar",
+    "state": "Assam",
+    "lat": 24.83,
+    "lng": 92.77,
+    "region": "hill"
+  },
+  {
+    "name": "Charaideo",
+    "state": "Assam",
+    "lat": 26.93,
+    "lng": 94.95,
+    "region": "plain"
+  },
+  {
+    "name": "Chirang",
+    "state": "Assam",
+    "lat": 26.57,
+    "lng": 90.58,
+    "region": "plain"
+  },
+  {
+    "name": "Darrang",
+    "state": "Assam",
+    "lat": 26.45,
+    "lng": 92.03,
+    "region": "plain"
+  },
+  {
+    "name": "Dhemaji",
+    "state": "Assam",
+    "lat": 27.48,
+    "lng": 94.58,
+    "region": "plain"
+  },
+  {
+    "name": "Dhubri",
+    "state": "Assam",
+    "lat": 26.02,
+    "lng": 89.97,
+    "region": "plain"
+  },
+  {
+    "name": "Dibrugarh",
+    "state": "Assam",
+    "lat": 27.47,
+    "lng": 94.91,
+    "region": "plain"
+  },
+  {
+    "name": "Dima Hasao",
+    "state": "Assam",
+    "lat": 25.18,
+    "lng": 93.03,
+    "region": "hill"
+  },
+  {
+    "name": "Goalpara",
+    "state": "Assam",
+    "lat": 26.17,
+    "lng": 90.62,
+    "region": "plain"
+  },
+  {
+    "name": "Golaghat",
+    "state": "Assam",
+    "lat": 26.52,
+    "lng": 93.97,
+    "region": "plain"
+  },
+  {
+    "name": "Hailakandi",
+    "state": "Assam",
+    "lat": 24.68,
+    "lng": 92.56,
+    "region": "hill"
+  },
+  {
+    "name": "Hojai",
+    "state": "Assam",
+    "lat": 26,
+    "lng": 92.86,
+    "region": "plain"
+  },
+  {
+    "name": "Jorhat",
+    "state": "Assam",
+    "lat": 26.75,
+    "lng": 94.22,
+    "region": "plain"
+  },
+  {
+    "name": "Kamrup",
+    "state": "Assam",
+    "lat": 26.14,
+    "lng": 91.73,
+    "region": "plain"
+  },
+  {
+    "name": "Kamrup Metropolitan",
+    "state": "Assam",
+    "lat": 26.18,
+    "lng": 91.75,
+    "region": "plain"
+  },
+  {
+    "name": "Karbi Anglong",
+    "state": "Assam",
+    "lat": 26.15,
+    "lng": 93.42,
+    "region": "hill"
+  },
+  {
+    "name": "Karimganj",
+    "state": "Assam",
+    "lat": 24.87,
+    "lng": 92.35,
+    "region": "hill"
+  },
+  {
+    "name": "Kokrajhar",
+    "state": "Assam",
+    "lat": 26.4,
+    "lng": 90.27,
+    "region": "plain"
+  },
+  {
+    "name": "Lakhimpur",
+    "state": "Assam",
+    "lat": 27.24,
+    "lng": 94.1,
+    "region": "plain"
+  },
+  {
+    "name": "Majuli",
+    "state": "Assam",
+    "lat": 26.96,
+    "lng": 94.21,
+    "region": "plain"
+  },
+  {
+    "name": "Morigaon",
+    "state": "Assam",
+    "lat": 26.25,
+    "lng": 92.34,
+    "region": "plain"
+  },
+  {
+    "name": "Nagaon",
+    "state": "Assam",
+    "lat": 26.35,
+    "lng": 92.68,
+    "region": "plain"
+  },
+  {
+    "name": "Nalbari",
+    "state": "Assam",
+    "lat": 26.44,
+    "lng": 91.44,
+    "region": "plain"
+  },
+  {
+    "name": "Sivasagar",
+    "state": "Assam",
+    "lat": 26.98,
+    "lng": 94.63,
+    "region": "plain"
+  },
+  {
+    "name": "Sonitpur",
+    "state": "Assam",
+    "lat": 26.63,
+    "lng": 92.79,
+    "region": "plain"
+  },
+  {
+    "name": "South Salmara-Mankachar",
+    "state": "Assam",
+    "lat": 25.75,
+    "lng": 89.92,
+    "region": "plain"
+  },
+  {
+    "name": "Tamulpur",
+    "state": "Assam",
+    "lat": 26.63,
+    "lng": 91.57,
+    "region": "plain"
+  },
+  {
+    "name": "Tinsukia",
+    "state": "Assam",
+    "lat": 27.5,
+    "lng": 95.36,
+    "region": "plain"
+  },
+  {
+    "name": "Udalguri",
+    "state": "Assam",
+    "lat": 26.74,
+    "lng": 92.1,
+    "region": "plain"
+  },
+  {
+    "name": "West Karbi Anglong",
+    "state": "Assam",
+    "lat": 25.85,
+    "lng": 92.55,
+    "region": "hill"
+  },
+  {
+    "name": "Araria",
+    "state": "Bihar",
+    "lat": 26.15,
+    "lng": 87.5,
+    "region": "plain"
+  },
+  {
+    "name": "Arwal",
+    "state": "Bihar",
+    "lat": 25.24,
+    "lng": 84.67,
+    "region": "plain"
+  },
+  {
+    "name": "Aurangabad (Bihar)",
+    "state": "Bihar",
+    "lat": 24.75,
+    "lng": 84.37,
+    "region": "plain"
+  },
+  {
+    "name": "Banka",
+    "state": "Bihar",
+    "lat": 24.88,
+    "lng": 86.92,
+    "region": "plain"
+  },
+  {
+    "name": "Begusarai",
+    "state": "Bihar",
+    "lat": 25.42,
+    "lng": 86.13,
+    "region": "plain"
+  },
+  {
+    "name": "Bhagalpur",
+    "state": "Bihar",
+    "lat": 25.24,
+    "lng": 86.98,
+    "region": "plain"
+  },
+  {
+    "name": "Bhojpur",
+    "state": "Bihar",
+    "lat": 25.46,
+    "lng": 84.52,
+    "region": "plain"
+  },
+  {
+    "name": "Buxar",
+    "state": "Bihar",
+    "lat": 25.56,
+    "lng": 83.98,
+    "region": "plain"
+  },
+  {
+    "name": "Darbhanga",
+    "state": "Bihar",
+    "lat": 26.15,
+    "lng": 85.9,
+    "region": "plain"
+  },
+  {
+    "name": "East Champaran",
+    "state": "Bihar",
+    "lat": 26.65,
+    "lng": 84.91,
+    "region": "plain"
+  },
+  {
+    "name": "Gaya",
+    "state": "Bihar",
+    "lat": 24.79,
+    "lng": 85,
+    "region": "plain"
+  },
+  {
+    "name": "Gopalganj",
+    "state": "Bihar",
+    "lat": 26.47,
+    "lng": 84.44,
+    "region": "plain"
+  },
+  {
+    "name": "Jamui",
+    "state": "Bihar",
+    "lat": 24.92,
+    "lng": 86.22,
+    "region": "plain"
+  },
+  {
+    "name": "Jehanabad",
+    "state": "Bihar",
+    "lat": 25.21,
+    "lng": 84.98,
+    "region": "plain"
+  },
+  {
+    "name": "Kaimur",
+    "state": "Bihar",
+    "lat": 25.04,
+    "lng": 83.61,
+    "region": "plain"
+  },
+  {
+    "name": "Katihar",
+    "state": "Bihar",
+    "lat": 25.54,
+    "lng": 87.57,
+    "region": "plain"
+  },
+  {
+    "name": "Khagaria",
+    "state": "Bihar",
+    "lat": 25.5,
+    "lng": 86.48,
+    "region": "plain"
+  },
+  {
+    "name": "Kishanganj",
+    "state": "Bihar",
+    "lat": 26.1,
+    "lng": 87.95,
+    "region": "plain"
+  },
+  {
+    "name": "Lakhisarai",
+    "state": "Bihar",
+    "lat": 25.17,
+    "lng": 86.09,
+    "region": "plain"
+  },
+  {
+    "name": "Madhepura",
+    "state": "Bihar",
+    "lat": 25.92,
+    "lng": 86.79,
+    "region": "plain"
+  },
+  {
+    "name": "Madhubani",
+    "state": "Bihar",
+    "lat": 26.36,
+    "lng": 86.08,
+    "region": "plain"
+  },
+  {
+    "name": "Munger",
+    "state": "Bihar",
+    "lat": 25.37,
+    "lng": 86.47,
+    "region": "plain"
+  },
+  {
+    "name": "Muzaffarpur",
+    "state": "Bihar",
+    "lat": 26.12,
+    "lng": 85.39,
+    "region": "plain"
+  },
+  {
+    "name": "Nalanda",
+    "state": "Bihar",
+    "lat": 25.2,
+    "lng": 85.52,
+    "region": "plain"
+  },
+  {
+    "name": "Nawada",
+    "state": "Bihar",
+    "lat": 24.88,
+    "lng": 85.54,
+    "region": "plain"
+  },
+  {
+    "name": "Patna",
+    "state": "Bihar",
+    "lat": 25.59,
+    "lng": 85.13,
+    "region": "plain"
+  },
+  {
+    "name": "Purnia",
+    "state": "Bihar",
+    "lat": 25.78,
+    "lng": 87.47,
+    "region": "plain"
+  },
+  {
+    "name": "Rohtas",
+    "state": "Bihar",
+    "lat": 24.95,
+    "lng": 84.01,
+    "region": "plain"
+  },
+  {
+    "name": "Saharsa",
+    "state": "Bihar",
+    "lat": 25.88,
+    "lng": 86.6,
+    "region": "plain"
+  },
+  {
+    "name": "Samastipur",
+    "state": "Bihar",
+    "lat": 25.86,
+    "lng": 85.78,
+    "region": "plain"
+  },
+  {
+    "name": "Saran",
+    "state": "Bihar",
+    "lat": 25.78,
+    "lng": 84.75,
+    "region": "plain"
+  },
+  {
+    "name": "Sheikhpura",
+    "state": "Bihar",
+    "lat": 25.14,
+    "lng": 85.86,
+    "region": "plain"
+  },
+  {
+    "name": "Sheohar",
+    "state": "Bihar",
+    "lat": 26.51,
+    "lng": 85.29,
+    "region": "plain"
+  },
+  {
+    "name": "Sitamarhi",
+    "state": "Bihar",
+    "lat": 26.6,
+    "lng": 85.48,
+    "region": "plain"
+  },
+  {
+    "name": "Siwan",
+    "state": "Bihar",
+    "lat": 26.22,
+    "lng": 84.36,
+    "region": "plain"
+  },
+  {
+    "name": "Supaul",
+    "state": "Bihar",
+    "lat": 26.12,
+    "lng": 86.6,
+    "region": "plain"
+  },
+  {
+    "name": "Vaishali",
+    "state": "Bihar",
+    "lat": 25.68,
+    "lng": 85.22,
+    "region": "plain"
+  },
+  {
+    "name": "West Champaran",
+    "state": "Bihar",
+    "lat": 27.15,
+    "lng": 84.45,
+    "region": "plain"
+  },
+  {
+    "name": "Balod",
+    "state": "Chhattisgarh",
+    "lat": 20.73,
+    "lng": 81.2,
+    "region": "plain"
+  },
+  {
+    "name": "Baloda Bazar",
+    "state": "Chhattisgarh",
+    "lat": 21.66,
+    "lng": 82.16,
+    "region": "plain"
+  },
+  {
+    "name": "Balrampur (CG)",
+    "state": "Chhattisgarh",
+    "lat": 23.61,
+    "lng": 83.61,
+    "region": "hill"
+  },
+  {
+    "name": "Bastar",
+    "state": "Chhattisgarh",
+    "lat": 19.08,
+    "lng": 82.01,
+    "region": "hill"
+  },
+  {
+    "name": "Bemetara",
+    "state": "Chhattisgarh",
+    "lat": 21.7,
+    "lng": 81.54,
+    "region": "plain"
+  },
+  {
+    "name": "Bijapur (CG)",
+    "state": "Chhattisgarh",
+    "lat": 18.79,
+    "lng": 80.81,
+    "region": "hill"
+  },
+  {
+    "name": "Bilaspur (CG)",
+    "state": "Chhattisgarh",
+    "lat": 22.08,
+    "lng": 82.14,
+    "region": "plain"
+  },
+  {
+    "name": "Dantewada",
+    "state": "Chhattisgarh",
+    "lat": 18.9,
+    "lng": 81.35,
+    "region": "hill"
+  },
+  {
+    "name": "Dhamtari",
+    "state": "Chhattisgarh",
+    "lat": 20.71,
+    "lng": 81.55,
+    "region": "plain"
+  },
+  {
+    "name": "Durg",
+    "state": "Chhattisgarh",
+    "lat": 21.19,
+    "lng": 81.28,
+    "region": "plain"
+  },
+  {
+    "name": "Gariaband",
+    "state": "Chhattisgarh",
+    "lat": 20.94,
+    "lng": 82.06,
+    "region": "hill"
+  },
+  {
+    "name": "Gaurela-Pendra-Marwahi",
+    "state": "Chhattisgarh",
+    "lat": 22.76,
+    "lng": 81.91,
+    "region": "hill"
+  },
+  {
+    "name": "Janjgir-Champa",
+    "state": "Chhattisgarh",
+    "lat": 22.01,
+    "lng": 82.57,
+    "region": "plain"
+  },
+  {
+    "name": "Jashpur",
+    "state": "Chhattisgarh",
+    "lat": 22.88,
+    "lng": 84.14,
+    "region": "hill"
+  },
+  {
+    "name": "Kabirdham",
+    "state": "Chhattisgarh",
+    "lat": 22.01,
+    "lng": 81.24,
+    "region": "hill"
+  },
+  {
+    "name": "Kanker",
+    "state": "Chhattisgarh",
+    "lat": 20.27,
+    "lng": 81.49,
+    "region": "hill"
+  },
+  {
+    "name": "Khairagarh-Chhuikhadan-Gandai",
+    "state": "Chhattisgarh",
+    "lat": 21.42,
+    "lng": 80.98,
+    "region": "plain"
+  },
+  {
+    "name": "Kondagaon",
+    "state": "Chhattisgarh",
+    "lat": 19.6,
+    "lng": 81.67,
+    "region": "hill"
+  },
+  {
+    "name": "Korba",
+    "state": "Chhattisgarh",
+    "lat": 22.36,
+    "lng": 82.72,
+    "region": "plain"
+  },
+  {
+    "name": "Koriya",
+    "state": "Chhattisgarh",
+    "lat": 23.26,
+    "lng": 82.56,
+    "region": "hill"
+  },
+  {
+    "name": "Mahasamund",
+    "state": "Chhattisgarh",
+    "lat": 21.11,
+    "lng": 82.1,
+    "region": "plain"
+  },
+  {
+    "name": "Manendragarh-Chirmiri-Bharatpur",
+    "state": "Chhattisgarh",
+    "lat": 23.36,
+    "lng": 82.34,
+    "region": "hill"
+  },
+  {
+    "name": "Mohla-Manpur-Ambagarh Chowki",
+    "state": "Chhattisgarh",
+    "lat": 20.66,
+    "lng": 80.74,
+    "region": "hill"
+  },
+  {
+    "name": "Mungeli",
+    "state": "Chhattisgarh",
+    "lat": 22.07,
+    "lng": 81.69,
+    "region": "plain"
+  },
+  {
+    "name": "Narayanpur",
+    "state": "Chhattisgarh",
+    "lat": 19.71,
+    "lng": 81.25,
+    "region": "hill"
+  },
+  {
+    "name": "Raigarh",
+    "state": "Chhattisgarh",
+    "lat": 21.9,
+    "lng": 83.4,
+    "region": "plain"
+  },
+  {
+    "name": "Raipur",
+    "state": "Chhattisgarh",
+    "lat": 21.25,
+    "lng": 81.62,
+    "region": "plain"
+  },
+  {
+    "name": "Rajnandgaon",
+    "state": "Chhattisgarh",
+    "lat": 21.1,
+    "lng": 81.03,
+    "region": "plain"
+  },
+  {
+    "name": "Sakti",
+    "state": "Chhattisgarh",
+    "lat": 22.03,
+    "lng": 82.96,
+    "region": "plain"
+  },
+  {
+    "name": "Sarangarh-Bilaigarh",
+    "state": "Chhattisgarh",
+    "lat": 21.59,
+    "lng": 83.08,
+    "region": "plain"
+  },
+  {
+    "name": "Sukma",
+    "state": "Chhattisgarh",
+    "lat": 18.4,
+    "lng": 81.67,
+    "region": "hill"
+  },
+  {
+    "name": "Surajpur",
+    "state": "Chhattisgarh",
+    "lat": 23.22,
+    "lng": 82.87,
+    "region": "hill"
+  },
+  {
+    "name": "Surguja",
+    "state": "Chhattisgarh",
+    "lat": 23.12,
+    "lng": 83.19,
+    "region": "hill"
+  },
+  {
+    "name": "North Goa",
+    "state": "Goa",
+    "lat": 15.49,
+    "lng": 73.82,
+    "region": "coast"
+  },
+  {
+    "name": "South Goa",
+    "state": "Goa",
+    "lat": 15.2,
+    "lng": 74,
+    "region": "coast"
+  },
+  {
+    "name": "Ahmedabad",
+    "state": "Gujarat",
+    "lat": 23.03,
+    "lng": 72.58,
+    "region": "semi"
+  },
+  {
+    "name": "Amreli",
+    "state": "Gujarat",
+    "lat": 21.6,
+    "lng": 71.22,
+    "region": "semi"
+  },
+  {
+    "name": "Anand",
+    "state": "Gujarat",
+    "lat": 22.56,
+    "lng": 72.95,
+    "region": "plain"
+  },
+  {
+    "name": "Aravalli",
+    "state": "Gujarat",
+    "lat": 23.5,
+    "lng": 73.22,
+    "region": "semi"
+  },
+  {
+    "name": "Banaskantha",
+    "state": "Gujarat",
+    "lat": 24.17,
+    "lng": 72.43,
+    "region": "desert"
+  },
+  {
+    "name": "Bharuch",
+    "state": "Gujarat",
+    "lat": 21.7,
+    "lng": 72.97,
+    "region": "coast"
+  },
+  {
+    "name": "Bhavnagar",
+    "state": "Gujarat",
+    "lat": 21.76,
+    "lng": 72.15,
+    "region": "coast"
+  },
+  {
+    "name": "Botad",
+    "state": "Gujarat",
+    "lat": 22.17,
+    "lng": 71.67,
+    "region": "semi"
+  },
+  {
+    "name": "Chhota Udaipur",
+    "state": "Gujarat",
+    "lat": 22.3,
+    "lng": 74.01,
+    "region": "hill"
+  },
+  {
+    "name": "Dahod",
+    "state": "Gujarat",
+    "lat": 22.84,
+    "lng": 74.26,
+    "region": "hill"
+  },
+  {
+    "name": "Dang",
+    "state": "Gujarat",
+    "lat": 20.8,
+    "lng": 73.7,
+    "region": "hill"
+  },
+  {
+    "name": "Devbhumi Dwarka",
+    "state": "Gujarat",
+    "lat": 22.24,
+    "lng": 68.97,
+    "region": "coast"
+  },
+  {
+    "name": "Gandhinagar",
+    "state": "Gujarat",
+    "lat": 23.22,
+    "lng": 72.64,
+    "region": "plain"
+  },
+  {
+    "name": "Gir Somnath",
+    "state": "Gujarat",
+    "lat": 20.9,
+    "lng": 70.37,
+    "region": "coast"
+  },
+  {
+    "name": "Jamnagar",
+    "state": "Gujarat",
+    "lat": 22.47,
+    "lng": 70.07,
+    "region": "coast"
+  },
+  {
+    "name": "Junagadh",
+    "state": "Gujarat",
+    "lat": 21.52,
+    "lng": 70.46,
+    "region": "coast"
+  },
+  {
+    "name": "Kheda",
+    "state": "Gujarat",
+    "lat": 22.75,
+    "lng": 72.68,
+    "region": "plain"
+  },
+  {
+    "name": "Kutch",
+    "state": "Gujarat",
+    "lat": 23.24,
+    "lng": 69.66,
+    "region": "desert"
+  },
+  {
+    "name": "Mahisagar",
+    "state": "Gujarat",
+    "lat": 23.17,
+    "lng": 73.57,
+    "region": "hill"
+  },
+  {
+    "name": "Mehsana",
+    "state": "Gujarat",
+    "lat": 23.6,
+    "lng": 72.4,
+    "region": "plain"
+  },
+  {
+    "name": "Morbi",
+    "state": "Gujarat",
+    "lat": 22.82,
+    "lng": 70.84,
+    "region": "semi"
+  },
+  {
+    "name": "Narmada",
+    "state": "Gujarat",
+    "lat": 21.87,
+    "lng": 73.5,
+    "region": "hill"
+  },
+  {
+    "name": "Navsari",
+    "state": "Gujarat",
+    "lat": 20.95,
+    "lng": 72.93,
+    "region": "coast"
+  },
+  {
+    "name": "Panchmahal",
+    "state": "Gujarat",
+    "lat": 22.77,
+    "lng": 73.61,
+    "region": "plain"
+  },
+  {
+    "name": "Patan",
+    "state": "Gujarat",
+    "lat": 23.85,
+    "lng": 72.12,
+    "region": "desert"
+  },
+  {
+    "name": "Porbandar",
+    "state": "Gujarat",
+    "lat": 21.64,
+    "lng": 69.6,
+    "region": "coast"
+  },
+  {
+    "name": "Rajkot",
+    "state": "Gujarat",
+    "lat": 22.3,
+    "lng": 70.8,
+    "region": "semi"
+  },
+  {
+    "name": "Sabarkantha",
+    "state": "Gujarat",
+    "lat": 23.6,
+    "lng": 73,
+    "region": "semi"
+  },
+  {
+    "name": "Surat",
+    "state": "Gujarat",
+    "lat": 21.17,
+    "lng": 72.83,
+    "region": "coast"
+  },
+  {
+    "name": "Surendranagar",
+    "state": "Gujarat",
+    "lat": 22.72,
+    "lng": 71.64,
+    "region": "semi"
+  },
+  {
+    "name": "Tapi",
+    "state": "Gujarat",
+    "lat": 21.25,
+    "lng": 73.43,
+    "region": "hill"
+  },
+  {
+    "name": "Vadodara",
+    "state": "Gujarat",
+    "lat": 22.31,
+    "lng": 73.18,
+    "region": "plain"
+  },
+  {
+    "name": "Valsad",
+    "state": "Gujarat",
+    "lat": 20.61,
+    "lng": 72.93,
+    "region": "coast"
+  },
+  {
+    "name": "Ambala",
+    "state": "Haryana",
+    "lat": 30.37,
+    "lng": 76.78,
+    "region": "plain"
+  },
+  {
+    "name": "Bhiwani",
+    "state": "Haryana",
+    "lat": 28.78,
+    "lng": 76.13,
+    "region": "desert"
+  },
+  {
+    "name": "Charkhi Dadri",
+    "state": "Haryana",
+    "lat": 28.59,
+    "lng": 76.27,
+    "region": "desert"
+  },
+  {
+    "name": "Faridabad",
+    "state": "Haryana",
+    "lat": 28.41,
+    "lng": 77.31,
+    "region": "plain"
+  },
+  {
+    "name": "Fatehabad",
+    "state": "Haryana",
+    "lat": 29.51,
+    "lng": 75.45,
+    "region": "plain"
+  },
+  {
+    "name": "Gurugram",
+    "state": "Haryana",
+    "lat": 28.46,
+    "lng": 77.02,
+    "region": "plain"
+  },
+  {
+    "name": "Hisar",
+    "state": "Haryana",
+    "lat": 29.15,
+    "lng": 75.72,
+    "region": "desert"
+  },
+  {
+    "name": "Jhajjar",
+    "state": "Haryana",
+    "lat": 28.61,
+    "lng": 76.65,
+    "region": "plain"
+  },
+  {
+    "name": "Jind",
+    "state": "Haryana",
+    "lat": 29.31,
+    "lng": 76.31,
+    "region": "plain"
+  },
+  {
+    "name": "Kaithal",
+    "state": "Haryana",
+    "lat": 29.8,
+    "lng": 76.4,
+    "region": "plain"
+  },
+  {
+    "name": "Karnal",
+    "state": "Haryana",
+    "lat": 29.69,
+    "lng": 76.98,
+    "region": "plain"
+  },
+  {
+    "name": "Kurukshetra",
+    "state": "Haryana",
+    "lat": 29.97,
+    "lng": 76.88,
+    "region": "plain"
+  },
+  {
+    "name": "Mahendragarh",
+    "state": "Haryana",
+    "lat": 28.28,
+    "lng": 76.15,
+    "region": "desert"
+  },
+  {
+    "name": "Nuh",
+    "state": "Haryana",
+    "lat": 28.11,
+    "lng": 77,
+    "region": "semi"
+  },
+  {
+    "name": "Palwal",
+    "state": "Haryana",
+    "lat": 28.14,
+    "lng": 77.33,
+    "region": "plain"
+  },
+  {
+    "name": "Panchkula",
+    "state": "Haryana",
+    "lat": 30.69,
+    "lng": 76.86,
+    "region": "hill"
+  },
+  {
+    "name": "Panipat",
+    "state": "Haryana",
+    "lat": 29.39,
+    "lng": 76.97,
+    "region": "plain"
+  },
+  {
+    "name": "Rewari",
+    "state": "Haryana",
+    "lat": 28.18,
+    "lng": 76.62,
+    "region": "semi"
+  },
+  {
+    "name": "Rohtak",
+    "state": "Haryana",
+    "lat": 28.89,
+    "lng": 76.58,
+    "region": "plain"
+  },
+  {
+    "name": "Sirsa",
+    "state": "Haryana",
+    "lat": 29.53,
+    "lng": 75.03,
+    "region": "desert"
+  },
+  {
+    "name": "Sonipat",
+    "state": "Haryana",
+    "lat": 28.99,
+    "lng": 77.02,
+    "region": "plain"
+  },
+  {
+    "name": "Yamunanagar",
+    "state": "Haryana",
+    "lat": 30.13,
+    "lng": 77.29,
+    "region": "plain"
+  },
+  {
+    "name": "Bilaspur (HP)",
+    "state": "Himachal Pradesh",
+    "lat": 31.33,
+    "lng": 76.76,
+    "region": "himalaya"
+  },
+  {
+    "name": "Chamba",
+    "state": "Himachal Pradesh",
+    "lat": 32.55,
+    "lng": 76.13,
+    "region": "himalaya"
+  },
+  {
+    "name": "Hamirpur (HP)",
+    "state": "Himachal Pradesh",
+    "lat": 31.68,
+    "lng": 76.52,
+    "region": "hill"
+  },
+  {
+    "name": "Kangra",
+    "state": "Himachal Pradesh",
+    "lat": 32.1,
+    "lng": 76.28,
+    "region": "hill"
+  },
+  {
+    "name": "Kinnaur",
+    "state": "Himachal Pradesh",
+    "lat": 31.65,
+    "lng": 78.47,
+    "region": "himalaya"
+  },
+  {
+    "name": "Kullu",
+    "state": "Himachal Pradesh",
+    "lat": 31.95,
+    "lng": 77.1,
+    "region": "himalaya"
+  },
+  {
+    "name": "Lahaul and Spiti",
+    "state": "Himachal Pradesh",
+    "lat": 32.3,
+    "lng": 77.2,
+    "region": "himalaya"
+  },
+  {
+    "name": "Mandi",
+    "state": "Himachal Pradesh",
+    "lat": 31.7,
+    "lng": 76.93,
+    "region": "himalaya"
+  },
+  {
+    "name": "Shimla",
+    "state": "Himachal Pradesh",
+    "lat": 31.1,
+    "lng": 77.17,
+    "region": "himalaya"
+  },
+  {
+    "name": "Sirmaur",
+    "state": "Himachal Pradesh",
+    "lat": 30.55,
+    "lng": 77.3,
+    "region": "hill"
+  },
+  {
+    "name": "Solan",
+    "state": "Himachal Pradesh",
+    "lat": 30.9,
+    "lng": 77.1,
+    "region": "hill"
+  },
+  {
+    "name": "Una",
+    "state": "Himachal Pradesh",
+    "lat": 31.47,
+    "lng": 76.27,
+    "region": "hill"
+  },
+  {
+    "name": "Bokaro",
+    "state": "Jharkhand",
+    "lat": 23.67,
+    "lng": 86.15,
+    "region": "plain"
+  },
+  {
+    "name": "Chatra",
+    "state": "Jharkhand",
+    "lat": 24.21,
+    "lng": 84.87,
+    "region": "hill"
+  },
+  {
+    "name": "Deoghar",
+    "state": "Jharkhand",
+    "lat": 24.48,
+    "lng": 86.7,
+    "region": "hill"
+  },
+  {
+    "name": "Dhanbad",
+    "state": "Jharkhand",
+    "lat": 23.79,
+    "lng": 86.43,
+    "region": "plain"
+  },
+  {
+    "name": "Dumka",
+    "state": "Jharkhand",
+    "lat": 24.27,
+    "lng": 87.25,
+    "region": "hill"
+  },
+  {
+    "name": "East Singhbhum",
+    "state": "Jharkhand",
+    "lat": 22.8,
+    "lng": 86.2,
+    "region": "hill"
+  },
+  {
+    "name": "Garhwa",
+    "state": "Jharkhand",
+    "lat": 24.18,
+    "lng": 83.81,
+    "region": "hill"
+  },
+  {
+    "name": "Giridih",
+    "state": "Jharkhand",
+    "lat": 24.18,
+    "lng": 86.3,
+    "region": "hill"
+  },
+  {
+    "name": "Godda",
+    "state": "Jharkhand",
+    "lat": 24.83,
+    "lng": 87.21,
+    "region": "plain"
+  },
+  {
+    "name": "Gumla",
+    "state": "Jharkhand",
+    "lat": 23.04,
+    "lng": 84.54,
+    "region": "hill"
+  },
+  {
+    "name": "Hazaribagh",
+    "state": "Jharkhand",
+    "lat": 23.99,
+    "lng": 85.36,
+    "region": "hill"
+  },
+  {
+    "name": "Jamtara",
+    "state": "Jharkhand",
+    "lat": 23.96,
+    "lng": 86.8,
+    "region": "plain"
+  },
+  {
+    "name": "Khunti",
+    "state": "Jharkhand",
+    "lat": 23.07,
+    "lng": 85.28,
+    "region": "hill"
+  },
+  {
+    "name": "Koderma",
+    "state": "Jharkhand",
+    "lat": 24.47,
+    "lng": 85.59,
+    "region": "hill"
+  },
+  {
+    "name": "Latehar",
+    "state": "Jharkhand",
+    "lat": 23.74,
+    "lng": 84.5,
+    "region": "hill"
+  },
+  {
+    "name": "Lohardaga",
+    "state": "Jharkhand",
+    "lat": 23.44,
+    "lng": 84.68,
+    "region": "hill"
+  },
+  {
+    "name": "Pakur",
+    "state": "Jharkhand",
+    "lat": 24.63,
+    "lng": 87.84,
+    "region": "plain"
+  },
+  {
+    "name": "Palamu",
+    "state": "Jharkhand",
+    "lat": 24.04,
+    "lng": 84.07,
+    "region": "semi"
+  },
+  {
+    "name": "Ramgarh",
+    "state": "Jharkhand",
+    "lat": 23.63,
+    "lng": 85.51,
+    "region": "hill"
+  },
+  {
+    "name": "Ranchi",
+    "state": "Jharkhand",
+    "lat": 23.34,
+    "lng": 85.3,
+    "region": "hill"
+  },
+  {
+    "name": "Sahibganj",
+    "state": "Jharkhand",
+    "lat": 25.25,
+    "lng": 87.65,
+    "region": "plain"
+  },
+  {
+    "name": "Seraikela Kharsawan",
+    "state": "Jharkhand",
+    "lat": 22.7,
+    "lng": 85.98,
+    "region": "hill"
+  },
+  {
+    "name": "Simdega",
+    "state": "Jharkhand",
+    "lat": 22.61,
+    "lng": 84.51,
+    "region": "hill"
+  },
+  {
+    "name": "West Singhbhum",
+    "state": "Jharkhand",
+    "lat": 22.57,
+    "lng": 85.81,
+    "region": "hill"
+  },
+  {
+    "name": "Bagalkote",
+    "state": "Karnataka",
+    "lat": 16.18,
+    "lng": 75.7,
+    "region": "semi"
+  },
+  {
+    "name": "Ballari",
+    "state": "Karnataka",
+    "lat": 15.14,
+    "lng": 76.92,
+    "region": "semi"
+  },
+  {
+    "name": "Belagavi",
+    "state": "Karnataka",
+    "lat": 15.85,
+    "lng": 74.5,
+    "region": "semi"
+  },
+  {
+    "name": "Bengaluru Rural",
+    "state": "Karnataka",
+    "lat": 13.23,
+    "lng": 77.58,
+    "region": "semi"
+  },
+  {
+    "name": "Bengaluru Urban",
+    "state": "Karnataka",
+    "lat": 12.97,
+    "lng": 77.57,
+    "region": "semi"
+  },
+  {
+    "name": "Bidar",
+    "state": "Karnataka",
+    "lat": 17.91,
+    "lng": 77.52,
+    "region": "semi"
+  },
+  {
+    "name": "Chamarajanagar",
+    "state": "Karnataka",
+    "lat": 11.92,
+    "lng": 76.94,
+    "region": "hill"
+  },
+  {
+    "name": "Chikkaballapura",
+    "state": "Karnataka",
+    "lat": 13.43,
+    "lng": 77.73,
+    "region": "semi"
+  },
+  {
+    "name": "Chikkamagaluru",
+    "state": "Karnataka",
+    "lat": 13.32,
+    "lng": 75.77,
+    "region": "hill"
+  },
+  {
+    "name": "Chitradurga",
+    "state": "Karnataka",
+    "lat": 14.23,
+    "lng": 76.4,
+    "region": "semi"
+  },
+  {
+    "name": "Dakshina Kannada",
+    "state": "Karnataka",
+    "lat": 12.91,
+    "lng": 74.86,
+    "region": "coast"
+  },
+  {
+    "name": "Davanagere",
+    "state": "Karnataka",
+    "lat": 14.46,
+    "lng": 75.92,
+    "region": "semi"
+  },
+  {
+    "name": "Dharwad",
+    "state": "Karnataka",
+    "lat": 15.46,
+    "lng": 75.01,
+    "region": "semi"
+  },
+  {
+    "name": "Gadag",
+    "state": "Karnataka",
+    "lat": 15.43,
+    "lng": 75.63,
+    "region": "semi"
+  },
+  {
+    "name": "Hassan",
+    "state": "Karnataka",
+    "lat": 13,
+    "lng": 76.1,
+    "region": "hill"
+  },
+  {
+    "name": "Haveri",
+    "state": "Karnataka",
+    "lat": 14.8,
+    "lng": 75.4,
+    "region": "semi"
+  },
+  {
+    "name": "Kalaburagi",
+    "state": "Karnataka",
+    "lat": 17.33,
+    "lng": 76.83,
+    "region": "semi"
+  },
+  {
+    "name": "Kodagu",
+    "state": "Karnataka",
+    "lat": 12.42,
+    "lng": 75.74,
+    "region": "hill"
+  },
+  {
+    "name": "Kolar",
+    "state": "Karnataka",
+    "lat": 13.14,
+    "lng": 78.13,
+    "region": "semi"
+  },
+  {
+    "name": "Koppal",
+    "state": "Karnataka",
+    "lat": 15.35,
+    "lng": 76.15,
+    "region": "semi"
+  },
+  {
+    "name": "Mandya",
+    "state": "Karnataka",
+    "lat": 12.52,
+    "lng": 76.9,
+    "region": "semi"
+  },
+  {
+    "name": "Mysuru",
+    "state": "Karnataka",
+    "lat": 12.29,
+    "lng": 76.64,
+    "region": "semi"
+  },
+  {
+    "name": "Raichur",
+    "state": "Karnataka",
+    "lat": 16.2,
+    "lng": 77.36,
+    "region": "semi"
+  },
+  {
+    "name": "Ramanagara",
+    "state": "Karnataka",
+    "lat": 12.72,
+    "lng": 77.28,
+    "region": "semi"
+  },
+  {
+    "name": "Shivamogga",
+    "state": "Karnataka",
+    "lat": 13.93,
+    "lng": 75.57,
+    "region": "hill"
+  },
+  {
+    "name": "Tumakuru",
+    "state": "Karnataka",
+    "lat": 13.34,
+    "lng": 77.1,
+    "region": "semi"
+  },
+  {
+    "name": "Udupi",
+    "state": "Karnataka",
+    "lat": 13.34,
+    "lng": 74.74,
+    "region": "coast"
+  },
+  {
+    "name": "Uttara Kannada",
+    "state": "Karnataka",
+    "lat": 14.78,
+    "lng": 74.65,
+    "region": "coast"
+  },
+  {
+    "name": "Vijayanagara",
+    "state": "Karnataka",
+    "lat": 15.27,
+    "lng": 76.39,
+    "region": "semi"
+  },
+  {
+    "name": "Vijayapura",
+    "state": "Karnataka",
+    "lat": 16.83,
+    "lng": 75.71,
+    "region": "semi"
+  },
+  {
+    "name": "Yadgir",
+    "state": "Karnataka",
+    "lat": 16.77,
+    "lng": 77.14,
+    "region": "semi"
+  },
+  {
+    "name": "Alappuzha",
+    "state": "Kerala",
+    "lat": 9.49,
+    "lng": 76.32,
+    "region": "coast"
+  },
+  {
+    "name": "Ernakulam",
+    "state": "Kerala",
+    "lat": 9.98,
+    "lng": 76.28,
+    "region": "coast"
+  },
+  {
+    "name": "Idukki",
+    "state": "Kerala",
+    "lat": 9.9,
+    "lng": 77.05,
+    "region": "hill"
+  },
+  {
+    "name": "Kannur",
+    "state": "Kerala",
+    "lat": 11.87,
+    "lng": 75.37,
+    "region": "coast"
+  },
+  {
+    "name": "Kasaragod",
+    "state": "Kerala",
+    "lat": 12.51,
+    "lng": 74.99,
+    "region": "coast"
+  },
+  {
+    "name": "Kollam",
+    "state": "Kerala",
+    "lat": 8.89,
+    "lng": 76.6,
+    "region": "coast"
+  },
+  {
+    "name": "Kottayam",
+    "state": "Kerala",
+    "lat": 9.59,
+    "lng": 76.52,
+    "region": "plain"
+  },
+  {
+    "name": "Kozhikode",
+    "state": "Kerala",
+    "lat": 11.25,
+    "lng": 75.78,
+    "region": "coast"
+  },
+  {
+    "name": "Malappuram",
+    "state": "Kerala",
+    "lat": 11.07,
+    "lng": 76.07,
+    "region": "coast"
+  },
+  {
+    "name": "Palakkad",
+    "state": "Kerala",
+    "lat": 10.78,
+    "lng": 76.65,
+    "region": "plain"
+  },
+  {
+    "name": "Pathanamthitta",
+    "state": "Kerala",
+    "lat": 9.27,
+    "lng": 76.79,
+    "region": "hill"
+  },
+  {
+    "name": "Thiruvananthapuram",
+    "state": "Kerala",
+    "lat": 8.52,
+    "lng": 76.94,
+    "region": "coast"
+  },
+  {
+    "name": "Thrissur",
+    "state": "Kerala",
+    "lat": 10.52,
+    "lng": 76.21,
+    "region": "coast"
+  },
+  {
+    "name": "Wayanad",
+    "state": "Kerala",
+    "lat": 11.65,
+    "lng": 76.1,
+    "region": "hill"
+  },
+  {
+    "name": "Agar Malwa",
+    "state": "Madhya Pradesh",
+    "lat": 23.71,
+    "lng": 76.02,
+    "region": "semi"
+  },
+  {
+    "name": "Alirajpur",
+    "state": "Madhya Pradesh",
+    "lat": 22.3,
+    "lng": 74.35,
+    "region": "hill"
+  },
+  {
+    "name": "Anuppur",
+    "state": "Madhya Pradesh",
+    "lat": 23.1,
+    "lng": 81.69,
+    "region": "hill"
+  },
+  {
+    "name": "Ashoknagar",
+    "state": "Madhya Pradesh",
+    "lat": 24.58,
+    "lng": 77.73,
+    "region": "semi"
+  },
+  {
+    "name": "Balaghat",
+    "state": "Madhya Pradesh",
+    "lat": 21.81,
+    "lng": 80.18,
+    "region": "hill"
+  },
+  {
+    "name": "Barwani",
+    "state": "Madhya Pradesh",
+    "lat": 22.03,
+    "lng": 74.9,
+    "region": "hill"
+  },
+  {
+    "name": "Betul",
+    "state": "Madhya Pradesh",
+    "lat": 21.9,
+    "lng": 77.9,
+    "region": "hill"
+  },
+  {
+    "name": "Bhind",
+    "state": "Madhya Pradesh",
+    "lat": 26.56,
+    "lng": 78.79,
+    "region": "plain"
+  },
+  {
+    "name": "Bhopal",
+    "state": "Madhya Pradesh",
+    "lat": 23.25,
+    "lng": 77.41,
+    "region": "semi"
+  },
+  {
+    "name": "Burhanpur",
+    "state": "Madhya Pradesh",
+    "lat": 21.31,
+    "lng": 76.23,
+    "region": "plain"
+  },
+  {
+    "name": "Chhatarpur",
+    "state": "Madhya Pradesh",
+    "lat": 24.92,
+    "lng": 79.58,
+    "region": "plain"
+  },
+  {
+    "name": "Chhindwara",
+    "state": "Madhya Pradesh",
+    "lat": 22.06,
+    "lng": 78.94,
+    "region": "hill"
+  },
+  {
+    "name": "Damoh",
+    "state": "Madhya Pradesh",
+    "lat": 23.83,
+    "lng": 79.44,
+    "region": "plain"
+  },
+  {
+    "name": "Datia",
+    "state": "Madhya Pradesh",
+    "lat": 25.67,
+    "lng": 78.46,
+    "region": "plain"
+  },
+  {
+    "name": "Dewas",
+    "state": "Madhya Pradesh",
+    "lat": 22.97,
+    "lng": 76.05,
+    "region": "semi"
+  },
+  {
+    "name": "Dhar",
+    "state": "Madhya Pradesh",
+    "lat": 22.6,
+    "lng": 75.3,
+    "region": "semi"
+  },
+  {
+    "name": "Dindori",
+    "state": "Madhya Pradesh",
+    "lat": 22.95,
+    "lng": 81.08,
+    "region": "hill"
+  },
+  {
+    "name": "Guna",
+    "state": "Madhya Pradesh",
+    "lat": 24.65,
+    "lng": 77.32,
+    "region": "semi"
+  },
+  {
+    "name": "Gwalior",
+    "state": "Madhya Pradesh",
+    "lat": 26.18,
+    "lng": 78.17,
+    "region": "plain"
+  },
+  {
+    "name": "Harda",
+    "state": "Madhya Pradesh",
+    "lat": 22.34,
+    "lng": 77.1,
+    "region": "plain"
+  },
+  {
+    "name": "Indore",
+    "state": "Madhya Pradesh",
+    "lat": 22.71,
+    "lng": 75.87,
+    "region": "semi"
+  },
+  {
+    "name": "Jabalpur",
+    "state": "Madhya Pradesh",
+    "lat": 23.18,
+    "lng": 79.99,
+    "region": "plain"
+  },
+  {
+    "name": "Jhabua",
+    "state": "Madhya Pradesh",
+    "lat": 22.77,
+    "lng": 74.6,
+    "region": "hill"
+  },
+  {
+    "name": "Katni",
+    "state": "Madhya Pradesh",
+    "lat": 23.83,
+    "lng": 80.4,
+    "region": "plain"
+  },
+  {
+    "name": "Khandwa",
+    "state": "Madhya Pradesh",
+    "lat": 21.83,
+    "lng": 76.35,
+    "region": "semi"
+  },
+  {
+    "name": "Khargone",
+    "state": "Madhya Pradesh",
+    "lat": 21.82,
+    "lng": 75.61,
+    "region": "semi"
+  },
+  {
+    "name": "Maihar",
+    "state": "Madhya Pradesh",
+    "lat": 24.27,
+    "lng": 80.76,
+    "region": "hill"
+  },
+  {
+    "name": "Mandla",
+    "state": "Madhya Pradesh",
+    "lat": 22.6,
+    "lng": 80.38,
+    "region": "hill"
+  },
+  {
+    "name": "Mandsaur",
+    "state": "Madhya Pradesh",
+    "lat": 24.07,
+    "lng": 75.07,
+    "region": "semi"
+  },
+  {
+    "name": "Mauganj",
+    "state": "Madhya Pradesh",
+    "lat": 24.68,
+    "lng": 81.87,
+    "region": "plain"
+  },
+  {
+    "name": "Morena",
+    "state": "Madhya Pradesh",
+    "lat": 26.5,
+    "lng": 78,
+    "region": "plain"
+  },
+  {
+    "name": "Narmadapuram",
+    "state": "Madhya Pradesh",
+    "lat": 22.75,
+    "lng": 77.73,
+    "region": "plain"
+  },
+  {
+    "name": "Narsinghpur",
+    "state": "Madhya Pradesh",
+    "lat": 22.95,
+    "lng": 79.2,
+    "region": "plain"
+  },
+  {
+    "name": "Neemuch",
+    "state": "Madhya Pradesh",
+    "lat": 24.45,
+    "lng": 74.87,
+    "region": "semi"
+  },
+  {
+    "name": "Niwari",
+    "state": "Madhya Pradesh",
+    "lat": 25.36,
+    "lng": 78.8,
+    "region": "plain"
+  },
+  {
+    "name": "Pandhurna",
+    "state": "Madhya Pradesh",
+    "lat": 21.6,
+    "lng": 78.53,
+    "region": "semi"
+  },
+  {
+    "name": "Panna",
+    "state": "Madhya Pradesh",
+    "lat": 24.72,
+    "lng": 80.19,
+    "region": "hill"
+  },
+  {
+    "name": "Raisen",
+    "state": "Madhya Pradesh",
+    "lat": 23.33,
+    "lng": 77.78,
+    "region": "semi"
+  },
+  {
+    "name": "Rajgarh",
+    "state": "Madhya Pradesh",
+    "lat": 24.01,
+    "lng": 76.73,
+    "region": "semi"
+  },
+  {
+    "name": "Ratlam",
+    "state": "Madhya Pradesh",
+    "lat": 23.33,
+    "lng": 75.04,
+    "region": "semi"
+  },
+  {
+    "name": "Rewa",
+    "state": "Madhya Pradesh",
+    "lat": 24.53,
+    "lng": 81.3,
+    "region": "plain"
+  },
+  {
+    "name": "Sagar",
+    "state": "Madhya Pradesh",
+    "lat": 23.84,
+    "lng": 78.74,
+    "region": "semi"
+  },
+  {
+    "name": "Satna",
+    "state": "Madhya Pradesh",
+    "lat": 24.58,
+    "lng": 80.83,
+    "region": "plain"
+  },
+  {
+    "name": "Sehore",
+    "state": "Madhya Pradesh",
+    "lat": 23.2,
+    "lng": 77.08,
+    "region": "semi"
+  },
+  {
+    "name": "Seoni",
+    "state": "Madhya Pradesh",
+    "lat": 22.09,
+    "lng": 79.54,
+    "region": "hill"
+  },
+  {
+    "name": "Shahdol",
+    "state": "Madhya Pradesh",
+    "lat": 23.29,
+    "lng": 81.35,
+    "region": "hill"
+  },
+  {
+    "name": "Shajapur",
+    "state": "Madhya Pradesh",
+    "lat": 23.43,
+    "lng": 76.28,
+    "region": "semi"
+  },
+  {
+    "name": "Sheopur",
+    "state": "Madhya Pradesh",
+    "lat": 25.67,
+    "lng": 76.7,
+    "region": "plain"
+  },
+  {
+    "name": "Shivpuri",
+    "state": "Madhya Pradesh",
+    "lat": 25.43,
+    "lng": 77.65,
+    "region": "plain"
+  },
+  {
+    "name": "Sidhi",
+    "state": "Madhya Pradesh",
+    "lat": 24.42,
+    "lng": 81.88,
+    "region": "hill"
+  },
+  {
+    "name": "Singrauli",
+    "state": "Madhya Pradesh",
+    "lat": 24.2,
+    "lng": 82.67,
+    "region": "hill"
+  },
+  {
+    "name": "Tikamgarh",
+    "state": "Madhya Pradesh",
+    "lat": 24.74,
+    "lng": 78.83,
+    "region": "plain"
+  },
+  {
+    "name": "Ujjain",
+    "state": "Madhya Pradesh",
+    "lat": 23.18,
+    "lng": 75.78,
+    "region": "semi"
+  },
+  {
+    "name": "Umaria",
+    "state": "Madhya Pradesh",
+    "lat": 23.53,
+    "lng": 80.83,
+    "region": "hill"
+  },
+  {
+    "name": "Vidisha",
+    "state": "Madhya Pradesh",
+    "lat": 23.53,
+    "lng": 77.82,
+    "region": "semi"
+  },
+  {
+    "name": "Ahmednagar",
+    "state": "Maharashtra",
+    "lat": 19.09,
+    "lng": 74.74,
+    "region": "semi"
+  },
+  {
+    "name": "Akola",
+    "state": "Maharashtra",
+    "lat": 20.71,
+    "lng": 77,
+    "region": "semi"
+  },
+  {
+    "name": "Amravati",
+    "state": "Maharashtra",
+    "lat": 20.93,
+    "lng": 77.75,
+    "region": "plain"
+  },
+  {
+    "name": "Beed",
+    "state": "Maharashtra",
+    "lat": 18.99,
+    "lng": 75.76,
+    "region": "semi"
+  },
+  {
+    "name": "Bhandara",
+    "state": "Maharashtra",
+    "lat": 21.17,
+    "lng": 79.65,
+    "region": "plain"
+  },
+  {
+    "name": "Buldhana",
+    "state": "Maharashtra",
+    "lat": 20.53,
+    "lng": 76.18,
+    "region": "semi"
+  },
+  {
+    "name": "Chandrapur",
+    "state": "Maharashtra",
+    "lat": 19.95,
+    "lng": 79.3,
+    "region": "plain"
+  },
+  {
+    "name": "Chhatrapati Sambhajinagar",
+    "state": "Maharashtra",
+    "lat": 19.88,
+    "lng": 75.34,
+    "region": "semi"
+  },
+  {
+    "name": "Dharashiv",
+    "state": "Maharashtra",
+    "lat": 18.19,
+    "lng": 76.04,
+    "region": "semi"
+  },
+  {
+    "name": "Dhule",
+    "state": "Maharashtra",
+    "lat": 20.9,
+    "lng": 74.78,
+    "region": "semi"
+  },
+  {
+    "name": "Gadchiroli",
+    "state": "Maharashtra",
+    "lat": 20.18,
+    "lng": 80,
+    "region": "hill"
+  },
+  {
+    "name": "Gondia",
+    "state": "Maharashtra",
+    "lat": 21.46,
+    "lng": 80.2,
+    "region": "hill"
+  },
+  {
+    "name": "Hingoli",
+    "state": "Maharashtra",
+    "lat": 19.72,
+    "lng": 77.15,
+    "region": "semi"
+  },
+  {
+    "name": "Jalgaon",
+    "state": "Maharashtra",
+    "lat": 21,
+    "lng": 75.56,
+    "region": "plain"
+  },
+  {
+    "name": "Jalna",
+    "state": "Maharashtra",
+    "lat": 19.84,
+    "lng": 75.88,
+    "region": "semi"
+  },
+  {
+    "name": "Kolhapur",
+    "state": "Maharashtra",
+    "lat": 16.7,
+    "lng": 74.24,
+    "region": "hill"
+  },
+  {
+    "name": "Latur",
+    "state": "Maharashtra",
+    "lat": 18.4,
+    "lng": 76.58,
+    "region": "semi"
+  },
+  {
+    "name": "Mumbai City",
+    "state": "Maharashtra",
+    "lat": 18.93,
+    "lng": 72.83,
+    "region": "coast"
+  },
+  {
+    "name": "Mumbai Suburban",
+    "state": "Maharashtra",
+    "lat": 19.08,
+    "lng": 72.88,
+    "region": "coast"
+  },
+  {
+    "name": "Nagpur",
+    "state": "Maharashtra",
+    "lat": 21.15,
+    "lng": 79.09,
+    "region": "plain"
+  },
+  {
+    "name": "Nanded",
+    "state": "Maharashtra",
+    "lat": 19.15,
+    "lng": 77.3,
+    "region": "semi"
+  },
+  {
+    "name": "Nandurbar",
+    "state": "Maharashtra",
+    "lat": 21.37,
+    "lng": 74.24,
+    "region": "hill"
+  },
+  {
+    "name": "Nashik",
+    "state": "Maharashtra",
+    "lat": 19.99,
+    "lng": 73.79,
+    "region": "semi"
+  },
+  {
+    "name": "Palghar",
+    "state": "Maharashtra",
+    "lat": 19.7,
+    "lng": 72.76,
+    "region": "coast"
+  },
+  {
+    "name": "Parbhani",
+    "state": "Maharashtra",
+    "lat": 19.27,
+    "lng": 76.78,
+    "region": "semi"
+  },
+  {
+    "name": "Pune",
+    "state": "Maharashtra",
+    "lat": 18.52,
+    "lng": 73.86,
+    "region": "semi"
+  },
+  {
+    "name": "Raigad",
+    "state": "Maharashtra",
+    "lat": 18.52,
+    "lng": 73.18,
+    "region": "coast"
+  },
+  {
+    "name": "Ratnagiri",
+    "state": "Maharashtra",
+    "lat": 17,
+    "lng": 73.27,
+    "region": "coast"
+  },
+  {
+    "name": "Sangli",
+    "state": "Maharashtra",
+    "lat": 16.85,
+    "lng": 74.58,
+    "region": "semi"
+  },
+  {
+    "name": "Satara",
+    "state": "Maharashtra",
+    "lat": 17.68,
+    "lng": 73.99,
+    "region": "hill"
+  },
+  {
+    "name": "Sindhudurg",
+    "state": "Maharashtra",
+    "lat": 16,
+    "lng": 73.8,
+    "region": "coast"
+  },
+  {
+    "name": "Solapur",
+    "state": "Maharashtra",
+    "lat": 17.68,
+    "lng": 75.91,
+    "region": "semi"
+  },
+  {
+    "name": "Thane",
+    "state": "Maharashtra",
+    "lat": 19.21,
+    "lng": 72.97,
+    "region": "coast"
+  },
+  {
+    "name": "Wardha",
+    "state": "Maharashtra",
+    "lat": 20.74,
+    "lng": 78.6,
+    "region": "plain"
+  },
+  {
+    "name": "Washim",
+    "state": "Maharashtra",
+    "lat": 20.11,
+    "lng": 77.13,
+    "region": "semi"
+  },
+  {
+    "name": "Yavatmal",
+    "state": "Maharashtra",
+    "lat": 20.4,
+    "lng": 78.13,
+    "region": "semi"
+  },
+  {
+    "name": "Bishnupur",
+    "state": "Manipur",
+    "lat": 24.63,
+    "lng": 93.76,
+    "region": "hill"
+  },
+  {
+    "name": "Chandel",
+    "state": "Manipur",
+    "lat": 24.33,
+    "lng": 94,
+    "region": "hill"
+  },
+  {
+    "name": "Churachandpur",
+    "state": "Manipur",
+    "lat": 24.33,
+    "lng": 93.67,
+    "region": "hill"
+  },
+  {
+    "name": "Imphal East",
+    "state": "Manipur",
+    "lat": 24.75,
+    "lng": 94.03,
+    "region": "hill"
+  },
+  {
+    "name": "Imphal West",
+    "state": "Manipur",
+    "lat": 24.81,
+    "lng": 93.94,
+    "region": "hill"
+  },
+  {
+    "name": "Jiribam",
+    "state": "Manipur",
+    "lat": 24.8,
+    "lng": 93.12,
+    "region": "plain"
+  },
+  {
+    "name": "Kakching",
+    "state": "Manipur",
+    "lat": 24.48,
+    "lng": 93.98,
+    "region": "hill"
+  },
+  {
+    "name": "Kamjong",
+    "state": "Manipur",
+    "lat": 24.87,
+    "lng": 94.52,
+    "region": "hill"
+  },
+  {
+    "name": "Kangpokpi",
+    "state": "Manipur",
+    "lat": 25.15,
+    "lng": 93.97,
+    "region": "hill"
+  },
+  {
+    "name": "Noney",
+    "state": "Manipur",
+    "lat": 24.82,
+    "lng": 93.6,
+    "region": "hill"
+  },
+  {
+    "name": "Pherzawl",
+    "state": "Manipur",
+    "lat": 24.25,
+    "lng": 93.2,
+    "region": "hill"
+  },
+  {
+    "name": "Senapati",
+    "state": "Manipur",
+    "lat": 25.27,
+    "lng": 94.02,
+    "region": "hill"
+  },
+  {
+    "name": "Tamenglong",
+    "state": "Manipur",
+    "lat": 24.98,
+    "lng": 93.49,
+    "region": "hill"
+  },
+  {
+    "name": "Tengnoupal",
+    "state": "Manipur",
+    "lat": 24.39,
+    "lng": 94.15,
+    "region": "hill"
+  },
+  {
+    "name": "Thoubal",
+    "state": "Manipur",
+    "lat": 24.63,
+    "lng": 94.01,
+    "region": "hill"
+  },
+  {
+    "name": "Ukhrul",
+    "state": "Manipur",
+    "lat": 25.11,
+    "lng": 94.36,
+    "region": "hill"
+  },
+  {
+    "name": "East Garo Hills",
+    "state": "Meghalaya",
+    "lat": 25.6,
+    "lng": 90.58,
+    "region": "hill"
+  },
+  {
+    "name": "East Jaintia Hills",
+    "state": "Meghalaya",
+    "lat": 25.33,
+    "lng": 92.36,
+    "region": "hill"
+  },
+  {
+    "name": "East Khasi Hills",
+    "state": "Meghalaya",
+    "lat": 25.57,
+    "lng": 91.88,
+    "region": "hill"
+  },
+  {
+    "name": "Eastern West Khasi Hills",
+    "state": "Meghalaya",
+    "lat": 25.5,
+    "lng": 91.45,
+    "region": "hill"
+  },
+  {
+    "name": "North Garo Hills",
+    "state": "Meghalaya",
+    "lat": 25.9,
+    "lng": 90.58,
+    "region": "hill"
+  },
+  {
+    "name": "Ribhoi",
+    "state": "Meghalaya",
+    "lat": 25.9,
+    "lng": 91.88,
+    "region": "hill"
+  },
+  {
+    "name": "South Garo Hills",
+    "state": "Meghalaya",
+    "lat": 25.29,
+    "lng": 90.63,
+    "region": "hill"
+  },
+  {
+    "name": "South West Garo Hills",
+    "state": "Meghalaya",
+    "lat": 25.5,
+    "lng": 89.95,
+    "region": "hill"
+  },
+  {
+    "name": "South West Khasi Hills",
+    "state": "Meghalaya",
+    "lat": 25.38,
+    "lng": 91.24,
+    "region": "hill"
+  },
+  {
+    "name": "West Garo Hills",
+    "state": "Meghalaya",
+    "lat": 25.51,
+    "lng": 90.2,
+    "region": "hill"
+  },
+  {
+    "name": "West Jaintia Hills",
+    "state": "Meghalaya",
+    "lat": 25.45,
+    "lng": 92.2,
+    "region": "hill"
+  },
+  {
+    "name": "West Khasi Hills",
+    "state": "Meghalaya",
+    "lat": 25.55,
+    "lng": 91.27,
+    "region": "hill"
+  },
+  {
+    "name": "Aizawl",
+    "state": "Mizoram",
+    "lat": 23.72,
+    "lng": 92.71,
+    "region": "hill"
+  },
+  {
+    "name": "Champhai",
+    "state": "Mizoram",
+    "lat": 23.47,
+    "lng": 93.32,
+    "region": "hill"
+  },
+  {
+    "name": "Hnahthial",
+    "state": "Mizoram",
+    "lat": 22.96,
+    "lng": 92.93,
+    "region": "hill"
+  },
+  {
+    "name": "Khawzawl",
+    "state": "Mizoram",
+    "lat": 23.53,
+    "lng": 93.18,
+    "region": "hill"
+  },
+  {
+    "name": "Kolasib",
+    "state": "Mizoram",
+    "lat": 24.22,
+    "lng": 92.68,
+    "region": "hill"
+  },
+  {
+    "name": "Lawngtlai",
+    "state": "Mizoram",
+    "lat": 22.53,
+    "lng": 92.89,
+    "region": "hill"
+  },
+  {
+    "name": "Lunglei",
+    "state": "Mizoram",
+    "lat": 22.88,
+    "lng": 92.74,
+    "region": "hill"
+  },
+  {
+    "name": "Mamit",
+    "state": "Mizoram",
+    "lat": 23.93,
+    "lng": 92.49,
+    "region": "hill"
+  },
+  {
+    "name": "Saiha",
+    "state": "Mizoram",
+    "lat": 22.48,
+    "lng": 92.97,
+    "region": "hill"
+  },
+  {
+    "name": "Saitual",
+    "state": "Mizoram",
+    "lat": 23.68,
+    "lng": 92.97,
+    "region": "hill"
+  },
+  {
+    "name": "Serchhip",
+    "state": "Mizoram",
+    "lat": 23.34,
+    "lng": 92.85,
+    "region": "hill"
+  },
+  {
+    "name": "Chumoukedima",
+    "state": "Nagaland",
+    "lat": 25.79,
+    "lng": 93.77,
+    "region": "plain"
+  },
+  {
+    "name": "Dimapur",
+    "state": "Nagaland",
+    "lat": 25.9,
+    "lng": 93.74,
+    "region": "plain"
+  },
+  {
+    "name": "Kiphire",
+    "state": "Nagaland",
+    "lat": 25.87,
+    "lng": 94.78,
+    "region": "hill"
+  },
+  {
+    "name": "Kohima",
+    "state": "Nagaland",
+    "lat": 25.67,
+    "lng": 94.1,
+    "region": "hill"
+  },
+  {
+    "name": "Longleng",
+    "state": "Nagaland",
+    "lat": 26.48,
+    "lng": 94.81,
+    "region": "hill"
+  },
+  {
+    "name": "Mokokchung",
+    "state": "Nagaland",
+    "lat": 26.32,
+    "lng": 94.52,
+    "region": "hill"
+  },
+  {
+    "name": "Mon",
+    "state": "Nagaland",
+    "lat": 26.74,
+    "lng": 95.06,
+    "region": "hill"
+  },
+  {
+    "name": "Niuland",
+    "state": "Nagaland",
+    "lat": 25.86,
+    "lng": 93.85,
+    "region": "plain"
+  },
+  {
+    "name": "Noklak",
+    "state": "Nagaland",
+    "lat": 26.2,
+    "lng": 95.03,
+    "region": "hill"
+  },
+  {
+    "name": "Peren",
+    "state": "Nagaland",
+    "lat": 25.51,
+    "lng": 93.73,
+    "region": "hill"
+  },
+  {
+    "name": "Phek",
+    "state": "Nagaland",
+    "lat": 25.66,
+    "lng": 94.5,
+    "region": "hill"
+  },
+  {
+    "name": "Shamator",
+    "state": "Nagaland",
+    "lat": 26.05,
+    "lng": 94.88,
+    "region": "hill"
+  },
+  {
+    "name": "Tseminyu",
+    "state": "Nagaland",
+    "lat": 25.95,
+    "lng": 94.21,
+    "region": "hill"
+  },
+  {
+    "name": "Tuensang",
+    "state": "Nagaland",
+    "lat": 26.28,
+    "lng": 94.83,
+    "region": "hill"
+  },
+  {
+    "name": "Wokha",
+    "state": "Nagaland",
+    "lat": 26.1,
+    "lng": 94.26,
+    "region": "hill"
+  },
+  {
+    "name": "Zunheboto",
+    "state": "Nagaland",
+    "lat": 26.01,
+    "lng": 94.52,
+    "region": "hill"
+  },
+  {
+    "name": "Angul",
+    "state": "Odisha",
+    "lat": 20.84,
+    "lng": 85.1,
+    "region": "plain"
+  },
+  {
+    "name": "Balangir",
+    "state": "Odisha",
+    "lat": 20.71,
+    "lng": 83.48,
+    "region": "semi"
+  },
+  {
+    "name": "Balasore",
+    "state": "Odisha",
+    "lat": 21.49,
+    "lng": 86.92,
+    "region": "coast"
+  },
+  {
+    "name": "Bargarh",
+    "state": "Odisha",
+    "lat": 21.33,
+    "lng": 83.62,
+    "region": "plain"
+  },
+  {
+    "name": "Bhadrak",
+    "state": "Odisha",
+    "lat": 21.06,
+    "lng": 86.5,
+    "region": "coast"
+  },
+  {
+    "name": "Boudh",
+    "state": "Odisha",
+    "lat": 20.83,
+    "lng": 84.32,
+    "region": "plain"
+  },
+  {
+    "name": "Cuttack",
+    "state": "Odisha",
+    "lat": 20.46,
+    "lng": 85.88,
+    "region": "plain"
+  },
+  {
+    "name": "Deogarh",
+    "state": "Odisha",
+    "lat": 21.53,
+    "lng": 84.73,
+    "region": "hill"
+  },
+  {
+    "name": "Dhenkanal",
+    "state": "Odisha",
+    "lat": 20.67,
+    "lng": 85.6,
+    "region": "plain"
+  },
+  {
+    "name": "Gajapati",
+    "state": "Odisha",
+    "lat": 18.81,
+    "lng": 84.16,
+    "region": "hill"
+  },
+  {
+    "name": "Ganjam",
+    "state": "Odisha",
+    "lat": 19.38,
+    "lng": 85.06,
+    "region": "coast"
+  },
+  {
+    "name": "Jagatsinghpur",
+    "state": "Odisha",
+    "lat": 20.27,
+    "lng": 86.17,
+    "region": "coast"
+  },
+  {
+    "name": "Jajpur",
+    "state": "Odisha",
+    "lat": 20.85,
+    "lng": 86.33,
+    "region": "plain"
+  },
+  {
+    "name": "Jharsuguda",
+    "state": "Odisha",
+    "lat": 21.86,
+    "lng": 84.01,
+    "region": "plain"
+  },
+  {
+    "name": "Kalahandi",
+    "state": "Odisha",
+    "lat": 19.91,
+    "lng": 83.11,
+    "region": "hill"
+  },
+  {
+    "name": "Kandhamal",
+    "state": "Odisha",
+    "lat": 20.44,
+    "lng": 84.23,
+    "region": "hill"
+  },
+  {
+    "name": "Kendrapara",
+    "state": "Odisha",
+    "lat": 20.5,
+    "lng": 86.42,
+    "region": "coast"
+  },
+  {
+    "name": "Kendujhar",
+    "state": "Odisha",
+    "lat": 21.63,
+    "lng": 85.58,
+    "region": "hill"
+  },
+  {
+    "name": "Khordha",
+    "state": "Odisha",
+    "lat": 20.29,
+    "lng": 85.82,
+    "region": "coast"
+  },
+  {
+    "name": "Koraput",
+    "state": "Odisha",
+    "lat": 18.81,
+    "lng": 82.71,
+    "region": "hill"
+  },
+  {
+    "name": "Malkangiri",
+    "state": "Odisha",
+    "lat": 18.35,
+    "lng": 81.88,
+    "region": "hill"
+  },
+  {
+    "name": "Mayurbhanj",
+    "state": "Odisha",
+    "lat": 21.93,
+    "lng": 86.74,
+    "region": "hill"
+  },
+  {
+    "name": "Nabarangpur",
+    "state": "Odisha",
+    "lat": 19.23,
+    "lng": 82.55,
+    "region": "hill"
+  },
+  {
+    "name": "Nayagarh",
+    "state": "Odisha",
+    "lat": 20.13,
+    "lng": 85.1,
+    "region": "hill"
+  },
+  {
+    "name": "Nuapada",
+    "state": "Odisha",
+    "lat": 20.83,
+    "lng": 82.52,
+    "region": "semi"
+  },
+  {
+    "name": "Puri",
+    "state": "Odisha",
+    "lat": 19.81,
+    "lng": 85.83,
+    "region": "coast"
+  },
+  {
+    "name": "Rayagada",
+    "state": "Odisha",
+    "lat": 19.17,
+    "lng": 83.42,
+    "region": "hill"
+  },
+  {
+    "name": "Sambalpur",
+    "state": "Odisha",
+    "lat": 21.47,
+    "lng": 83.98,
+    "region": "plain"
+  },
+  {
+    "name": "Subarnapur",
+    "state": "Odisha",
+    "lat": 20.84,
+    "lng": 83.92,
+    "region": "plain"
+  },
+  {
+    "name": "Sundargarh",
+    "state": "Odisha",
+    "lat": 22.25,
+    "lng": 84.03,
+    "region": "plain"
+  },
+  {
+    "name": "Amritsar",
+    "state": "Punjab",
+    "lat": 31.63,
+    "lng": 74.87,
+    "region": "plain"
+  },
+  {
+    "name": "Barnala",
+    "state": "Punjab",
+    "lat": 30.38,
+    "lng": 75.55,
+    "region": "plain"
+  },
+  {
+    "name": "Bathinda",
+    "state": "Punjab",
+    "lat": 30.21,
+    "lng": 74.94,
+    "region": "desert"
+  },
+  {
+    "name": "Faridkot",
+    "state": "Punjab",
+    "lat": 30.67,
+    "lng": 74.76,
+    "region": "plain"
+  },
+  {
+    "name": "Fatehgarh Sahib",
+    "state": "Punjab",
+    "lat": 30.65,
+    "lng": 76.4,
+    "region": "plain"
+  },
+  {
+    "name": "Fazilka",
+    "state": "Punjab",
+    "lat": 30.4,
+    "lng": 74.03,
+    "region": "desert"
+  },
+  {
+    "name": "Ferozepur",
+    "state": "Punjab",
+    "lat": 30.93,
+    "lng": 74.62,
+    "region": "plain"
+  },
+  {
+    "name": "Gurdaspur",
+    "state": "Punjab",
+    "lat": 32.04,
+    "lng": 75.4,
+    "region": "plain"
+  },
+  {
+    "name": "Hoshiarpur",
+    "state": "Punjab",
+    "lat": 31.53,
+    "lng": 75.92,
+    "region": "plain"
+  },
+  {
+    "name": "Jalandhar",
+    "state": "Punjab",
+    "lat": 31.33,
+    "lng": 75.58,
+    "region": "plain"
+  },
+  {
+    "name": "Kapurthala",
+    "state": "Punjab",
+    "lat": 31.38,
+    "lng": 75.38,
+    "region": "plain"
+  },
+  {
+    "name": "Ludhiana",
+    "state": "Punjab",
+    "lat": 30.9,
+    "lng": 75.86,
+    "region": "plain"
+  },
+  {
+    "name": "Malerkotla",
+    "state": "Punjab",
+    "lat": 30.52,
+    "lng": 75.88,
+    "region": "plain"
+  },
+  {
+    "name": "Mansa",
+    "state": "Punjab",
+    "lat": 29.98,
+    "lng": 75.38,
+    "region": "desert"
+  },
+  {
+    "name": "Moga",
+    "state": "Punjab",
+    "lat": 30.82,
+    "lng": 75.17,
+    "region": "plain"
+  },
+  {
+    "name": "Pathankot",
+    "state": "Punjab",
+    "lat": 32.27,
+    "lng": 75.65,
+    "region": "hill"
+  },
+  {
+    "name": "Patiala",
+    "state": "Punjab",
+    "lat": 30.34,
+    "lng": 76.39,
+    "region": "plain"
+  },
+  {
+    "name": "Rupnagar",
+    "state": "Punjab",
+    "lat": 30.97,
+    "lng": 76.53,
+    "region": "plain"
+  },
+  {
+    "name": "Sahibzada Ajit Singh Nagar",
+    "state": "Punjab",
+    "lat": 30.7,
+    "lng": 76.72,
+    "region": "plain"
+  },
+  {
+    "name": "Sangrur",
+    "state": "Punjab",
+    "lat": 30.25,
+    "lng": 75.84,
+    "region": "plain"
+  },
+  {
+    "name": "Shahid Bhagat Singh Nagar",
+    "state": "Punjab",
+    "lat": 31.13,
+    "lng": 76.12,
+    "region": "plain"
+  },
+  {
+    "name": "Sri Muktsar Sahib",
+    "state": "Punjab",
+    "lat": 30.48,
+    "lng": 74.52,
+    "region": "desert"
+  },
+  {
+    "name": "Tarn Taran",
+    "state": "Punjab",
+    "lat": 31.45,
+    "lng": 74.93,
+    "region": "plain"
+  },
+  {
+    "name": "Ajmer",
+    "state": "Rajasthan",
+    "lat": 26.45,
+    "lng": 74.64,
+    "region": "desert"
+  },
+  {
+    "name": "Alwar",
+    "state": "Rajasthan",
+    "lat": 27.55,
+    "lng": 76.63,
+    "region": "semi"
+  },
+  {
+    "name": "Anupgarh",
+    "state": "Rajasthan",
+    "lat": 29.19,
+    "lng": 73.21,
+    "region": "desert"
+  },
+  {
+    "name": "Balotra",
+    "state": "Rajasthan",
+    "lat": 25.83,
+    "lng": 72.24,
+    "region": "desert"
+  },
+  {
+    "name": "Banswara",
+    "state": "Rajasthan",
+    "lat": 23.55,
+    "lng": 74.44,
+    "region": "hill"
+  },
+  {
+    "name": "Baran",
+    "state": "Rajasthan",
+    "lat": 25.1,
+    "lng": 76.51,
+    "region": "semi"
+  },
+  {
+    "name": "Barmer",
+    "state": "Rajasthan",
+    "lat": 25.69,
+    "lng": 71.9,
+    "region": "desert"
+  },
+  {
+    "name": "Beawar",
+    "state": "Rajasthan",
+    "lat": 26.1,
+    "lng": 74.32,
+    "region": "semi"
+  },
+  {
+    "name": "Bharatpur",
+    "state": "Rajasthan",
+    "lat": 27.22,
+    "lng": 77.49,
+    "region": "plain"
+  },
+  {
+    "name": "Bhilwara",
+    "state": "Rajasthan",
+    "lat": 25.35,
+    "lng": 74.64,
+    "region": "semi"
+  },
+  {
+    "name": "Bikaner",
+    "state": "Rajasthan",
+    "lat": 28.02,
+    "lng": 73.31,
+    "region": "desert"
+  },
+  {
+    "name": "Bundi",
+    "state": "Rajasthan",
+    "lat": 25.44,
+    "lng": 75.64,
+    "region": "semi"
+  },
+  {
+    "name": "Chittorgarh",
+    "state": "Rajasthan",
+    "lat": 24.89,
+    "lng": 74.63,
+    "region": "semi"
+  },
+  {
+    "name": "Churu",
+    "state": "Rajasthan",
+    "lat": 28.3,
+    "lng": 74.97,
+    "region": "desert"
+  },
+  {
+    "name": "Dausa",
+    "state": "Rajasthan",
+    "lat": 26.89,
+    "lng": 76.34,
+    "region": "semi"
+  },
+  {
+    "name": "Deeg",
+    "state": "Rajasthan",
+    "lat": 27.47,
+    "lng": 77.33,
+    "region": "plain"
+  },
+  {
+    "name": "Dholpur",
+    "state": "Rajasthan",
+    "lat": 26.7,
+    "lng": 77.89,
+    "region": "plain"
+  },
+  {
+    "name": "Didwana-Kuchaman",
+    "state": "Rajasthan",
+    "lat": 27.4,
+    "lng": 74.58,
+    "region": "desert"
+  },
+  {
+    "name": "Dudu",
+    "state": "Rajasthan",
+    "lat": 26.68,
+    "lng": 75.24,
+    "region": "desert"
+  },
+  {
+    "name": "Dungarpur",
+    "state": "Rajasthan",
+    "lat": 23.84,
+    "lng": 73.71,
+    "region": "hill"
+  },
+  {
+    "name": "Ganganagar",
+    "state": "Rajasthan",
+    "lat": 29.9,
+    "lng": 73.88,
+    "region": "desert"
+  },
+  {
+    "name": "Gangapur City",
+    "state": "Rajasthan",
+    "lat": 26.47,
+    "lng": 76.72,
+    "region": "plain"
+  },
+  {
+    "name": "Hanumangarh",
+    "state": "Rajasthan",
+    "lat": 29.58,
+    "lng": 74.33,
+    "region": "desert"
+  },
+  {
+    "name": "Jaipur",
+    "state": "Rajasthan",
+    "lat": 26.92,
+    "lng": 75.82,
+    "region": "desert"
+  },
+  {
+    "name": "Jaipur Rural",
+    "state": "Rajasthan",
+    "lat": 26.96,
+    "lng": 75.75,
+    "region": "desert"
+  },
+  {
+    "name": "Jaisalmer",
+    "state": "Rajasthan",
+    "lat": 26.91,
+    "lng": 70.9,
+    "region": "desert"
+  },
+  {
+    "name": "Jalore",
+    "state": "Rajasthan",
+    "lat": 25.34,
+    "lng": 72.62,
+    "region": "desert"
+  },
+  {
+    "name": "Jhalawar",
+    "state": "Rajasthan",
+    "lat": 24.6,
+    "lng": 76.16,
+    "region": "semi"
+  },
+  {
+    "name": "Jhunjhunu",
+    "state": "Rajasthan",
+    "lat": 28.13,
+    "lng": 75.4,
+    "region": "desert"
+  },
+  {
+    "name": "Jodhpur",
+    "state": "Rajasthan",
+    "lat": 26.32,
+    "lng": 73.38,
+    "region": "desert"
+  },
+  {
+    "name": "Jodhpur Rural",
+    "state": "Rajasthan",
+    "lat": 26.24,
+    "lng": 73.02,
+    "region": "desert"
+  },
+  {
+    "name": "Karauli",
+    "state": "Rajasthan",
+    "lat": 26.5,
+    "lng": 77.02,
+    "region": "plain"
+  },
+  {
+    "name": "Kekri",
+    "state": "Rajasthan",
+    "lat": 25.97,
+    "lng": 75.15,
+    "region": "semi"
+  },
+  {
+    "name": "Khairthal-Tijara",
+    "state": "Rajasthan",
+    "lat": 27.93,
+    "lng": 76.85,
+    "region": "plain"
+  },
+  {
+    "name": "Kota",
+    "state": "Rajasthan",
+    "lat": 25.18,
+    "lng": 75.83,
+    "region": "semi"
+  },
+  {
+    "name": "Kotputli-Behror",
+    "state": "Rajasthan",
+    "lat": 27.7,
+    "lng": 76.2,
+    "region": "semi"
+  },
+  {
+    "name": "Nagaur",
+    "state": "Rajasthan",
+    "lat": 27.2,
+    "lng": 73.74,
+    "region": "desert"
+  },
+  {
+    "name": "Neem Ka Thana",
+    "state": "Rajasthan",
+    "lat": 27.74,
+    "lng": 75.78,
+    "region": "semi"
+  },
+  {
+    "name": "Pali",
+    "state": "Rajasthan",
+    "lat": 25.77,
+    "lng": 73.33,
+    "region": "desert"
+  },
+  {
+    "name": "Phalodi",
+    "state": "Rajasthan",
+    "lat": 27.13,
+    "lng": 72.36,
+    "region": "desert"
+  },
+  {
+    "name": "Pratapgarh (RJ)",
+    "state": "Rajasthan",
+    "lat": 24.03,
+    "lng": 74.78,
+    "region": "hill"
+  },
+  {
+    "name": "Rajsamand",
+    "state": "Rajasthan",
+    "lat": 25.07,
+    "lng": 73.88,
+    "region": "hill"
+  },
+  {
+    "name": "Salumbar",
+    "state": "Rajasthan",
+    "lat": 24.13,
+    "lng": 74.04,
+    "region": "hill"
+  },
+  {
+    "name": "Sanchore",
+    "state": "Rajasthan",
+    "lat": 25.02,
+    "lng": 71.77,
+    "region": "desert"
+  },
+  {
+    "name": "Sawai Madhopur",
+    "state": "Rajasthan",
+    "lat": 26,
+    "lng": 76.35,
+    "region": "semi"
+  },
+  {
+    "name": "Shahpura (RJ)",
+    "state": "Rajasthan",
+    "lat": 25.63,
+    "lng": 74.93,
+    "region": "semi"
+  },
+  {
+    "name": "Sikar",
+    "state": "Rajasthan",
+    "lat": 27.61,
+    "lng": 75.14,
+    "region": "desert"
+  },
+  {
+    "name": "Sirohi",
+    "state": "Rajasthan",
+    "lat": 24.88,
+    "lng": 72.86,
+    "region": "hill"
+  },
+  {
+    "name": "Tonk",
+    "state": "Rajasthan",
+    "lat": 26.17,
+    "lng": 75.79,
+    "region": "semi"
+  },
+  {
+    "name": "Udaipur",
+    "state": "Rajasthan",
+    "lat": 24.58,
+    "lng": 73.71,
+    "region": "hill"
+  },
+  {
+    "name": "Gangtok",
+    "state": "Sikkim",
+    "lat": 27.34,
+    "lng": 88.61,
+    "region": "himalaya"
+  },
+  {
+    "name": "Gyalshing",
+    "state": "Sikkim",
+    "lat": 27.28,
+    "lng": 88.22,
+    "region": "himalaya"
+  },
+  {
+    "name": "Mangan",
+    "state": "Sikkim",
+    "lat": 27.7,
+    "lng": 88.58,
+    "region": "himalaya"
+  },
+  {
+    "name": "Namchi",
+    "state": "Sikkim",
+    "lat": 27.17,
+    "lng": 88.35,
+    "region": "himalaya"
+  },
+  {
+    "name": "Pakyong",
+    "state": "Sikkim",
+    "lat": 27.24,
+    "lng": 88.59,
+    "region": "himalaya"
+  },
+  {
+    "name": "Soreng",
+    "state": "Sikkim",
+    "lat": 27.17,
+    "lng": 88.2,
+    "region": "himalaya"
+  },
+  {
+    "name": "Ariyalur",
+    "state": "Tamil Nadu",
+    "lat": 11.14,
+    "lng": 79.08,
+    "region": "plain"
+  },
+  {
+    "name": "Chengalpattu",
+    "state": "Tamil Nadu",
+    "lat": 12.68,
+    "lng": 79.98,
+    "region": "coast"
+  },
+  {
+    "name": "Chennai",
+    "state": "Tamil Nadu",
+    "lat": 13.08,
+    "lng": 80.27,
+    "region": "coast"
+  },
+  {
+    "name": "Coimbatore",
+    "state": "Tamil Nadu",
+    "lat": 11.02,
+    "lng": 77,
+    "region": "semi"
+  },
+  {
+    "name": "Cuddalore",
+    "state": "Tamil Nadu",
+    "lat": 11.74,
+    "lng": 79.77,
+    "region": "coast"
+  },
+  {
+    "name": "Dharmapuri",
+    "state": "Tamil Nadu",
+    "lat": 12.13,
+    "lng": 78.16,
+    "region": "semi"
+  },
+  {
+    "name": "Dindigul",
+    "state": "Tamil Nadu",
+    "lat": 10.37,
+    "lng": 77.98,
+    "region": "semi"
+  },
+  {
+    "name": "Erode",
+    "state": "Tamil Nadu",
+    "lat": 11.34,
+    "lng": 77.72,
+    "region": "semi"
+  },
+  {
+    "name": "Kallakurichi",
+    "state": "Tamil Nadu",
+    "lat": 11.74,
+    "lng": 78.96,
+    "region": "plain"
+  },
+  {
+    "name": "Kancheepuram",
+    "state": "Tamil Nadu",
+    "lat": 12.83,
+    "lng": 79.7,
+    "region": "plain"
+  },
+  {
+    "name": "Kanyakumari",
+    "state": "Tamil Nadu",
+    "lat": 8.08,
+    "lng": 77.55,
+    "region": "coast"
+  },
+  {
+    "name": "Karur",
+    "state": "Tamil Nadu",
+    "lat": 10.96,
+    "lng": 78.08,
+    "region": "semi"
+  },
+  {
+    "name": "Krishnagiri",
+    "state": "Tamil Nadu",
+    "lat": 12.52,
+    "lng": 78.21,
+    "region": "semi"
+  },
+  {
+    "name": "Madurai",
+    "state": "Tamil Nadu",
+    "lat": 9.93,
+    "lng": 78.12,
+    "region": "semi"
+  },
+  {
+    "name": "Mayiladuthurai",
+    "state": "Tamil Nadu",
+    "lat": 11.1,
+    "lng": 79.65,
+    "region": "coast"
+  },
+  {
+    "name": "Nagapattinam",
+    "state": "Tamil Nadu",
+    "lat": 10.77,
+    "lng": 79.84,
+    "region": "coast"
+  },
+  {
+    "name": "Namakkal",
+    "state": "Tamil Nadu",
+    "lat": 11.22,
+    "lng": 78.17,
+    "region": "semi"
+  },
+  {
+    "name": "Nilgiris",
+    "state": "Tamil Nadu",
+    "lat": 11.41,
+    "lng": 76.7,
+    "region": "hill"
+  },
+  {
+    "name": "Perambalur",
+    "state": "Tamil Nadu",
+    "lat": 11.23,
+    "lng": 78.88,
+    "region": "plain"
+  },
+  {
+    "name": "Pudukkottai",
+    "state": "Tamil Nadu",
+    "lat": 10.38,
+    "lng": 78.82,
+    "region": "coast"
+  },
+  {
+    "name": "Ramanathapuram",
+    "state": "Tamil Nadu",
+    "lat": 9.37,
+    "lng": 78.83,
+    "region": "coast"
+  },
+  {
+    "name": "Ranipet",
+    "state": "Tamil Nadu",
+    "lat": 12.92,
+    "lng": 79.33,
+    "region": "plain"
+  },
+  {
+    "name": "Salem",
+    "state": "Tamil Nadu",
+    "lat": 11.66,
+    "lng": 78.15,
+    "region": "semi"
+  },
+  {
+    "name": "Sivaganga",
+    "state": "Tamil Nadu",
+    "lat": 9.85,
+    "lng": 78.48,
+    "region": "semi"
+  },
+  {
+    "name": "Tenkasi",
+    "state": "Tamil Nadu",
+    "lat": 8.96,
+    "lng": 77.31,
+    "region": "hill"
+  },
+  {
+    "name": "Thanjavur",
+    "state": "Tamil Nadu",
+    "lat": 10.79,
+    "lng": 79.14,
+    "region": "coast"
+  },
+  {
+    "name": "Theni",
+    "state": "Tamil Nadu",
+    "lat": 10.01,
+    "lng": 77.48,
+    "region": "hill"
+  },
+  {
+    "name": "Thoothukudi",
+    "state": "Tamil Nadu",
+    "lat": 8.76,
+    "lng": 78.13,
+    "region": "coast"
+  },
+  {
+    "name": "Tiruchirappalli",
+    "state": "Tamil Nadu",
+    "lat": 10.79,
+    "lng": 78.7,
+    "region": "plain"
+  },
+  {
+    "name": "Tirunelveli",
+    "state": "Tamil Nadu",
+    "lat": 8.73,
+    "lng": 77.7,
+    "region": "semi"
+  },
+  {
+    "name": "Tirupathur",
+    "state": "Tamil Nadu",
+    "lat": 12.5,
+    "lng": 78.57,
+    "region": "semi"
+  },
+  {
+    "name": "Tiruppur",
+    "state": "Tamil Nadu",
+    "lat": 11.11,
+    "lng": 77.34,
+    "region": "semi"
+  },
+  {
+    "name": "Tiruvallur",
+    "state": "Tamil Nadu",
+    "lat": 13.14,
+    "lng": 79.91,
+    "region": "coast"
+  },
+  {
+    "name": "Tiruvannamalai",
+    "state": "Tamil Nadu",
+    "lat": 12.23,
+    "lng": 79.07,
+    "region": "semi"
+  },
+  {
+    "name": "Tiruvarur",
+    "state": "Tamil Nadu",
+    "lat": 10.77,
+    "lng": 79.64,
+    "region": "coast"
+  },
+  {
+    "name": "Vellore",
+    "state": "Tamil Nadu",
+    "lat": 12.92,
+    "lng": 79.13,
+    "region": "semi"
+  },
+  {
+    "name": "Viluppuram",
+    "state": "Tamil Nadu",
+    "lat": 11.94,
+    "lng": 79.49,
+    "region": "plain"
+  },
+  {
+    "name": "Virudhunagar",
+    "state": "Tamil Nadu",
+    "lat": 9.58,
+    "lng": 77.96,
+    "region": "semi"
+  },
+  {
+    "name": "Adilabad",
+    "state": "Telangana",
+    "lat": 19.67,
+    "lng": 78.53,
+    "region": "semi"
+  },
+  {
+    "name": "Bhadradri Kothagudem",
+    "state": "Telangana",
+    "lat": 17.55,
+    "lng": 80.62,
+    "region": "hill"
+  },
+  {
+    "name": "Hanumakonda",
+    "state": "Telangana",
+    "lat": 18.01,
+    "lng": 79.56,
+    "region": "semi"
+  },
+  {
+    "name": "Hyderabad",
+    "state": "Telangana",
+    "lat": 17.38,
+    "lng": 78.48,
+    "region": "semi"
+  },
+  {
+    "name": "Jagtial",
+    "state": "Telangana",
+    "lat": 18.79,
+    "lng": 78.91,
+    "region": "semi"
+  },
+  {
+    "name": "Jangaon",
+    "state": "Telangana",
+    "lat": 17.72,
+    "lng": 79.18,
+    "region": "semi"
+  },
+  {
+    "name": "Jayashankar Bhupalpally",
+    "state": "Telangana",
+    "lat": 18.43,
+    "lng": 79.86,
+    "region": "hill"
+  },
+  {
+    "name": "Jogulamba Gadwal",
+    "state": "Telangana",
+    "lat": 16.23,
+    "lng": 77.8,
+    "region": "semi"
+  },
+  {
+    "name": "Kamareddy",
+    "state": "Telangana",
+    "lat": 18.32,
+    "lng": 78.34,
+    "region": "semi"
+  },
+  {
+    "name": "Karimnagar",
+    "state": "Telangana",
+    "lat": 18.44,
+    "lng": 79.13,
+    "region": "semi"
+  },
+  {
+    "name": "Khammam",
+    "state": "Telangana",
+    "lat": 17.25,
+    "lng": 80.15,
+    "region": "plain"
+  },
+  {
+    "name": "Kumuram Bheem Asifabad",
+    "state": "Telangana",
+    "lat": 19.36,
+    "lng": 79.29,
+    "region": "hill"
+  },
+  {
+    "name": "Mahabubabad",
+    "state": "Telangana",
+    "lat": 17.6,
+    "lng": 80,
+    "region": "semi"
+  },
+  {
+    "name": "Mahabubnagar",
+    "state": "Telangana",
+    "lat": 16.74,
+    "lng": 77.98,
+    "region": "semi"
+  },
+  {
+    "name": "Mancherial",
+    "state": "Telangana",
+    "lat": 18.87,
+    "lng": 79.46,
+    "region": "semi"
+  },
+  {
+    "name": "Medak",
+    "state": "Telangana",
+    "lat": 18.05,
+    "lng": 78.26,
+    "region": "semi"
+  },
+  {
+    "name": "Medchal-Malkajgiri",
+    "state": "Telangana",
+    "lat": 17.63,
+    "lng": 78.48,
+    "region": "semi"
+  },
+  {
+    "name": "Mulugu",
+    "state": "Telangana",
+    "lat": 18.19,
+    "lng": 79.94,
+    "region": "hill"
+  },
+  {
+    "name": "Nagarkurnool",
+    "state": "Telangana",
+    "lat": 16.48,
+    "lng": 78.33,
+    "region": "semi"
+  },
+  {
+    "name": "Nalgonda",
+    "state": "Telangana",
+    "lat": 17.06,
+    "lng": 79.27,
+    "region": "semi"
+  },
+  {
+    "name": "Narayanpet",
+    "state": "Telangana",
+    "lat": 16.73,
+    "lng": 77.5,
+    "region": "semi"
+  },
+  {
+    "name": "Nirmal",
+    "state": "Telangana",
+    "lat": 19.1,
+    "lng": 78.35,
+    "region": "semi"
+  },
+  {
+    "name": "Nizamabad",
+    "state": "Telangana",
+    "lat": 18.67,
+    "lng": 78.1,
+    "region": "semi"
+  },
+  {
+    "name": "Peddapalli",
+    "state": "Telangana",
+    "lat": 18.62,
+    "lng": 79.38,
+    "region": "semi"
+  },
+  {
+    "name": "Rajanna Sircilla",
+    "state": "Telangana",
+    "lat": 18.39,
+    "lng": 78.83,
+    "region": "semi"
+  },
+  {
+    "name": "Ranga Reddy",
+    "state": "Telangana",
+    "lat": 17.3,
+    "lng": 78.32,
+    "region": "semi"
+  },
+  {
+    "name": "Sangareddy",
+    "state": "Telangana",
+    "lat": 17.63,
+    "lng": 78.08,
+    "region": "semi"
+  },
+  {
+    "name": "Siddipet",
+    "state": "Telangana",
+    "lat": 18.1,
+    "lng": 78.85,
+    "region": "semi"
+  },
+  {
+    "name": "Suryapet",
+    "state": "Telangana",
+    "lat": 17.14,
+    "lng": 79.62,
+    "region": "semi"
+  },
+  {
+    "name": "Vikarabad",
+    "state": "Telangana",
+    "lat": 17.34,
+    "lng": 77.9,
+    "region": "semi"
+  },
+  {
+    "name": "Wanaparthy",
+    "state": "Telangana",
+    "lat": 16.36,
+    "lng": 78.06,
+    "region": "semi"
+  },
+  {
+    "name": "Warangal",
+    "state": "Telangana",
+    "lat": 17.97,
+    "lng": 79.59,
+    "region": "semi"
+  },
+  {
+    "name": "Yadadri Bhuvanagiri",
+    "state": "Telangana",
+    "lat": 17.51,
+    "lng": 78.88,
+    "region": "semi"
+  },
+  {
+    "name": "Dhalai",
+    "state": "Tripura",
+    "lat": 23.84,
+    "lng": 91.86,
+    "region": "hill"
+  },
+  {
+    "name": "Gomati",
+    "state": "Tripura",
+    "lat": 23.53,
+    "lng": 91.49,
+    "region": "plain"
+  },
+  {
+    "name": "Khowai",
+    "state": "Tripura",
+    "lat": 24.06,
+    "lng": 91.6,
+    "region": "plain"
+  },
+  {
+    "name": "North Tripura",
+    "state": "Tripura",
+    "lat": 24.32,
+    "lng": 92.17,
+    "region": "hill"
+  },
+  {
+    "name": "Sepahijala",
+    "state": "Tripura",
+    "lat": 23.68,
+    "lng": 91.31,
+    "region": "plain"
+  },
+  {
+    "name": "South Tripura",
+    "state": "Tripura",
+    "lat": 23.54,
+    "lng": 91.48,
+    "region": "hill"
+  },
+  {
+    "name": "Unakoti",
+    "state": "Tripura",
+    "lat": 24.29,
+    "lng": 92.02,
+    "region": "hill"
+  },
+  {
+    "name": "West Tripura",
+    "state": "Tripura",
+    "lat": 23.83,
+    "lng": 91.29,
+    "region": "plain"
+  },
+  {
+    "name": "Agra",
+    "state": "Uttar Pradesh",
+    "lat": 27.18,
+    "lng": 78.02,
+    "region": "plain"
+  },
+  {
+    "name": "Aligarh",
+    "state": "Uttar Pradesh",
+    "lat": 27.89,
+    "lng": 78.08,
+    "region": "plain"
+  },
+  {
+    "name": "Ambedkar Nagar",
+    "state": "Uttar Pradesh",
+    "lat": 26.41,
+    "lng": 82.68,
+    "region": "plain"
+  },
+  {
+    "name": "Amethi",
+    "state": "Uttar Pradesh",
+    "lat": 26.15,
+    "lng": 81.82,
+    "region": "plain"
+  },
+  {
+    "name": "Amroha",
+    "state": "Uttar Pradesh",
+    "lat": 28.9,
+    "lng": 78.47,
+    "region": "plain"
+  },
+  {
+    "name": "Auraiya",
+    "state": "Uttar Pradesh",
+    "lat": 26.47,
+    "lng": 79.52,
+    "region": "plain"
+  },
+  {
+    "name": "Ayodhya",
+    "state": "Uttar Pradesh",
+    "lat": 26.8,
+    "lng": 82.2,
+    "region": "plain"
+  },
+  {
+    "name": "Azamgarh",
+    "state": "Uttar Pradesh",
+    "lat": 26.07,
+    "lng": 83.19,
+    "region": "plain"
+  },
+  {
+    "name": "Baghpat",
+    "state": "Uttar Pradesh",
+    "lat": 28.94,
+    "lng": 77.22,
+    "region": "plain"
+  },
+  {
+    "name": "Bahraich",
+    "state": "Uttar Pradesh",
+    "lat": 27.57,
+    "lng": 81.6,
+    "region": "plain"
+  },
+  {
+    "name": "Ballia",
+    "state": "Uttar Pradesh",
+    "lat": 25.76,
+    "lng": 84.15,
+    "region": "plain"
+  },
+  {
+    "name": "Balrampur (UP)",
+    "state": "Uttar Pradesh",
+    "lat": 27.43,
+    "lng": 82.18,
+    "region": "plain"
+  },
+  {
+    "name": "Banda",
+    "state": "Uttar Pradesh",
+    "lat": 25.48,
+    "lng": 80.33,
+    "region": "plain"
+  },
+  {
+    "name": "Barabanki",
+    "state": "Uttar Pradesh",
+    "lat": 26.93,
+    "lng": 81.18,
+    "region": "plain"
+  },
+  {
+    "name": "Bareilly",
+    "state": "Uttar Pradesh",
+    "lat": 28.37,
+    "lng": 79.43,
+    "region": "plain"
+  },
+  {
+    "name": "Basti",
+    "state": "Uttar Pradesh",
+    "lat": 26.81,
+    "lng": 82.76,
+    "region": "plain"
+  },
+  {
+    "name": "Bhadohi",
+    "state": "Uttar Pradesh",
+    "lat": 25.42,
+    "lng": 82.57,
+    "region": "plain"
+  },
+  {
+    "name": "Bijnor",
+    "state": "Uttar Pradesh",
+    "lat": 29.37,
+    "lng": 78.13,
+    "region": "plain"
+  },
+  {
+    "name": "Budaun",
+    "state": "Uttar Pradesh",
+    "lat": 28.03,
+    "lng": 79.12,
+    "region": "plain"
+  },
+  {
+    "name": "Bulandshahr",
+    "state": "Uttar Pradesh",
+    "lat": 28.41,
+    "lng": 77.85,
+    "region": "plain"
+  },
+  {
+    "name": "Chandauli",
+    "state": "Uttar Pradesh",
+    "lat": 25.26,
+    "lng": 83.27,
+    "region": "plain"
+  },
+  {
+    "name": "Chitrakoot",
+    "state": "Uttar Pradesh",
+    "lat": 25.21,
+    "lng": 80.89,
+    "region": "hill"
+  },
+  {
+    "name": "Deoria",
+    "state": "Uttar Pradesh",
+    "lat": 26.5,
+    "lng": 83.78,
+    "region": "plain"
+  },
+  {
+    "name": "Etah",
+    "state": "Uttar Pradesh",
+    "lat": 27.56,
+    "lng": 78.66,
+    "region": "plain"
+  },
+  {
+    "name": "Etawah",
+    "state": "Uttar Pradesh",
+    "lat": 26.79,
+    "lng": 79.03,
+    "region": "plain"
+  },
+  {
+    "name": "Farrukhabad",
+    "state": "Uttar Pradesh",
+    "lat": 27.38,
+    "lng": 79.58,
+    "region": "plain"
+  },
+  {
+    "name": "Fatehpur",
+    "state": "Uttar Pradesh",
+    "lat": 25.93,
+    "lng": 80.81,
+    "region": "plain"
+  },
+  {
+    "name": "Firozabad",
+    "state": "Uttar Pradesh",
+    "lat": 27.15,
+    "lng": 78.4,
+    "region": "plain"
+  },
+  {
+    "name": "Gautam Buddha Nagar",
+    "state": "Uttar Pradesh",
+    "lat": 28.53,
+    "lng": 77.39,
+    "region": "plain"
+  },
+  {
+    "name": "Ghaziabad",
+    "state": "Uttar Pradesh",
+    "lat": 28.67,
+    "lng": 77.45,
+    "region": "plain"
+  },
+  {
+    "name": "Ghazipur",
+    "state": "Uttar Pradesh",
+    "lat": 25.58,
+    "lng": 83.58,
+    "region": "plain"
+  },
+  {
+    "name": "Gonda",
+    "state": "Uttar Pradesh",
+    "lat": 27.13,
+    "lng": 81.96,
+    "region": "plain"
+  },
+  {
+    "name": "Gorakhpur",
+    "state": "Uttar Pradesh",
+    "lat": 26.76,
+    "lng": 83.37,
+    "region": "plain"
+  },
+  {
+    "name": "Hamirpur (UP)",
+    "state": "Uttar Pradesh",
+    "lat": 25.95,
+    "lng": 80.15,
+    "region": "plain"
+  },
+  {
+    "name": "Hapur",
+    "state": "Uttar Pradesh",
+    "lat": 28.73,
+    "lng": 77.78,
+    "region": "plain"
+  },
+  {
+    "name": "Hardoi",
+    "state": "Uttar Pradesh",
+    "lat": 27.4,
+    "lng": 80.13,
+    "region": "plain"
+  },
+  {
+    "name": "Hathras",
+    "state": "Uttar Pradesh",
+    "lat": 27.6,
+    "lng": 78.05,
+    "region": "plain"
+  },
+  {
+    "name": "Jalaun",
+    "state": "Uttar Pradesh",
+    "lat": 26.15,
+    "lng": 79.35,
+    "region": "plain"
+  },
+  {
+    "name": "Jaunpur",
+    "state": "Uttar Pradesh",
+    "lat": 25.75,
+    "lng": 82.68,
+    "region": "plain"
+  },
+  {
+    "name": "Jhansi",
+    "state": "Uttar Pradesh",
+    "lat": 25.45,
+    "lng": 78.57,
+    "region": "plain"
+  },
+  {
+    "name": "Kannauj",
+    "state": "Uttar Pradesh",
+    "lat": 27.05,
+    "lng": 79.92,
+    "region": "plain"
+  },
+  {
+    "name": "Kanpur Dehat",
+    "state": "Uttar Pradesh",
+    "lat": 26.35,
+    "lng": 79.95,
+    "region": "plain"
+  },
+  {
+    "name": "Kanpur Nagar",
+    "state": "Uttar Pradesh",
+    "lat": 26.45,
+    "lng": 80.33,
+    "region": "plain"
+  },
+  {
+    "name": "Kasganj",
+    "state": "Uttar Pradesh",
+    "lat": 27.81,
+    "lng": 78.65,
+    "region": "plain"
+  },
+  {
+    "name": "Kaushambi",
+    "state": "Uttar Pradesh",
+    "lat": 25.53,
+    "lng": 81.4,
+    "region": "plain"
+  },
+  {
+    "name": "Kushinagar",
+    "state": "Uttar Pradesh",
+    "lat": 26.74,
+    "lng": 83.89,
+    "region": "plain"
+  },
+  {
+    "name": "Lakhimpur Kheri",
+    "state": "Uttar Pradesh",
+    "lat": 27.95,
+    "lng": 80.78,
+    "region": "plain"
+  },
+  {
+    "name": "Lalitpur",
+    "state": "Uttar Pradesh",
+    "lat": 24.69,
+    "lng": 78.41,
+    "region": "semi"
+  },
+  {
+    "name": "Lucknow",
+    "state": "Uttar Pradesh",
+    "lat": 26.85,
+    "lng": 80.95,
+    "region": "plain"
+  },
+  {
+    "name": "Maharajganj",
+    "state": "Uttar Pradesh",
+    "lat": 27.14,
+    "lng": 83.56,
+    "region": "plain"
+  },
+  {
+    "name": "Mahoba",
+    "state": "Uttar Pradesh",
+    "lat": 25.29,
+    "lng": 79.87,
+    "region": "semi"
+  },
+  {
+    "name": "Mainpuri",
+    "state": "Uttar Pradesh",
+    "lat": 27.23,
+    "lng": 79.03,
+    "region": "plain"
+  },
+  {
+    "name": "Mathura",
+    "state": "Uttar Pradesh",
+    "lat": 27.49,
+    "lng": 77.67,
+    "region": "plain"
+  },
+  {
+    "name": "Mau",
+    "state": "Uttar Pradesh",
+    "lat": 25.95,
+    "lng": 83.56,
+    "region": "plain"
+  },
+  {
+    "name": "Meerut",
+    "state": "Uttar Pradesh",
+    "lat": 28.98,
+    "lng": 77.71,
+    "region": "plain"
+  },
+  {
+    "name": "Mirzapur",
+    "state": "Uttar Pradesh",
+    "lat": 25.15,
+    "lng": 82.57,
+    "region": "hill"
+  },
+  {
+    "name": "Moradabad",
+    "state": "Uttar Pradesh",
+    "lat": 28.84,
+    "lng": 78.78,
+    "region": "plain"
+  },
+  {
+    "name": "Muzaffarnagar",
+    "state": "Uttar Pradesh",
+    "lat": 29.47,
+    "lng": 77.7,
+    "region": "plain"
+  },
+  {
+    "name": "Pilibhit",
+    "state": "Uttar Pradesh",
+    "lat": 28.63,
+    "lng": 79.8,
+    "region": "plain"
+  },
+  {
+    "name": "Pratapgarh (UP)",
+    "state": "Uttar Pradesh",
+    "lat": 25.9,
+    "lng": 81.99,
+    "region": "plain"
+  },
+  {
+    "name": "Prayagraj",
+    "state": "Uttar Pradesh",
+    "lat": 25.44,
+    "lng": 81.84,
+    "region": "plain"
+  },
+  {
+    "name": "Raebareli",
+    "state": "Uttar Pradesh",
+    "lat": 26.23,
+    "lng": 81.24,
+    "region": "plain"
+  },
+  {
+    "name": "Rampur",
+    "state": "Uttar Pradesh",
+    "lat": 28.81,
+    "lng": 79.03,
+    "region": "plain"
+  },
+  {
+    "name": "Saharanpur",
+    "state": "Uttar Pradesh",
+    "lat": 29.97,
+    "lng": 77.55,
+    "region": "plain"
+  },
+  {
+    "name": "Sambhal",
+    "state": "Uttar Pradesh",
+    "lat": 28.58,
+    "lng": 78.57,
+    "region": "plain"
+  },
+  {
+    "name": "Sant Kabir Nagar",
+    "state": "Uttar Pradesh",
+    "lat": 26.78,
+    "lng": 83.03,
+    "region": "plain"
+  },
+  {
+    "name": "Shahjahanpur",
+    "state": "Uttar Pradesh",
+    "lat": 27.88,
+    "lng": 79.91,
+    "region": "plain"
+  },
+  {
+    "name": "Shamli",
+    "state": "Uttar Pradesh",
+    "lat": 29.45,
+    "lng": 77.31,
+    "region": "plain"
+  },
+  {
+    "name": "Shravasti",
+    "state": "Uttar Pradesh",
+    "lat": 27.5,
+    "lng": 81.93,
+    "region": "plain"
+  },
+  {
+    "name": "Siddharthnagar",
+    "state": "Uttar Pradesh",
+    "lat": 27.29,
+    "lng": 82.78,
+    "region": "plain"
+  },
+  {
+    "name": "Sitapur",
+    "state": "Uttar Pradesh",
+    "lat": 27.57,
+    "lng": 80.68,
+    "region": "plain"
+  },
+  {
+    "name": "Sonbhadra",
+    "state": "Uttar Pradesh",
+    "lat": 24.69,
+    "lng": 83.07,
+    "region": "hill"
+  },
+  {
+    "name": "Sultanpur",
+    "state": "Uttar Pradesh",
+    "lat": 26.26,
+    "lng": 82.07,
+    "region": "plain"
+  },
+  {
+    "name": "Unnao",
+    "state": "Uttar Pradesh",
+    "lat": 26.55,
+    "lng": 80.49,
+    "region": "plain"
+  },
+  {
+    "name": "Varanasi",
+    "state": "Uttar Pradesh",
+    "lat": 25.32,
+    "lng": 82.99,
+    "region": "plain"
+  },
+  {
+    "name": "Almora",
+    "state": "Uttarakhand",
+    "lat": 29.6,
+    "lng": 79.67,
+    "region": "himalaya"
+  },
+  {
+    "name": "Bageshwar",
+    "state": "Uttarakhand",
+    "lat": 29.84,
+    "lng": 79.77,
+    "region": "himalaya"
+  },
+  {
+    "name": "Chamoli",
+    "state": "Uttarakhand",
+    "lat": 30.42,
+    "lng": 79.32,
+    "region": "himalaya"
+  },
+  {
+    "name": "Champawat",
+    "state": "Uttarakhand",
+    "lat": 29.33,
+    "lng": 80.1,
+    "region": "himalaya"
+  },
+  {
+    "name": "Dehradun",
+    "state": "Uttarakhand",
+    "lat": 30.32,
+    "lng": 78.04,
+    "region": "himalaya"
+  },
+  {
+    "name": "Haridwar",
+    "state": "Uttarakhand",
+    "lat": 29.94,
+    "lng": 78.16,
+    "region": "plain"
+  },
+  {
+    "name": "Nainital",
+    "state": "Uttarakhand",
+    "lat": 29.39,
+    "lng": 79.45,
+    "region": "himalaya"
+  },
+  {
+    "name": "Pauri Garhwal",
+    "state": "Uttarakhand",
+    "lat": 30.15,
+    "lng": 78.78,
+    "region": "himalaya"
+  },
+  {
+    "name": "Pithoragarh",
+    "state": "Uttarakhand",
+    "lat": 29.58,
+    "lng": 80.22,
+    "region": "himalaya"
+  },
+  {
+    "name": "Rudraprayag",
+    "state": "Uttarakhand",
+    "lat": 30.28,
+    "lng": 78.98,
+    "region": "himalaya"
+  },
+  {
+    "name": "Tehri Garhwal",
+    "state": "Uttarakhand",
+    "lat": 30.38,
+    "lng": 78.48,
+    "region": "himalaya"
+  },
+  {
+    "name": "Udham Singh Nagar",
+    "state": "Uttarakhand",
+    "lat": 28.98,
+    "lng": 79.4,
+    "region": "plain"
+  },
+  {
+    "name": "Uttarkashi",
+    "state": "Uttarakhand",
+    "lat": 30.73,
+    "lng": 78.45,
+    "region": "himalaya"
+  },
+  {
+    "name": "Alipurduar",
+    "state": "West Bengal",
+    "lat": 26.49,
+    "lng": 89.53,
+    "region": "plain"
+  },
+  {
+    "name": "Bankura",
+    "state": "West Bengal",
+    "lat": 23.23,
+    "lng": 87.07,
+    "region": "plain"
+  },
+  {
+    "name": "Birbhum",
+    "state": "West Bengal",
+    "lat": 23.84,
+    "lng": 87.62,
+    "region": "plain"
+  },
+  {
+    "name": "Cooch Behar",
+    "state": "West Bengal",
+    "lat": 26.32,
+    "lng": 89.45,
+    "region": "plain"
+  },
+  {
+    "name": "Dakshin Dinajpur",
+    "state": "West Bengal",
+    "lat": 25.22,
+    "lng": 88.76,
+    "region": "plain"
+  },
+  {
+    "name": "Darjeeling",
+    "state": "West Bengal",
+    "lat": 27.04,
+    "lng": 88.26,
+    "region": "himalaya"
+  },
+  {
+    "name": "Hooghly",
+    "state": "West Bengal",
+    "lat": 22.9,
+    "lng": 88.39,
+    "region": "plain"
+  },
+  {
+    "name": "Howrah",
+    "state": "West Bengal",
+    "lat": 22.59,
+    "lng": 88.26,
+    "region": "plain"
+  },
+  {
+    "name": "Jalpaiguri",
+    "state": "West Bengal",
+    "lat": 26.54,
+    "lng": 88.72,
+    "region": "plain"
+  },
+  {
+    "name": "Jhargram",
+    "state": "West Bengal",
+    "lat": 22.45,
+    "lng": 86.99,
+    "region": "plain"
+  },
+  {
+    "name": "Kalimpong",
+    "state": "West Bengal",
+    "lat": 27.06,
+    "lng": 88.47,
+    "region": "himalaya"
+  },
+  {
+    "name": "Kolkata",
+    "state": "West Bengal",
+    "lat": 22.57,
+    "lng": 88.36,
+    "region": "coast"
+  },
+  {
+    "name": "Malda",
+    "state": "West Bengal",
+    "lat": 25.01,
+    "lng": 88.14,
+    "region": "plain"
+  },
+  {
+    "name": "Murshidabad",
+    "state": "West Bengal",
+    "lat": 24.18,
+    "lng": 88.27,
+    "region": "plain"
+  },
+  {
+    "name": "Nadia",
+    "state": "West Bengal",
+    "lat": 23.47,
+    "lng": 88.55,
+    "region": "plain"
+  },
+  {
+    "name": "North 24 Parganas",
+    "state": "West Bengal",
+    "lat": 22.44,
+    "lng": 88.83,
+    "region": "coast"
+  },
+  {
+    "name": "Paschim Bardhaman",
+    "state": "West Bengal",
+    "lat": 23.68,
+    "lng": 86.98,
+    "region": "plain"
+  },
+  {
+    "name": "Paschim Medinipur",
+    "state": "West Bengal",
+    "lat": 22.43,
+    "lng": 87.32,
+    "region": "plain"
+  },
+  {
+    "name": "Purba Bardhaman",
+    "state": "West Bengal",
+    "lat": 23.23,
+    "lng": 87.86,
+    "region": "plain"
+  },
+  {
+    "name": "Purba Medinipur",
+    "state": "West Bengal",
+    "lat": 21.94,
+    "lng": 87.77,
+    "region": "coast"
+  },
+  {
+    "name": "Purulia",
+    "state": "West Bengal",
+    "lat": 23.33,
+    "lng": 86.36,
+    "region": "hill"
+  },
+  {
+    "name": "South 24 Parganas",
+    "state": "West Bengal",
+    "lat": 22.17,
+    "lng": 88.43,
+    "region": "coast"
+  },
+  {
+    "name": "Uttar Dinajpur",
+    "state": "West Bengal",
+    "lat": 25.62,
+    "lng": 88.13,
+    "region": "plain"
+  },
+  {
+    "name": "Nicobar",
+    "state": "Andaman & Nicobar",
+    "lat": 7.01,
+    "lng": 93.78,
+    "region": "island"
+  },
+  {
+    "name": "North & Middle Andaman",
+    "state": "Andaman & Nicobar",
+    "lat": 12.92,
+    "lng": 92.93,
+    "region": "island"
+  },
+  {
+    "name": "South Andaman",
+    "state": "Andaman & Nicobar",
+    "lat": 11.62,
+    "lng": 92.72,
+    "region": "island"
+  },
+  {
+    "name": "Chandigarh",
+    "state": "Chandigarh",
+    "lat": 30.73,
+    "lng": 76.78,
+    "region": "plain"
+  },
+  {
+    "name": "Dadra & Nagar Haveli",
+    "state": "Dadra & Nagar Haveli and Daman & Diu",
+    "lat": 20.27,
+    "lng": 73.02,
+    "region": "semi"
+  },
+  {
+    "name": "Daman",
+    "state": "Dadra & Nagar Haveli and Daman & Diu",
+    "lat": 20.39,
+    "lng": 72.83,
+    "region": "coast"
+  },
+  {
+    "name": "Diu",
+    "state": "Dadra & Nagar Haveli and Daman & Diu",
+    "lat": 20.71,
+    "lng": 70.98,
+    "region": "coast"
+  },
+  {
+    "name": "Central Delhi",
+    "state": "Delhi",
+    "lat": 28.64,
+    "lng": 77.22,
+    "region": "plain"
+  },
+  {
+    "name": "East Delhi",
+    "state": "Delhi",
+    "lat": 28.63,
+    "lng": 77.29,
+    "region": "plain"
+  },
+  {
+    "name": "New Delhi",
+    "state": "Delhi",
+    "lat": 28.61,
+    "lng": 77.2,
+    "region": "plain"
+  },
+  {
+    "name": "North Delhi",
+    "state": "Delhi",
+    "lat": 28.7,
+    "lng": 77.13,
+    "region": "plain"
+  },
+  {
+    "name": "North East Delhi",
+    "state": "Delhi",
+    "lat": 28.7,
+    "lng": 77.27,
+    "region": "plain"
+  },
+  {
+    "name": "North West Delhi",
+    "state": "Delhi",
+    "lat": 28.73,
+    "lng": 77.08,
+    "region": "plain"
+  },
+  {
+    "name": "Shahdara",
+    "state": "Delhi",
+    "lat": 28.67,
+    "lng": 77.29,
+    "region": "plain"
+  },
+  {
+    "name": "South Delhi",
+    "state": "Delhi",
+    "lat": 28.48,
+    "lng": 77.2,
+    "region": "plain"
+  },
+  {
+    "name": "South East Delhi",
+    "state": "Delhi",
+    "lat": 28.54,
+    "lng": 77.28,
+    "region": "plain"
+  },
+  {
+    "name": "South West Delhi",
+    "state": "Delhi",
+    "lat": 28.57,
+    "lng": 77.06,
+    "region": "plain"
+  },
+  {
+    "name": "West Delhi",
+    "state": "Delhi",
+    "lat": 28.65,
+    "lng": 77.12,
+    "region": "plain"
+  },
+  {
+    "name": "Anantnag",
+    "state": "Jammu & Kashmir",
+    "lat": 33.73,
+    "lng": 75.14,
+    "region": "himalaya"
+  },
+  {
+    "name": "Bandipora",
+    "state": "Jammu & Kashmir",
+    "lat": 34.42,
+    "lng": 74.64,
+    "region": "himalaya"
+  },
+  {
+    "name": "Baramulla",
+    "state": "Jammu & Kashmir",
+    "lat": 34.2,
+    "lng": 74.34,
+    "region": "himalaya"
+  },
+  {
+    "name": "Budgam",
+    "state": "Jammu & Kashmir",
+    "lat": 34.02,
+    "lng": 74.72,
+    "region": "himalaya"
+  },
+  {
+    "name": "Doda",
+    "state": "Jammu & Kashmir",
+    "lat": 33.15,
+    "lng": 75.55,
+    "region": "himalaya"
+  },
+  {
+    "name": "Ganderbal",
+    "state": "Jammu & Kashmir",
+    "lat": 34.22,
+    "lng": 74.78,
+    "region": "himalaya"
+  },
+  {
+    "name": "Jammu",
+    "state": "Jammu & Kashmir",
+    "lat": 32.72,
+    "lng": 74.85,
+    "region": "plain"
+  },
+  {
+    "name": "Kathua",
+    "state": "Jammu & Kashmir",
+    "lat": 32.37,
+    "lng": 75.52,
+    "region": "plain"
+  },
+  {
+    "name": "Kishtwar",
+    "state": "Jammu & Kashmir",
+    "lat": 33.32,
+    "lng": 75.77,
+    "region": "himalaya"
+  },
+  {
+    "name": "Kulgam",
+    "state": "Jammu & Kashmir",
+    "lat": 33.64,
+    "lng": 75.02,
+    "region": "himalaya"
+  },
+  {
+    "name": "Kupwara",
+    "state": "Jammu & Kashmir",
+    "lat": 34.53,
+    "lng": 74.25,
+    "region": "himalaya"
+  },
+  {
+    "name": "Poonch",
+    "state": "Jammu & Kashmir",
+    "lat": 33.77,
+    "lng": 74.1,
+    "region": "himalaya"
+  },
+  {
+    "name": "Pulwama",
+    "state": "Jammu & Kashmir",
+    "lat": 33.87,
+    "lng": 74.9,
+    "region": "himalaya"
+  },
+  {
+    "name": "Rajouri",
+    "state": "Jammu & Kashmir",
+    "lat": 33.38,
+    "lng": 74.3,
+    "region": "himalaya"
+  },
+  {
+    "name": "Ramban",
+    "state": "Jammu & Kashmir",
+    "lat": 33.24,
+    "lng": 75.24,
+    "region": "himalaya"
+  },
+  {
+    "name": "Reasi",
+    "state": "Jammu & Kashmir",
+    "lat": 33.08,
+    "lng": 74.83,
+    "region": "himalaya"
+  },
+  {
+    "name": "Samba",
+    "state": "Jammu & Kashmir",
+    "lat": 32.56,
+    "lng": 75.12,
+    "region": "plain"
+  },
+  {
+    "name": "Shopian",
+    "state": "Jammu & Kashmir",
+    "lat": 33.72,
+    "lng": 74.83,
+    "region": "himalaya"
+  },
+  {
+    "name": "Srinagar",
+    "state": "Jammu & Kashmir",
+    "lat": 34.08,
+    "lng": 74.79,
+    "region": "himalaya"
+  },
+  {
+    "name": "Udhampur",
+    "state": "Jammu & Kashmir",
+    "lat": 32.93,
+    "lng": 75.13,
+    "region": "himalaya"
+  },
+  {
+    "name": "Kargil",
+    "state": "Ladakh",
+    "lat": 34.55,
+    "lng": 76.13,
+    "region": "himalaya"
+  },
+  {
+    "name": "Leh",
+    "state": "Ladakh",
+    "lat": 34.16,
+    "lng": 77.57,
+    "region": "himalaya"
+  },
+  {
+    "name": "Lakshadweep",
+    "state": "Lakshadweep",
+    "lat": 10.56,
+    "lng": 72.63,
+    "region": "island"
+  },
+  {
+    "name": "Karaikal",
+    "state": "Puducherry",
+    "lat": 10.92,
+    "lng": 79.83,
+    "region": "coast"
+  },
+  {
+    "name": "Mahe",
+    "state": "Puducherry",
+    "lat": 11.7,
+    "lng": 75.53,
+    "region": "coast"
+  },
+  {
+    "name": "Puducherry",
+    "state": "Puducherry",
+    "lat": 11.94,
+    "lng": 79.83,
+    "region": "coast"
+  },
+  {
+    "name": "Yanam",
+    "state": "Puducherry",
+    "lat": 16.73,
+    "lng": 82.21,
+    "region": "coast"
+  }
+]
