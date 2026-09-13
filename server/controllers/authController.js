@@ -16,69 +16,85 @@ function signToken(user) {
 async function register(req, res) {
   const { name, email, password, role = ROLES.VIEWER, designation = '', district = '' } = req.body || {};
   if (!name || !email || !password) {
-    return res.status(400).json({ success: false, message: 'name, email and password are required.' });
+    return res.status(400).json({ success: false, message: 'Name, email, and password are required.' });
   }
-  // Public registration is only allowed for low-privilege roles.
-  const allowed = [ROLES.VIEWER, ROLES.FIELD_OFFICER];
-  if (!allowed.includes(role)) {
-    return res.status(403).json({ success: false, message: 'Self-registration is limited to Viewer and Field Officer roles.' });
+  if (password.length < 6) {
+    return res.status(400).json({ success: false, message: 'Password must be at least 6 characters.' });
   }
-  const existing = await users.findByField('email', email.toLowerCase());
+  const validRoles = Object.values(ROLES);
+  const normalizedRole = validRoles.includes(role) ? role : ROLES.VIEWER;
+
+  const trimmedEmail = email.trim().toLowerCase();
+  const existing = await users.findByField('email', trimmedEmail);
   if (existing) {
     return res.status(409).json({ success: false, message: 'An account with this email already exists.' });
   }
+
   const passwordHash = bcrypt.hashSync(password, 10);
   const created = await users.create({
-    name,
-    email: email.toLowerCase(),
+    name: name.trim(),
+    email: trimmedEmail,
     passwordHash,
-    role,
-    designation,
-    district,
+    role: normalizedRole,
+    designation: designation.trim(),
+    district: district.trim(),
   });
-  return res.status(201).json({ success: true, user: created });
+
+  const safeUser = {
+    id: created.id,
+    name: created.name,
+    email: created.email,
+    role: created.role,
+    designation: created.designation,
+    district: created.district,
+  };
+
+  return res.status(201).json({ success: true, user: safeUser, message: 'Account registered successfully.' });
 }
 
 /* -------------------------------- Login -------------------------------- */
 async function login(req, res) {
   const { email, password } = req.body || {};
   if (!email || !password) {
-    return res.status(400).json({ success: false, message: 'email and password are required.' });
+    return res.status(400).json({ success: false, message: 'Email and password are required.' });
   }
-  const user = await users.findByField('email', email.toLowerCase());
+  const trimmedEmail = email.trim().toLowerCase();
+  const user = await users.findByField('email', trimmedEmail);
   if (!user || !user.passwordHash) {
-    return res.status(401).json({ success: false, message: 'Invalid credentials.' });
+    return res.status(401).json({ success: false, message: 'Invalid email or password.' });
   }
   const ok = bcrypt.compareSync(password, user.passwordHash);
   if (!ok) {
-    return res.status(401).json({ success: false, message: 'Invalid credentials.' });
+    return res.status(401).json({ success: false, message: 'Invalid email or password.' });
   }
   if (user.active === false) {
-    return res.status(403).json({ success: false, message: 'Account disabled.' });
+    return res.status(403).json({ success: false, message: 'Account has been disabled. Please contact administrator.' });
   }
   const token = signToken(user);
-  return res.json({ success: true, token, user: user });
+  const safeUser = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    designation: user.designation,
+    district: user.district,
+  };
+  return res.json({ success: true, token, user: safeUser });
 }
 
 /* ------------------------------- Get me -------------------------------- */
 async function getMe(req, res) {
   const user = await users.findById(req.user.id);
   if (!user) return res.status(404).json({ success: false, message: 'User not found.' });
-  return res.json({ success: true, user });
+  const safeUser = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    role: user.role,
+    designation: user.designation,
+    district: user.district,
+  };
+  return res.json({ success: true, user: safeUser });
 }
 
-/* ------------------------------- (demo) login hint ---------------------- */
-async function demoHint(req, res) {
-  return res.json({
-    success: true,
-    accounts: [
-      { role: 'admin', email: 'admin@bhudan.gov.in', password: 'Admin@12345' },
-      { role: 'disaster_authority', email: 'collector@bhudan.gov.in', password: 'Disaster@12345' },
-      { role: 'analyst', email: 'analyst@bhudan.gov.in', password: 'Analyst@12345' },
-      { role: 'field_officer', email: 'field@bhudan.gov.in', password: 'Field@12345' },
-      { role: 'viewer', email: 'viewer@bhudan.gov.in', password: 'Viewer@12345' },
-    ],
-  });
-}
-
-module.exports = { register, login, getMe, demoHint };
+module.exports = { register, login, getMe };

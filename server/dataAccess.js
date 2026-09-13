@@ -16,7 +16,8 @@ const models = require('./models');
 let { isMongooseReady } = require('./config/db');
 
 function normalize(doc) {
-  const d = doc && typeof doc.toObject === 'function' ? doc.toObject() : { ...doc };
+  if (!doc) return null;
+  const d = typeof doc.toObject === 'function' ? doc.toObject() : { ...doc };
   if (d && d._id) d.id = d._id.toString();
   if (d) delete d.__v;
   return d;
