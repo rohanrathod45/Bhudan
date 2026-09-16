@@ -26,7 +26,7 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Interceptor: Detect HTML responses from SPA rewrites and handle 401s cleanly
+// Interceptor: Detect HTML responses from SPA rewrites and handle 401s / 405s cleanly
 api.interceptors.response.use(
   (res) => {
     // If an API call returned an HTML document (SPA rewrite on Vercel/Netlify due to missing VITE_API_URL)
@@ -35,7 +35,7 @@ api.interceptors.response.use(
       (res.data.toLowerCase().includes('<!doctype html') || res.data.toLowerCase().includes('<html'))
     ) {
       const err = new Error(
-        'Backend server could not be reached. If deployed, please set VITE_API_URL to your deployed backend URL (e.g. https://your-server.onrender.com).'
+        'Backend server could not be reached. If deployed on Vercel, please set VITE_API_URL in Vercel Project Settings to your deployed backend URL (e.g. on Render).'
       );
       err.isDeploymentMisconfig = true;
       return Promise.reject(err);
@@ -43,6 +43,14 @@ api.interceptors.response.use(
     return res;
   },
   (err) => {
+    // 405 Method Not Allowed occurs when a POST/PUT/DELETE hits Vercel's static router without a backend
+    if (err.response && (err.response.status === 405 || (err.response.status === 404 && typeof err.response.data === 'string' && err.response.data.includes('<html')))) {
+      const deployErr = new Error(
+        'Backend server could not be reached (405). Please set VITE_API_URL in your Vercel Project Settings to your deployed backend URL (e.g. on Render).'
+      );
+      deployErr.isDeploymentMisconfig = true;
+      return Promise.reject(deployErr);
+    }
     if (err.response && err.response.status === 401) {
       localStorage.removeItem('bhudan_token');
       localStorage.removeItem('bhudan_user');

@@ -62,8 +62,8 @@ export function AuthProvider({ children }) {
           msg = err.message;
         } else if (err?.code === 'ERR_NETWORK' || !err?.response) {
           msg = 'Unable to reach backend server. Free-tier servers (like Render) take ~50s to wake up on first load, or verify VITE_API_URL in deployment settings.';
-        } else if (err?.response?.status === 404) {
-          msg = 'Backend endpoint not found (404). Please ensure VITE_API_URL is configured in your deployment settings.';
+        } else if (err?.response?.status === 404 || err?.response?.status === 405) {
+          msg = 'Backend server is not configured on this deployed domain (HTTP 405/404). Please set VITE_API_URL in your Vercel Project Settings to your deployed backend URL.';
         } else {
           msg = 'Login failed. Please try again.';
         }
@@ -90,8 +90,8 @@ export function AuthProvider({ children }) {
           msg = err.message;
         } else if (err?.code === 'ERR_NETWORK' || !err?.response) {
           msg = 'Unable to reach backend server. Free-tier servers (like Render) take ~50s to wake up on first load, or verify VITE_API_URL in deployment settings.';
-        } else if (err?.response?.status === 404) {
-          msg = 'Registration endpoint not found (404). Please ensure VITE_API_URL is configured in your deployment settings.';
+        } else if (err?.response?.status === 404 || err?.response?.status === 405) {
+          msg = 'Backend server is not configured on this deployed domain (HTTP 405/404). Please set VITE_API_URL in your Vercel Project Settings to your deployed backend URL.';
         } else {
           msg = 'Registration failed. Please check your details and try again.';
         }
