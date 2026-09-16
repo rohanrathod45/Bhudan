@@ -13,7 +13,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const seedData = require('./data/seedData');
 const models = require('./models');
-let { isMongooseReady } = require('./config/db');
+let { isMongooseReady, ensureDB } = require('./config/db');
 
 function normalize(doc) {
   if (!doc) return null;
@@ -48,6 +48,7 @@ function filterRows(rows, f = {}) {
 function buildStore(key, model) {
   return {
     async list(filter = {}) {
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) return filterRows(memory[key], filter);
       let query = model.find();
       if (filter.search && String(filter.search).trim()) {
@@ -71,6 +72,7 @@ function buildStore(key, model) {
     },
     async findById(id) {
       if (!id) return null;
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) {
         const found = memory[key].find((d) => String(d.id) === String(id));
         return normalize(found || null);
@@ -87,6 +89,7 @@ function buildStore(key, model) {
       }
     },
     async findByField(field, value) {
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) {
         const found = memory[key].find((d) => d[field] === value);
         return normalize(found || null);
@@ -99,6 +102,7 @@ function buildStore(key, model) {
       }
     },
     async create(data) {
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) {
         const created = { ...data, id: nextId(), createdAt: new Date(), updatedAt: new Date() };
         memory[key].push(created);
@@ -109,6 +113,7 @@ function buildStore(key, model) {
     },
     async update(id, patch) {
       if (!id) return null;
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) {
         const idx = memory[key].findIndex((d) => String(d.id) === String(id));
         if (idx === -1) return null;
@@ -128,6 +133,7 @@ function buildStore(key, model) {
     },
     async remove(id) {
       if (!id) return false;
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) {
         const idx = memory[key].findIndex((d) => String(d.id) === String(id));
         if (idx === -1) return false;
@@ -146,6 +152,7 @@ function buildStore(key, model) {
       }
     },
     async count() {
+      if (typeof ensureDB === 'function') await ensureDB();
       if (!isMongooseReady()) return memory[key].length;
       return model.countDocuments();
     },

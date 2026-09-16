@@ -1,37 +1,39 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { authApi } from '../../services/api';
+import { useAuth } from '../../context/AuthContext';
 
 const ROLES_OPTIONS = [
   {
     value: 'viewer',
-    label: 'Public Viewer / Citizen',
-    description: 'View hazard maps, habitation risk scores & public alerts',
+    label: 'Citizen / Public Viewer (Default)',
+    description: 'View hazard zones, live risk levels & public alerts',
   },
   {
     value: 'field_officer',
-    label: 'Field Officer / Ground Surveyor',
-    description: 'Submit ground surveys, vulnerability data & site validations',
+    label: 'Field Officer / Surveyor',
+    description: 'Ground inspections & vulnerability data collection',
   },
   {
     value: 'analyst',
-    label: 'Geotechnical Analyst / Researcher',
-    description: 'Run risk simulations, carrying capacity & relocation engine',
+    label: 'Risk Analyst / Geologist',
+    description: 'Run simulation models, carrying capacity & GIS analytics',
   },
   {
     value: 'disaster_authority',
-    label: 'Disaster Management Authority (DMA)',
-    description: 'Approve relocation orders, allocate resources & declare red-zones',
+    label: 'Disaster Management Authority',
+    description: 'Approve relocation dossiers & emergency coordination',
   },
   {
     value: 'admin',
     label: 'System Administrator',
-    description: 'Manage users, system configurations & authoritative datasets',
+    description: 'Manage users, configurations & official datasets',
   },
 ];
 
 export default function Register() {
   const navigate = useNavigate();
+  const { register } = useAuth();
+
   const [form, setForm] = useState({
     name: '',
     role: 'viewer',
@@ -53,7 +55,7 @@ export default function Register() {
     e.preventDefault();
     setError('');
 
-    // Validation
+    // Client-side validations
     if (!form.name.trim()) {
       return setError('Please enter your full name.');
     }
@@ -69,29 +71,24 @@ export default function Register() {
 
     setLoading(true);
     try {
-      const res = await authApi.register({
+      const res = await register({
         name: form.name.trim(),
         role: form.role,
         email: form.email.trim().toLowerCase(),
         password: form.password,
       });
 
-      if (res.success) {
+      if (res.ok) {
         setSuccess(true);
-        // Redirect to login after 1.5 seconds with email pre-filled
+        // Seamlessly take user directly into the portal
         setTimeout(() => {
-          navigate('/login', {
-            state: {
-              email: form.email.trim().toLowerCase(),
-              message: 'Account created successfully! Please sign in with your password.',
-            },
-          });
-        }, 1200);
+          navigate('/', { replace: true });
+        }, 800);
       } else {
         setError(res.message || 'Registration failed.');
       }
     } catch (err) {
-      setError(err?.response?.data?.message || 'Registration failed. Please check your details and try again.');
+      setError(err?.message || 'Registration failed. Please check your details and try again.');
     } finally {
       setLoading(false);
     }
@@ -123,7 +120,7 @@ export default function Register() {
               <span className="text-xl">✅</span>
               <div>
                 <div className="font-semibold">Account registered successfully!</div>
-                <div className="text-xs text-emerald-600">Saved to database. Redirecting to sign in…</div>
+                <div className="text-xs text-emerald-600">Saved to MongoDB database. Entering dashboard…</div>
               </div>
             </div>
           )}

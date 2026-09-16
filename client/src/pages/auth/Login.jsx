@@ -32,7 +32,14 @@ export default function Login() {
         setError(res.message || 'Invalid email or password.');
       }
     } catch (err) {
-      setError(err?.response?.data?.message || 'Login failed. Please check your credentials.');
+      const msg =
+        err?.response?.data?.message ||
+        (err?.code === 'ERR_NETWORK' || !err?.response
+          ? 'Unable to connect to backend server. The server may be waking up (Render can take ~50-60s on cold start) or check VITE_API_URL.'
+          : err?.response?.status === 404
+          ? 'Login endpoint not found (404). Please verify VITE_API_URL in deployment settings.'
+          : 'Login failed. Please check your credentials.');
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -55,8 +62,50 @@ export default function Login() {
           <div className="mb-5">
             <h2 className="text-xl font-bold text-slate-800">Sign in to your account</h2>
             <p className="text-xs text-slate-500 mt-1">
-              Enter your registered email and password to access the portal.
+              Enter your registered credentials or select a role below for instant testing.
             </p>
+          </div>
+
+          {/* Quick Demo Fill Buttons for Fast Testing */}
+          <div className="mb-5 bg-slate-50 border border-slate-200/80 rounded-xl p-3">
+            <div className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <span>⚡</span> Quick Demo Login (1-Click Fill)
+            </div>
+            <div className="grid grid-cols-3 gap-1.5">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('admin@bhudan.gov.in');
+                  setPassword('Admin@12345');
+                  setError('');
+                }}
+                className="text-xs font-medium py-1.5 px-2 bg-white hover:bg-brand-50 hover:text-brand-700 hover:border-brand-200 border border-slate-200 rounded-lg text-slate-700 transition shadow-sm text-center"
+              >
+                Admin
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('analyst@bhudan.gov.in');
+                  setPassword('Analyst@12345');
+                  setError('');
+                }}
+                className="text-xs font-medium py-1.5 px-2 bg-white hover:bg-brand-50 hover:text-brand-700 hover:border-brand-200 border border-slate-200 rounded-lg text-slate-700 transition shadow-sm text-center"
+              >
+                Analyst
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('viewer@bhudan.gov.in');
+                  setPassword('Viewer@12345');
+                  setError('');
+                }}
+                className="text-xs font-medium py-1.5 px-2 bg-white hover:bg-brand-50 hover:text-brand-700 hover:border-brand-200 border border-slate-200 rounded-lg text-slate-700 transition shadow-sm text-center"
+              >
+                Citizen
+              </button>
+            </div>
           </div>
 
           {successMsg && (
@@ -146,7 +195,7 @@ export default function Login() {
         </div>
 
         <div className="text-center mt-6 text-xs text-slate-400">
-          Smart India Hackathon 2026 · Secure Government Cloud Auth
+          Smart India Hackathon 2026 · Secure MongoDB & JWT Cloud Auth
         </div>
       </div>
     </div>

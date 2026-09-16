@@ -54,9 +54,48 @@ export function AuthProvider({ children }) {
       const res = await authApi.login(email, password);
       setToken(res.token);
       setUser(res.user);
-      return { ok: true, user: res.user };
+      return { ok: true, user: res.user, token: res.token };
     } catch (err) {
-      const msg = err?.response?.data?.message || 'Login failed. Please try again.';
+      let msg = err?.response?.data?.message || err?.message;
+      if (!msg || err.isDeploymentMisconfig) {
+        if (err.isDeploymentMisconfig) {
+          msg = err.message;
+        } else if (err?.code === 'ERR_NETWORK' || !err?.response) {
+          msg = 'Unable to reach backend server. Free-tier servers (like Render) take ~50s to wake up on first load, or verify VITE_API_URL in deployment settings.';
+        } else if (err?.response?.status === 404) {
+          msg = 'Backend endpoint not found (404). Please ensure VITE_API_URL is configured in your deployment settings.';
+        } else {
+          msg = 'Login failed. Please try again.';
+        }
+      }
+      return { ok: false, message: msg };
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  const register = useCallback(async (payload) => {
+    setLoading(true);
+    try {
+      const res = await authApi.register(payload);
+      if (res.token && res.user) {
+        setToken(res.token);
+        setUser(res.user);
+      }
+      return { ok: true, user: res.user, token: res.token, message: res.message };
+    } catch (err) {
+      let msg = err?.response?.data?.message || err?.message;
+      if (!msg || err.isDeploymentMisconfig) {
+        if (err.isDeploymentMisconfig) {
+          msg = err.message;
+        } else if (err?.code === 'ERR_NETWORK' || !err?.response) {
+          msg = 'Unable to reach backend server. Free-tier servers (like Render) take ~50s to wake up on first load, or verify VITE_API_URL in deployment settings.';
+        } else if (err?.response?.status === 404) {
+          msg = 'Registration endpoint not found (404). Please ensure VITE_API_URL is configured in your deployment settings.';
+        } else {
+          msg = 'Registration failed. Please check your details and try again.';
+        }
+      }
       return { ok: false, message: msg };
     } finally {
       setLoading(false);
@@ -66,6 +105,8 @@ export function AuthProvider({ children }) {
   const logout = useCallback(() => {
     setToken(null);
     setUser(null);
+    storage.remove('bhudan_token');
+    storage.remove('bhudan_user');
   }, []);
 
   const updateUser = useCallback((u) => setUser(u), []);
@@ -75,6 +116,7 @@ export function AuthProvider({ children }) {
     token,
     loading,
     login,
+    register,
     logout,
     updateUser,
     isAuthenticated: !!token && !!user,

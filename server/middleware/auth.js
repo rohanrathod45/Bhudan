@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const { ROLE_LEVEL } = require('../config/roles');
 const userStore = require('../dataAccess').users;
 
+const JWT_SECRET = process.env.JWT_SECRET || 'bhudan_sih2026_dev_secret_key_please_change_in_production';
+
 /**
  * Verify the Authorization: Bearer <token> header and attach req.user.
  */
@@ -13,7 +15,7 @@ async function protect(req, res, next) {
     return next();
   }
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || 'dev_secret');
+    const decoded = jwt.verify(token, JWT_SECRET);
     const user = await userStore.findById(decoded.sub);
     if (!user) {
       req.user = { id: 'guest_analyst', name: 'Analyst User', email: 'analyst@bhudan.gov.in', role: 'admin' };

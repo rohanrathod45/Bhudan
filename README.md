@@ -3,7 +3,7 @@
 > **Official Problem Statement (Smart India Hackathon 2026):**  
 > *"Intelligent Identification of Hazard-Based Red Zones, Carrying Capacity Assessment, and Immediate Relocation Needs for Vulnerable Habitations"*
 
-[![CI / Test Suite](https://img.shields.io/badge/tests-8%2F8%20passing-brightgreen.svg)]()
+[![CI / Test Suite](https://img.shields.io/badge/tests-9%2F9%20passing-brightgreen.svg)]()
 [![Backend](https://img.shields.io/badge/backend-Express%20%7C%20Node.js-blue.svg)]()
 [![Frontend](https://img.shields.io/badge/frontend-React%2018%20%7C%20Vite%20%7C%20Tailwind-teal.svg)]()
 [![Database](https://img.shields.io/badge/database-MongoDB%20Atlas%20%2B%20In--Memory%20Fallback-green.svg)]()
@@ -138,6 +138,11 @@ flowchart TD
 | **14**| **Enhanced Frontend Dashboard** | `client/src/pages/dashboard/Dashboard.jsx` | Added "⚡ LIVE DATA STREAM" badge, Live Telemetry Bar, and on-demand "⚡ Sync Live" button. |
 | **15**| **Verified Production Build** | `client/` | Executed `npm run build` &rarr; Transformed 952 modules into `dist/` with 0 errors. |
 | **16**| **Process Management & Port Cleansing**| Root | Freed ports 5000 and 5173 from orphaned background processes and launched both servers as daemons. |
+| **17**| **Production MongoDB Atlas Integration** | `server/config/db.js`, `server/dataAccess.js` | Connected MongoDB Atlas cluster with auto-reconnect, lifecycle logging, and async `ensureDB()` connection guarding on data stores. |
+| **18**| **Full Authentication Architecture** | `server/controllers/authController.js`, `server/routes/authRoutes.js` | Implemented secure bcrypt password hashing, input sanitization, JWT token generation, `/api/auth/status`, and automatic login on signup. |
+| **19**| **Auth & MongoDB Integration Test Suite** | `server/__tests__/auth.test.js` | Built a 7-stage automated verification suite testing registration, bcrypt hash length, duplicate rejection, and login. **9/9 tests pass**. |
+| **20**| **Frontend Auth UX & Quick-Fill Demo** | `client/src/pages/auth/Login.jsx`, `client/src/pages/auth/Register.jsx` | Added single-click demo role selector buttons (Admin, Disaster Authority, Analyst, Citizen) and seamless instant dashboard entry upon registration. |
+| **21**| **Cloud Deployment & SPA Resilience** | `client/src/services/api.js`, `client/vercel.json`, `client/public/_redirects` | Added Axios baseURL auto-formatting, 60s timeout for cold-starts, HTML rewrite interception, and SPA catch-all rewrite rules for Vercel/Netlify. |
 
 ---
 
@@ -252,8 +257,9 @@ The backend features a **resilient dual-mode data layer** ([`server/dataAccess.j
 | Method | Endpoint | Access | Description |
 | :--- | :--- | :--- | :--- |
 | `POST` | `/api/auth/login` | Public | Authenticate user & return JWT token |
-| `POST` | `/api/auth/register` | Public | Register new Viewer / Field Officer account |
+| `POST` | `/api/auth/register` | Public | Register new account & auto-issue instant JWT session |
 | `GET` | `/api/auth/me` | Authenticated | Retrieve authenticated user profile & role |
+| `GET` | `/api/auth/status` | Public | Auth health check & database state (`mongodb_connected`) |
 | `GET` | `/api/auth/demo` | Public | Retrieve pre-seeded demo credentials |
 | `GET` | `/api/users` | Admin | List all registered system users |
 | `POST` | `/api/users` | Admin | Create user with explicit RBAC role |
@@ -329,6 +335,20 @@ npm run dev:client
 npm run dev
 ```
 
+### Cloud Deployment (Render & Vercel)
+
+- **Backend (Render / Railway / VPS)**:
+  - Root Directory: `server`
+  - Build Command: `npm run build`
+  - Start Command: `npm start`
+  - Environment Variables: `MONGO_URI`, `JWT_SECRET`, `NODE_ENV=production`
+- **Frontend (Vercel / Netlify / Cloudflare Pages)**:
+  - Root Directory: `client`
+  - Build Command: `npm run build`
+  - Output Directory: `dist`
+  - Environment Variable: `VITE_API_URL=https://<your-backend-service>.onrender.com`
+  - *Note: Preconfigured with `vercel.json` and `public/_redirects` for seamless SPA client-side routing.*
+
 ---
 
 ## 🔑 Default Role-Based Demo Accounts
@@ -354,6 +374,30 @@ npm test
 
 **Test Output:**
 ```text
+--- Starting Auth & MongoDB Verification Tests ---
+0. Connecting to MongoDB Atlas database...
+[db] MongoDB connected successfully.
+[db] MongoDB ready on host: ac-sbkielb-shard-00-00.ossyaiv.mongodb.net
+✓ Database Status: Connected to MongoDB Atlas
+1. Testing /api/auth/status health check...
+✓ Auth status OK: database is 'mongodb_connected'
+2. Testing User Registration (Name, Email, Role, Password)...
+✓ Registered successfully! ID: 6aaa915d6e54f8ffb9d6a2ed, Role: analyst
+✓ Instant JWT token generated: eyJhbGciOiJIUzI1NiIs...
+3. Verifying Password Hashing in Database...
+✓ Password is securely hashed with bcrypt (length: 60) and verified!
+4. Testing Duplicate Email Prevention...
+✓ Duplicate registration correctly rejected with 409 Conflict
+5. Testing Login with Registered Credentials...
+✓ Logged in successfully! Received JWT token for user: Dr. Vikram Sharma
+6. Testing Invalid Password Rejection...
+✓ Invalid password correctly rejected with 401 Unauthorized
+7. Testing /api/auth/me with JWT session token...
+✓ /api/auth/me authenticated successfully: Dr. Vikram Sharma (analyst)
+✓ Cleaned up test user record from database.
+
+--- ALL AUTH & MONGODB TESTS PASSED SUCCESSFULLY! ---
+✔ __tests__/auth.test.js
 ✔ Risk Engine computes scores and classifications accurately
 ✔ Capacity Engine evaluates safe-site capacity and district deficit/surplus
 ✔ Relocation Engine allocates habitations to nearest safe sites with ETAs
@@ -362,7 +406,7 @@ npm test
 ✔ Live Data Service fetches USGS seismic events
 ✔ Live Data Service provides active disaster and weather warning feeds
 ✔ Risk Engine dynamically increases hazard and risk score under heavy live rainfall
-ℹ tests 8, pass 8, fail 0
+ℹ tests 9, suites 0, pass 9, fail 0, cancelled 0, skipped 0, todo 0
 ```
 
 ---

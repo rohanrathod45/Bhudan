@@ -1,10 +1,22 @@
 import axios from 'axios';
 
-const API_BASE = import.meta.env.VITE_API_URL || '';
+let rawApiUrl = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
+// Strip trailing /api if user configured VITE_API_URL with it, preventing double /api/api/... paths
+if (rawApiUrl.endsWith('/api')) {
+  rawApiUrl = rawApiUrl.slice(0, -4);
+}
+const API_BASE = rawApiUrl;
+
+if (import.meta.env.PROD && !API_BASE) {
+  console.warn(
+    '[BhuDan API] VITE_API_URL is not configured in production build! If your backend is hosted separately (e.g. Render), please configure VITE_API_URL in your hosting platform environment variables.'
+  );
+}
 
 const api = axios.create({
   baseURL: API_BASE,
   headers: { 'Content-Type': 'application/json' },
+  timeout: 60000, // 60s timeout accommodates Render/free-tier cold starts
 });
 
 // Attach the JWT to every request when present.
@@ -14,9 +26,22 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// On a 401, clear the stale token so the app returns to login cleanly.
+// Interceptor: Detect HTML responses from SPA rewrites and handle 401s cleanly
 api.interceptors.response.use(
-  (res) => res,
+  (res) => {
+    // If an API call returned an HTML document (SPA rewrite on Vercel/Netlify due to missing VITE_API_URL)
+    if (
+      typeof res.data === 'string' &&
+      (res.data.toLowerCase().includes('<!doctype html') || res.data.toLowerCase().includes('<html'))
+    ) {
+      const err = new Error(
+        'Backend server could not be reached. If deployed, please set VITE_API_URL to your deployed backend URL (e.g. https://your-server.onrender.com).'
+      );
+      err.isDeploymentMisconfig = true;
+      return Promise.reject(err);
+    }
+    return res;
+  },
   (err) => {
     if (err.response && err.response.status === 401) {
       localStorage.removeItem('bhudan_token');
@@ -26,7 +51,12 @@ api.interceptors.response.use(
   }
 );
 
+export const healthApi = {
+  check: () => api.get('/health').then((r) => r.data),
+};
+
 export const authApi = {
+  status: () => api.get('/api/auth/status').then((r) => r.data),
   login: (email, password) => api.post('/api/auth/login', { email, password }).then((r) => r.data),
   register: (payload) => api.post('/api/auth/register', payload).then((r) => r.data),
   me: () => api.get('/api/auth/me').then((r) => r.data),
